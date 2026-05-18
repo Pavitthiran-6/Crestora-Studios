@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform, Raycast, Vec2 } from 'ogl';
 import { useEffect, useRef } from 'react';
+import { getOptimizedImageUrl } from '../utils/imageOptimizer';
 
 import './CircularGallery.css';
 
@@ -208,7 +209,7 @@ class App {
     this.planeGeometry = new Plane(this.gl, { heightSegments: 1, widthSegments: 1 });
     this.onResize();
     const images = (items || []).concat(items || []);
-    this.medias = images.map((data: any, index: number) => new Media({ geometry: this.planeGeometry, gl: this.gl, image: data.image, index, length: images.length, scene: this.scene, screen: this.screen, text: data.text, category: data.category || '', viewport: this.viewport, bend, borderRadius, font }));
+    this.medias = images.map((data: any, index: number) => new Media({ geometry: this.planeGeometry, gl: this.gl, image: getOptimizedImageUrl(data.image, 800), index, length: images.length, scene: this.scene, screen: this.screen, text: data.text, category: data.category || '', viewport: this.viewport, bend, borderRadius, font }));
     
     // Pre-bind handlers for reliable cleanup
     this.boundHandlers.onResize = this.onResize.bind(this);

@@ -15,6 +15,7 @@ import { WaveMenu } from "../components/WaveMenu";
 import HexIcon from "../components/HexIcon";
 import { cmsService } from "../lib/cms-service";
 import { Project } from "../types/project";
+import { getOptimizedImageUrl } from "../utils/imageOptimizer";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -157,7 +158,12 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="rounded-[20px] overflow-hidden aspect-[4/5] bg-gray-200"
             >
-              <img src={imagePairs[imageSet].left} alt="Editorial Left" className="w-full h-full object-cover scale-110" />
+              <img 
+                src={getOptimizedImageUrl(imagePairs[imageSet].left, 800)} 
+                alt="Editorial Left" 
+                loading="lazy" 
+                className="w-full h-full object-cover scale-110" 
+              />
             </motion.div>
             <div className="absolute top-20 -right-16 md:-right-24 z-20">
               <button
@@ -177,7 +183,12 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="rounded-[20px] overflow-hidden aspect-[16/18] bg-gray-300"
             >
-              <img src={imagePairs[imageSet].right} alt="Editorial Right" className="w-full h-full object-cover scale-110" />
+              <img 
+                src={getOptimizedImageUrl(imagePairs[imageSet].right, 1000)} 
+                alt="Editorial Right" 
+                loading="lazy" 
+                className="w-full h-full object-cover scale-110" 
+              />
             </motion.div>
             <div className="space-y-16">
               <CinematicText as="h2" className="text-[8vw] md:text-[6vw] font-display font-black text-[#050505] leading-[0.85] uppercase tracking-[-0.04em]" intensity={0.9}>
@@ -207,7 +218,12 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
   return (
     <section ref={containerRef} className="relative min-h-[700vh] bg-black">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <img src={project.coverImage} alt="Background" className="w-full h-full object-cover opacity-30 grayscale" />
+        <img 
+          src={getOptimizedImageUrl(project.coverImage, 1200)} 
+          alt="Background" 
+          loading="lazy" 
+          className="w-full h-full object-cover opacity-30 grayscale" 
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>
 
@@ -235,7 +251,12 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
                 />
               ) : (
                 <>
-                  <img src={project.coverImage} alt="Video Preview" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                  <img 
+                    src={getOptimizedImageUrl(project.coverImage, 1200)} 
+                    alt="Video Preview" 
+                    loading="lazy" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
+                  />
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl scale-100 group-hover:scale-110 transition-transform">
                       <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-black border-b-[10px] border-b-transparent ml-1" />
@@ -251,19 +272,34 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           {/* Mobile Previews Grid */}
           <div className="h-screen flex items-center justify-start px-10 md:px-40">
             <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
-              <img src={project.mobileViews[0]?.url || project.shuffleImage1 || project.coverImage} alt="Mobile View 1" className="w-full h-full object-cover" />
+              <img 
+                src={getOptimizedImageUrl(project.mobileViews[0]?.url || project.shuffleImage1 || project.coverImage, 600)} 
+                alt="Mobile View 1" 
+                loading="lazy" 
+                className="w-full h-full object-cover" 
+              />
             </motion.div>
           </div>
 
           <div className="h-screen flex items-center justify-end px-10 md:px-40">
             <motion.div initial={{ opacity: 0, x: 200, y: 100, rotate: 5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[280px] md:w-[320px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu mt-40">
-              <img src={project.mobileViews[1]?.url || project.coverImage} alt="Mobile View 2" className="w-full h-full object-cover" />
+              <img 
+                src={getOptimizedImageUrl(project.mobileViews[1]?.url || project.coverImage, 600)} 
+                alt="Mobile View 2" 
+                loading="lazy" 
+                className="w-full h-full object-cover" 
+              />
             </motion.div>
           </div>
 
           <div className="h-screen flex items-center justify-start px-10 md:px-40">
             <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
-              <img src={project.mobileViews[2]?.url || project.coverImage} alt="Mobile View 3" className="w-full h-full object-cover" />
+              <img 
+                src={getOptimizedImageUrl(project.mobileViews[2]?.url || project.coverImage, 600)} 
+                alt="Mobile View 3" 
+                loading="lazy" 
+                className="w-full h-full object-cover" 
+              />
             </motion.div>
           </div>
         </Layout>
@@ -425,7 +461,12 @@ export default function WorkDetailsPage() {
                     </div>
                     <div className="md:col-span-5 relative">
                       <motion.div className="aspect-video md:aspect-[4/5] rounded-[32px] overflow-hidden bg-gray-200 grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
-                        <img src={nextProject.coverImage} alt="Next Project" className="w-full h-full object-cover" />
+                        <img 
+                          src={getOptimizedImageUrl(nextProject.coverImage, 800)} 
+                          alt="Next Project" 
+                          loading="lazy" 
+                          className="w-full h-full object-cover" 
+                        />
                       </motion.div>
                     </div>
                   </div>

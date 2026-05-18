@@ -6,6 +6,7 @@ import { useTransition } from "./TransitionProvider";
 import { CinematicText } from "./CinematicText";
 import { cmsService } from "../lib/cms-service";
 import { Project } from "../types/project";
+import { getOptimizedImageUrl } from "../utils/imageOptimizer";
 
 // Local SVGs to avoid any external icon dependency crashes
 const HexIcon = ({ className = "", fill = "#ef4444" }) => (
@@ -71,7 +72,12 @@ const StickyCard_001 = ({
         onClick={handleCardClick}
         className="rounded-4xl relative -top-1/4 flex h-[400px] w-[600px] origin-top flex-col overflow-hidden cursor-pointer"
       >
-        <img src={project.coverImage} alt={project.title} className="h-full w-full object-cover" />
+        <img 
+          src={getOptimizedImageUrl(project.coverImage, 800)} 
+          alt={project.title} 
+          loading="lazy" 
+          className="h-full w-full object-cover" 
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10">
           <div className="flex flex-wrap gap-2 mb-4">
             {project.services.length > 0 ? project.services.map((service, index) => (

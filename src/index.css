@@ -746,7 +746,6 @@
     background: rgba(31, 37, 71, 0.85) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
     pointer-events: auto !important;
   }
   

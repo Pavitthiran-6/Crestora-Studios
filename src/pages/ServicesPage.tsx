@@ -170,88 +170,219 @@ function ServicesHero() {
     }, 600);
   };
 
+  useEffect(() => {
+    // Only auto-rotate on mobile (screen width < 768px)
+    if (typeof window === "undefined") return;
+    
+    const checkMobile = () => window.innerWidth < 768;
+    if (!checkMobile()) return;
+
+    const interval = setInterval(() => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % ROTATING_TITLES.length);
+        setIsAnimating(false);
+      }, 600);
+    }, 1800);
+
+    return () => clearInterval(interval);
+  }, [isAnimating]);
+
   return (
-    <section className="h-screen relative flex flex-col justify-center overflow-hidden">
-      <div className="absolute top-[10%] left-20 md:left-32 lg:left-40 z-10 flex items-center gap-2 pointer-events-auto">
-        <button
-          onClick={() => triggerLogoTransition()}
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
-        >
-          <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
-        </button>
-        <HexIcon className="w-2.5 h-2.5" fill="#ef4444" />
-        <span
-          onClick={() => triggerPageTransition("/services")}
-          className="text-[10px] font-black tracking-[0.3em] uppercase text-[#ef4444] hover:text-white transition-colors cursor-pointer"
-        >
-          SERVICES
-        </span>
-      </div>
+    <>
+      {/* DESKTOP VIEWPORT: 100% UNCHANGED */}
+      <section className="hidden md:flex h-screen relative flex-col justify-center overflow-hidden">
+        <div className="absolute top-[10%] left-20 md:left-32 lg:left-40 z-10 flex items-center gap-2 pointer-events-auto">
+          <button
+            onClick={() => triggerLogoTransition()}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
+          >
+            <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+          </button>
+          <HexIcon className="w-2.5 h-2.5" fill="#ef4444" />
+          <span
+            onClick={() => triggerPageTransition("/services")}
+            className="text-[10px] font-black tracking-[0.3em] uppercase text-[#ef4444] hover:text-white transition-colors cursor-pointer"
+          >
+            SERVICES
+          </span>
+        </div>
 
-      <Layout className="relative h-full flex flex-col justify-center">
-        <div className="w-full flex flex-col pt-20">
-          <div className="flex flex-col w-full">
-            <div className="overflow-hidden h-[10vw] md:h-[8.5vw] flex justify-start">
-              <AnimatePresence mode="wait">
-                <motion.h1
-                  key={index}
-                  className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden"
-                >
-                  {ROTATING_TITLES[index].split("").map((char, i) => (
-                    <motion.span
-                      key={`${index}-${i}`}
-                      initial={{ y: "100%" }}
-                      animate={{ y: 0 }}
-                      exit={{ y: "-100%" }}
-                      transition={{
-                        duration: 0.5,
-                        ease: [0.16, 1, 0.3, 1],
-                        delay: i * 0.02
-                      }}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </motion.h1>
-              </AnimatePresence>
-            </div>
-
-            <div className="flex items-center gap-6 md:gap-10 pl-[5vw] md:pl-[10vw]">
-              <div className="relative group shrink-0">
-                <div className="absolute inset-0 bg-[#ef4444]/20 rounded-full animate-ping" />
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={rotateHero}
-                  className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#ef4444] flex items-center justify-center relative z-10 shadow-[0_0_30px_rgba(239,59,93,0.3)]"
-                >
-                  <RotateCcw className={`text-white w-6 h-6 md:w-10 md:h-10 transition-transform duration-700 ${isAnimating ? "rotate-180" : "group-hover:rotate-45"}`} />
-                </motion.button>
+        <Layout className="relative h-full flex flex-col justify-center">
+          <div className="w-full flex flex-col pt-20">
+            <div className="flex flex-col w-full">
+              <div className="overflow-hidden h-[10vw] md:h-[8.5vw] flex justify-start">
+                <AnimatePresence mode="wait">
+                  <motion.h1
+                    key={index}
+                    className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden"
+                  >
+                    {ROTATING_TITLES[index].split("").map((char, i) => (
+                      <motion.span
+                        key={`${index}-${i}`}
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-100%" }}
+                        transition={{
+                          duration: 0.5,
+                          ease: [0.16, 1, 0.3, 1],
+                          delay: i * 0.02
+                        }}
+                        className="inline-block"
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.h1>
+                </AnimatePresence>
               </div>
 
-              <div className="overflow-hidden h-[10vw] md:h-[8.5vw]">
+              <div className="flex items-center gap-6 md:gap-10 pl-[5vw] md:pl-[10vw]">
+                <div className="relative group shrink-0">
+                  <div className="absolute inset-0 bg-[#ef4444]/20 rounded-full animate-ping" />
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={rotateHero}
+                    className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#ef4444] flex items-center justify-center relative z-10 shadow-[0_0_30px_rgba(239,59,93,0.3)]"
+                  >
+                    <RotateCcw className={`text-white w-6 h-6 md:w-10 md:h-10 transition-transform duration-700 ${isAnimating ? "rotate-180" : "group-hover:rotate-45"}`} />
+                  </motion.button>
+                </div>
+
+                <div className="overflow-hidden h-[10vw] md:h-[8.5vw]">
+                  <h1 className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white">
+                    WEBSITES
+                  </h1>
+                </div>
+              </div>
+
+              <div className="overflow-hidden h-[10vw] md:h-[8.5vw] flex justify-center">
                 <h1 className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white">
-                  WEBSITES
+                  THAT HELP YOUR
+                </h1>
+              </div>
+
+              <div className="overflow-hidden h-[10vw] md:h-[8.5vw] flex justify-end">
+                <h1 className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white">
+                  BUSINESS
                 </h1>
               </div>
             </div>
+          </div>
+        </Layout>
+      </section>
 
-            <div className="overflow-hidden h-[10vw] md:h-[8.5vw] flex justify-center">
-              <h1 className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white">
-                THAT HELP YOUR
-              </h1>
-            </div>
+      {/* MOBILE VIEWPORT: PREMIUM STUDIO-STYLE HERO */}
+      <section className="flex md:hidden relative h-auto min-h-[80vh] flex-col justify-center overflow-hidden shrink-0 pb-12">
+        {/* Hex Grid Background (Imported from StudioPage) */}
+        <div className="absolute inset-0 pointer-events-none opacity-20 z-0">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="heroHexGrid" width="50" height="86" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)">
+                <path d="M25 0 L50 14.4 L50 43.1 L25 57.5 L0 43.1 L0 14.4 Z" fill="none" stroke="white" strokeOpacity="0.1" strokeWidth="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#heroHexGrid)" />
+          </svg>
+        </div>
 
-            <div className="overflow-hidden h-[10vw] md:h-[8.5vw] flex justify-end">
-              <h1 className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white">
-                BUSINESS
-              </h1>
+        {/* Breadcrumb Nav (Studio Style: Left aligned and premium gap) */}
+        <div className="absolute top-[10%] left-8 sm:left-12 z-20 flex items-center gap-4 pointer-events-auto">
+          <button
+            onClick={() => triggerLogoTransition()}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
+          >
+            <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+          </button>
+          <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#ef4444" />
+          <span
+            onClick={() => triggerPageTransition("/services")}
+            className="text-[10px] font-black tracking-[0.4em] uppercase text-[#ef4444] hover:text-white transition-colors cursor-pointer leading-none"
+          >
+            SERVICES
+          </span>
+        </div>
+
+        <Layout className="relative z-10 h-full flex flex-col">
+          <div className="w-full flex flex-col pt-28">
+            <div className="flex flex-col w-full">
+              {/* Row 1: Rotating Title (Studio style: scale-y-[1.5] and dynamic size to fit) */}
+              <div className="overflow-hidden h-[23vw] flex items-center justify-start">
+                <AnimatePresence mode="wait">
+                  <motion.h1
+                    key={index}
+                    className={cn(
+                      "font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-[1.5] origin-center",
+                      ROTATING_TITLES[index] === "RESULTS-DRIVEN" ? "text-[9.5vw]" :
+                      ROTATING_TITLES[index] === "GOAL-ORIENTED" ? "text-[10vw]" :
+                      ROTATING_TITLES[index] === "COMPELLING" ? "text-[13vw]" :
+                      "text-[14vw]"
+                    )}
+                  >
+                    {ROTATING_TITLES[index].split("").map((char, i) => (
+                      <motion.span
+                        key={`${index}-${i}`}
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-100%" }}
+                        transition={{
+                          duration: 0.35,
+                          ease: [0.16, 1, 0.3, 1],
+                          delay: i * 0.015
+                        }}
+                        className="inline-block"
+                      >
+                        {char === " " ? "\u00A0" : char}
+                      </motion.span>
+                    ))}
+                  </motion.h1>
+                </AnimatePresence>
+              </div>
+
+              {/* Row 2: Static Word & Button (WEBSITES - pl-[5vw], scale-y-[1.5]) */}
+              <div className="flex items-center gap-4 pl-[5vw]">
+                <div className="relative group shrink-0 pointer-events-auto">
+                  <div className="absolute inset-0 bg-[#ef4444]/20 rounded-full animate-ping" />
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={rotateHero}
+                    className="w-12 h-12 rounded-full bg-[#ef4444] flex items-center justify-center relative z-10 shadow-[0_0_20px_rgba(239,59,93,0.3)]"
+                  >
+                    <RotateCcw className={`text-white w-5 h-5 transition-transform duration-700 ${isAnimating ? "rotate-180" : "group-hover:rotate-45"}`} />
+                  </motion.button>
+                </div>
+
+                <div className="overflow-hidden h-[23vw] flex items-center">
+                  <h1 className="text-[14vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-[1.5] origin-center">
+                    WEBSITES
+                  </h1>
+                </div>
+              </div>
+
+              {/* Row 3: Static Word (THAT HELP YOUR - justify-center, text-[10.5vw] to fit on mobile perfectly, scale-y-[1.5]) */}
+              <div className="overflow-hidden h-[23vw] flex items-center justify-center">
+                <h1 className="text-[10.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-[1.5] origin-center">
+                  THAT HELP YOUR
+                </h1>
+              </div>
+
+              {/* Row 4: Static Word (BUSINESS - justify-end, scale-y-[1.5]) */}
+              <div className="overflow-hidden h-[23vw] flex items-center justify-end">
+                <h1 className="text-[14vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-[1.5] origin-center">
+                  BUSINESS
+                </h1>
+              </div>
             </div>
           </div>
-        </div>
-      </Layout>
-    </section>
+        </Layout>
+
+        {/* Background grain hint */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+      </section>
+    </>
   );
 }
 
@@ -346,7 +477,8 @@ function WorkflowSection() {
           </div>
         </div>
 
-        <div className="flex h-[500px] md:h-[650px] w-full overflow-x-auto md:overflow-visible pb-8 scrollbar-hide rounded-[20px] md:rounded-[32px] overflow-hidden border border-white/5">
+        {/* DESKTOP ACCORDION LAYOUT (100% UNCHANGED) */}
+        <div className="hidden md:flex h-[650px] w-full overflow-visible pb-8 rounded-[32px] overflow-hidden border border-white/5">
           {PROCESS_STEPS.map((step, idx) => {
             const isExpanded = activeStep === idx;
             return (
@@ -374,7 +506,6 @@ function WorkflowSection() {
                   boxShadow: "-20px 0 40px rgba(0,0,0,0.15)"
                 }}
               >
-                {/* Number & Dot Indicator */}
                 {/* Number & Dot Indicator - Always Visible */}
                 <div className={cn(
                   "absolute top-8 flex items-center gap-3 z-20 transition-all duration-500",
@@ -440,6 +571,74 @@ function WorkflowSection() {
             );
           })}
         </div>
+
+        {/* MOBILE ACCORDION LAYOUT (PREMIUM VERTICAL EXPANSION) */}
+        <div className="flex md:hidden flex-col gap-4 w-full">
+          {PROCESS_STEPS.map((step, idx) => {
+            const isExpanded = activeStep === idx;
+            return (
+              <div
+                key={step.id}
+                onClick={() => setActiveStep(idx)}
+                className={cn(
+                  "rounded-[20px] overflow-hidden border transition-all duration-500 cursor-pointer pointer-events-auto",
+                  isExpanded
+                    ? "bg-[#f3f4f6] border-[#f3f4f6] shadow-[0_20px_40px_rgba(0,0,0,0.3)]"
+                    : "bg-white/5 border-white/5 hover:bg-white/10"
+                )}
+              >
+                {/* Header portion */}
+                <div className="p-6 flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <HexIcon className="w-3.5 h-3.5" fill="#ef4444" />
+                    <span className={cn(
+                      "text-[10px] font-black tracking-widest",
+                      isExpanded ? "text-[#1f2547]/40" : "text-white/40"
+                    )}>
+                      {step.id}
+                    </span>
+                    <h3 className={cn(
+                      "text-base font-display font-black tracking-tight uppercase transition-colors duration-300",
+                      isExpanded ? "text-[#1f2547]" : "text-white"
+                    )}>
+                      {step.title}
+                    </h3>
+                  </div>
+
+                  {/* Arrow Indicator */}
+                  <motion.div
+                    animate={{ rotate: isExpanded ? 90 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className={cn(
+                      "w-6 h-6 flex items-center justify-center rounded-full border text-xs font-bold transition-colors",
+                      isExpanded ? "border-[#1f2547]/10 text-[#1f2547]" : "border-white/10 text-white"
+                    )}
+                  >
+                    →
+                  </motion.div>
+                </div>
+
+                {/* Description portion with smooth height collapse/expand */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="px-6 pb-8 pt-2 border-t border-black/5">
+                        <p className="text-sm text-[#1f2547]/80 font-medium leading-relaxed uppercase">
+                          {step.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
       </Layout>
     </section>
   );
@@ -449,7 +648,7 @@ function WorkflowSection() {
 
 function ResultsDriven() {
   return (
-    <section className="min-h-screen py-32 bg-[#1f2547] flex flex-col items-center text-center">
+    <section className="min-h-screen pt-32 pb-56 md:py-32 bg-[#1f2547] flex flex-col items-center text-center">
       <Layout>
         <div className="max-w-4xl mb-32 mx-auto">
           <CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 block mb-6">RESULTS DRIVEN</CinematicText>

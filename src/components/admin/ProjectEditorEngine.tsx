@@ -369,6 +369,11 @@ export function ProjectEditorEngine({ projectId, onClose }: ProjectEditorEngineP
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                       <InputField label="Project Title" value={project.title} onChange={v => setProject({ ...project, title: v })} />
                       <InputField label="Category Label" value={project.category} onChange={v => setProject({ ...project, category: v })} />
+                      <InputField 
+                        label="Project URL Slug" 
+                        value={project.slug} 
+                        onChange={v => setProject({ ...project, slug: v.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') })} 
+                      />
                       <div className="md:col-span-2">
                         <MediaUploader 
                           label="Cover Image Protocol" 

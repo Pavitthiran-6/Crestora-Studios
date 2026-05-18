@@ -519,6 +519,21 @@ export default function AdminProjects() {
                         />
                       </div>
 
+                      <div className="space-y-4 group">
+                        <label className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 group-focus-within:opacity-100 transition-opacity">Project URL Slug (Auto-generated, editable)</label>
+                        <input
+                          required
+                          type="text"
+                          value={newProjectData.slug}
+                          onChange={(e) => setNewProjectData({ 
+                            ...newProjectData, 
+                            slug: e.target.value.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')
+                          })}
+                          className="w-full bg-transparent border-b border-black/10 py-4 text-2xl font-display outline-none focus:border-black transition-all"
+                          placeholder="ENTER PROJECT URL SLUG..."
+                        />
+                      </div>
+
                       <MediaUploader 
                         label="Cover Image Protocol" 
                         value={newProjectData.coverImage} 

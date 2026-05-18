@@ -322,12 +322,30 @@ export default function WorkDetailsPage() {
     const loadData = async () => {
       if (!id) return;
       try {
-        const p = await cmsService.getProjectBySlug(id);
+        let p = await cmsService.getProjectBySlug(id);
+        
+        // Fetch all projects
+        const all = await cmsService.getProjects();
+        
+        // Robust fallback: if project not found by slug directly, search by title or slug variants in all projects
+        if (!p && all.length > 0) {
+          const found = all.find(proj => 
+            proj.slug?.toLowerCase() === id.toLowerCase() || 
+            proj.title?.toLowerCase() === id.toLowerCase() ||
+            proj.title?.toLowerCase().replace(/ /g, '-') === id.toLowerCase() ||
+            proj.title?.toLowerCase().replace(/ /g, '_') === id.toLowerCase()
+          );
+          
+          if (found) {
+            // Fetch full project details by ID (including services, metrics, mobileViews, milestones)
+            p = await cmsService.getProjectById(found.id);
+          }
+        }
+        
         setProject(p);
         
         // Fetch all to find "next" project
-        const all = await cmsService.getProjects();
-        const next = all.find(proj => proj.slug !== id) || p;
+        const next = all.find(proj => proj.slug !== (p?.slug || id)) || p;
         setNextProject(next);
       } catch (err) {
         console.error(err);
@@ -396,27 +414,29 @@ export default function WorkDetailsPage() {
             <VisionMilestonesSection project={project} />
             
             {/* Next Project Section */}
-            <section className="py-40 md:py-60 bg-[#f5f5f3] group border-t border-[#050505]/10 relative z-10">
-              <Layout>
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-center">
-                  <div className="md:col-span-7 space-y-8">
-                    <div className="flex items-center gap-4"><div className="w-8 h-px bg-[#050505]/40" /><span className="text-[10px] font-display font-black tracking-[0.4em] text-[#050505]/40 uppercase">NEXT PROJECT</span></div>
-                    <CinematicText as="h2" className="text-7xl md:text-[10vw] font-display font-black text-[#050505] uppercase leading-[0.8] tracking-[-0.05em] group-hover:translate-x-10 transition-transform duration-700" intensity={1.0}>
-                      {nextProject.title.split(' ')[0]}<br />{nextProject.title.split(' ').slice(1).join(' ')}
-                    </CinematicText>
-                    <div onClick={() => triggerPageTransition(`/work/${nextProject.slug}`)} className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-10 group-hover:translate-x-14 transition-transform cursor-pointer w-fit">
-                      <span className="text-xs font-display font-black tracking-widest text-[#050505]">VIEW CASE STUDY</span>
-                      <div className="w-10 h-10 rounded-full border border-[#050505]/20 flex items-center justify-center group-hover:bg-[#050505] group-hover:text-white transition-colors"><span className="text-xl">→</span></div>
+            {nextProject && (
+              <section className="py-40 md:py-60 bg-[#f5f5f3] group border-t border-[#050505]/10 relative z-10">
+                <Layout>
+                  <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20 items-center">
+                    <div className="md:col-span-7 space-y-8">
+                      <div className="flex items-center gap-4"><div className="w-8 h-px bg-[#050505]/40" /><span className="text-[10px] font-display font-black tracking-[0.4em] text-[#050505]/40 uppercase">NEXT PROJECT</span></div>
+                      <CinematicText as="h2" className="text-7xl md:text-[10vw] font-display font-black text-[#050505] uppercase leading-[0.8] tracking-[-0.05em] group-hover:translate-x-10 transition-transform duration-700" intensity={1.0}>
+                        {nextProject.title ? nextProject.title.split(' ')[0] : "NEXT"}<br />{nextProject.title ? nextProject.title.split(' ').slice(1).join(' ') : "PROJECT"}
+                      </CinematicText>
+                      <div onClick={() => triggerPageTransition(`/work/${nextProject.slug}`)} className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-10 group-hover:translate-x-14 transition-transform cursor-pointer w-fit">
+                        <span className="text-xs font-display font-black tracking-widest text-[#050505]">VIEW CASE STUDY</span>
+                        <div className="w-10 h-10 rounded-full border border-[#050505]/20 flex items-center justify-center group-hover:bg-[#050505] group-hover:text-white transition-colors"><span className="text-xl">→</span></div>
+                      </div>
+                    </div>
+                    <div className="md:col-span-5 relative">
+                      <motion.div className="aspect-video md:aspect-[4/5] rounded-[32px] overflow-hidden bg-gray-200 grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
+                        <img src={nextProject.coverImage} alt="Next Project" className="w-full h-full object-cover" />
+                      </motion.div>
                     </div>
                   </div>
-                  <div className="md:col-span-5 relative">
-                    <motion.div className="aspect-video md:aspect-[4/5] rounded-[32px] overflow-hidden bg-gray-200 grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
-                      <img src={nextProject.coverImage} alt="Next Project" className="w-full h-full object-cover" />
-                    </motion.div>
-                  </div>
-                </div>
-              </Layout>
-            </section>
+                </Layout>
+              </section>
+            )}
 
             <Footer isLight={true} />
             <div className="absolute inset-0 pointer-events-none opacity-[0.04] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />

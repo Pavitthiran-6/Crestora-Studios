@@ -99,7 +99,7 @@ const ProjectIntroSection = ({ project }: { project: Project }) => {
               className="text-4xl md:text-6xl lg:text-[5vw] font-display font-black text-[#050505] leading-[0.95] tracking-[-0.04em] uppercase"
               intensity={0.8}
             >
-              {project.description || project.heroSubtitle || "WE CRAFTED A BOLD IDENTITY FOR THIS PROJECT."}
+              {project.description || "WE CRAFTED A BOLD IDENTITY FOR THIS PROJECT."}
             </CinematicText>
             <div className="h-px w-full bg-[#050505]/10 mt-10" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -190,7 +190,7 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
                 </div>
                 <div className="md:col-span-8">
                   <p className="text-base md:text-lg font-sans font-medium text-[#050505]/70 leading-relaxed uppercase">
-                    {project.description || "WE PROVIDE SECURE SOLUTIONS GLOBALLY THROUGH CUTTING EDGE DESIGN."}
+                    {project.heroSubtitle || "WE PROVIDE SECURE SOLUTIONS GLOBALLY THROUGH CUTTING EDGE DESIGN."}
                   </p>
                 </div>
               </div>
@@ -222,14 +222,27 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           </div>
 
           <div className="h-screen flex items-center justify-center">
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="w-full max-w-4xl aspect-video rounded-3xl overflow-hidden bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl relative group transform-gpu">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-              <img src={project.coverImage} alt="Video Preview" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl scale-100 group-hover:scale-110 transition-transform">
-                  <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-black border-b-[10px] border-b-transparent ml-1" />
-                </div>
-              </div>
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="w-full max-w-6xl md:max-w-7xl lg:max-w-[85vw] aspect-video rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl relative group transform-gpu">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
+              {project.videoUrl ? (
+                <video
+                  src={project.videoUrl}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : (
+                <>
+                  <img src={project.coverImage} alt="Video Preview" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl scale-100 group-hover:scale-110 transition-transform">
+                      <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-black border-b-[10px] border-b-transparent ml-1" />
+                    </div>
+                  </div>
+                </>
+              )}
             </motion.div>
           </div>
 
@@ -237,38 +250,20 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
 
           {/* Mobile Previews Grid */}
           <div className="h-screen flex items-center justify-start px-10 md:px-40">
-            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden flex flex-col p-8 space-y-8 transform-gpu">
-              <div className="flex justify-between items-center"><span className="text-white font-display font-black text-xs tracking-widest">{project.title}</span><div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center"><div className="w-5 h-[1px] bg-white" /></div></div>
-              <div className="flex-1 flex flex-col justify-center space-y-6"><h3 className="text-white text-6xl font-display font-black leading-none uppercase">{project.title}</h3></div>
-              <div className="h-52 rounded-2xl overflow-hidden bg-blue-100">
-                <img src={project.mobileViews[0]?.url || project.shuffleImage1 || project.coverImage} alt="Cloud 1" className="w-full h-full object-cover" />
-              </div>
+            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
+              <img src={project.mobileViews[0]?.url || project.shuffleImage1 || project.coverImage} alt="Mobile View 1" className="w-full h-full object-cover" />
             </motion.div>
           </div>
 
           <div className="h-screen flex items-center justify-end px-10 md:px-40">
-            <motion.div initial={{ opacity: 0, x: 200, y: 100, rotate: 5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[280px] md:w-[320px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden flex flex-col p-6 relative transform-gpu mt-40">
-              <div className="absolute inset-0 opacity-40">
-                <img src={project.mobileViews[1]?.url || project.coverImage} alt="Abstract" className="w-full h-full object-cover" />
-              </div>
-              <div className="relative z-10 space-y-8 flex-1 flex flex-col">
-                <div className="flex justify-between items-center"><span className="text-white font-display font-black text-xs tracking-widest">{project.title}</span></div>
-                <div className="flex-1" />
-                <p className="text-white/80 text-xs font-sans font-medium leading-relaxed uppercase tracking-wider">{project.description?.slice(0, 100) || "WE PROVIDE SECURE SOLUTIONS GLOBALLY."}</p>
-              </div>
+            <motion.div initial={{ opacity: 0, x: 200, y: 100, rotate: 5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[280px] md:w-[320px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu mt-40">
+              <img src={project.mobileViews[1]?.url || project.coverImage} alt="Mobile View 2" className="w-full h-full object-cover" />
             </motion.div>
           </div>
 
           <div className="h-screen flex items-center justify-start px-10 md:px-40">
-            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden flex flex-col p-8 space-y-8 transform-gpu">
-              <div className="flex justify-between items-center"><span className="text-white font-display font-black text-xs tracking-widest">{project.title}</span></div>
-              <div className="flex-1 flex flex-col justify-center space-y-4">
-                <h3 className="text-white text-4xl font-display font-black leading-none uppercase">DYNAMIC<br />SYNC</h3>
-                <p className="text-white/60 text-[8px] font-sans font-bold tracking-widest uppercase">REAL-TIME GLOBAL CONNECTIVITY</p>
-              </div>
-              <div className="h-40 rounded-2xl overflow-hidden bg-purple-900/20 border border-white/5">
-                <img src={project.mobileViews[2]?.url || project.coverImage} alt="Gradient" className="w-full h-full object-cover" />
-              </div>
+            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
+              <img src={project.mobileViews[2]?.url || project.coverImage} alt="Mobile View 3" className="w-full h-full object-cover" />
             </motion.div>
           </div>
         </Layout>
@@ -312,7 +307,7 @@ export default function WorkDetailsPage() {
   const [nextProject, setNextProject] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
-  const { scrollY } = useScroll({ container: containerRef });
+  const { scrollY } = useScroll({ container: isLoading ? undefined : containerRef });
   const navigate = useNavigate();
 
   const navOpacity = useTransform(scrollY, [0, 150], [1, 0]);

@@ -398,6 +398,20 @@ export function ProjectEditorEngine({ projectId, onClose }: ProjectEditorEngineP
                 {activeSection === 'services' && (
                   <div className="max-w-[800px] space-y-12">
                     <SectionTitle title="STUDIO SERVICES" subtitle="DYNAMIC REPEATER" />
+                    
+                    <div className="space-y-4 p-6 border border-black/5 bg-[#fafafa] rounded-xl">
+                      <label className="text-[10px] font-black tracking-[0.2em] uppercase opacity-40 block">Main Project Description</label>
+                      <textarea
+                        value={project.description || ""}
+                        onChange={e => setProject({ ...project, description: e.target.value })}
+                        className="w-full bg-transparent border border-black/10 p-4 text-sm font-sans font-medium uppercase outline-none focus:border-black transition-all h-[140px] resize-none leading-relaxed"
+                        placeholder="ENTER THE MAIN PROJECT DESCRIPTION FOR THE SERVICES SECTION..."
+                      />
+                      <p className="text-[9px] font-sans font-bold text-black/40 uppercase tracking-wider">
+                        * This description is displayed on the right-hand side of the services section in the work details page.
+                      </p>
+                    </div>
+
                     <div className="space-y-4">
                       {project.services.map((s, i) => (
                         <div key={s.id} className="flex gap-4 items-center group">
@@ -520,8 +534,8 @@ export function ProjectEditorEngine({ projectId, onClose }: ProjectEditorEngineP
                       <div className="space-y-4">
                         <label className="text-[10px] font-black tracking-[0.2em] uppercase opacity-40">Mission Statement / Narrative</label>
                         <textarea
-                          value={project.description || ""}
-                          onChange={e => setProject({ ...project, description: e.target.value })}
+                          value={project.heroSubtitle || ""}
+                          onChange={e => setProject({ ...project, heroSubtitle: e.target.value })}
                           className="w-full bg-transparent border border-black/5 p-8 text-xl font-display uppercase outline-none focus:border-black transition-all h-[300px] resize-none leading-relaxed"
                           placeholder="CRAFT THE PROJECT MISSION..."
                         />

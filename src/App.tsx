@@ -295,14 +295,14 @@ export default function App() {
                       <motion.div
                         whileHover={{ scale: 1.01 }}
                         whileTap={{ scale: 0.98 }}
-                        onClick={() => triggerPageTransition("/work/sling-shot")}
+                        onClick={() => triggerPageTransition("/work/mavren")}
                         className="group cursor-pointer flex items-center gap-3 md:gap-8 border border-white/20 rounded-xl w-full px-4 md:px-8 py-5 bg-white/[0.02] backdrop-blur-xl hover:bg-white/5 transition-all duration-300 pointer-events-auto overflow-hidden min-h-[64px]"
                       >
                         <span className="text-[8px] sm:text-[9px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.25em] uppercase text-white/90 whitespace-nowrap shrink-0">LATEST PROJECT</span>
                         <div className="flex-1 h-[0.5px] bg-white/20 relative min-w-[10px] sm:min-w-[20px]">
                           <span className="absolute right-0 top-1/2 -translate-y-1/2 text-white/40 text-lg md:text-xl font-light">→</span>
                         </div>
-                        <span className="text-[8px] sm:text-[9px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.25em] uppercase text-white whitespace-nowrap shrink-0">SLING SHOT</span>
+                        <span className="text-[8px] sm:text-[9px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.25em] uppercase text-white whitespace-nowrap shrink-0">MAVREN</span>
                       </motion.div>
                       <p className="text-[10px] md:text-[12px] lg:text-[13px] leading-[1.6] text-white/50 font-black tracking-tighter uppercase text-center md:text-left lg:text-right max-w-full md:max-w-[450px] lg:max-w-[500px]">
                         WE SPECIALIZE IN CREATING MEANINGFUL DIGITAL <br className="hidden md:block" />

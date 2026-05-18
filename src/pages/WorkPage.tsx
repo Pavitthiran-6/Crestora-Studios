@@ -22,7 +22,7 @@ export default function WorkPage() {
     const fetchProjects = async () => {
       try {
         const all = await cmsService.getProjects();
-        setProjects(all.filter(p => p.status === 'Published'));
+        setProjects(all.filter(p => p.status !== 'Archived'));
       } catch (err) {
         console.error("Supabase Error:", err);
       } finally {

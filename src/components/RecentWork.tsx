@@ -38,6 +38,26 @@ const StickyCard_001 = ({
   const scale = useTransform(progress, range, [1, targetScale]);
   const { triggerPageTransition } = useTransition();
 
+  const handleCardClick = () => {
+    if (!project.slug) return;
+    
+    // Normalize target path: if it starts with slash, check if it already has /work/ prefix
+    let targetPath = project.slug;
+    if (targetPath.startsWith('/')) {
+      if (!targetPath.startsWith('/work/')) {
+        targetPath = `/work${targetPath}`;
+      }
+    } else {
+      if (targetPath.startsWith('work/')) {
+        targetPath = `/${targetPath}`;
+      } else {
+        targetPath = `/work/${targetPath}`;
+      }
+    }
+    
+    triggerPageTransition(targetPath);
+  };
+
   return (
     <div
       ref={container}
@@ -48,7 +68,7 @@ const StickyCard_001 = ({
           scale,
           top: `calc(-5vh + ${i * 20 + 150}px)`,
         }}
-        onClick={() => triggerPageTransition(`/work/${project.slug}`)}
+        onClick={handleCardClick}
         className="rounded-4xl relative -top-1/4 flex h-[400px] w-[600px] origin-top flex-col overflow-hidden cursor-pointer"
       >
         <img src={project.coverImage} alt={project.title} className="h-full w-full object-cover" />
@@ -118,8 +138,7 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
           id: c.id,
           title: c.title,
           coverImage: c.image_url,
-          // Extract just the ID part if the slug starts with /work/
-          slug: c.slug ? c.slug.replace(/^\/work\//, '') : '',
+          slug: c.slug || '',
           category: (c.tags || 'PROJECT').toUpperCase() === 'BRADING' ? 'BRANDING' : (c.tags || 'PROJECT'),
           services: c.tags ? c.tags.split(',').map((t: string) => {
             const cleanT = t.trim();

@@ -251,7 +251,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           </div>
 
           <div className="h-screen flex items-center justify-center">
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="w-full max-w-6xl md:max-w-7xl lg:max-w-[85vw] aspect-video rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl relative group transform-gpu">
+            <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="w-[95vw] md:w-full max-w-6xl md:max-w-7xl lg:max-w-[85vw] aspect-[4/3] md:aspect-video rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl relative group transform-gpu">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
               {project.videoUrl ? (
                 <video

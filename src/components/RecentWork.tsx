@@ -88,7 +88,7 @@ const StickyCard_001 = ({
             className="h-full w-full object-cover" 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-10">
-            <div className="flex flex-wrap gap-2 absolute top-6 left-6 md:relative md:top-auto md:left-auto md:mb-4">
+            <div className="flex flex-wrap gap-2 relative top-auto left-auto mb-2 md:mb-4">
               {project.services.length > 0 ? project.services.map((service, index) => (
                 <span
                   key={index}

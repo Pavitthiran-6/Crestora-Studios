@@ -66,7 +66,7 @@ const StickyCard_001 = ({
   return (
     <div
       ref={container}
-      className="sticky top-0 flex items-center justify-center recent-work-sticky-parent w-full px-4 md:px-0"
+      className="sticky top-0 flex items-center justify-center recent-work-sticky-parent w-full px-4 md:px-0 pointer-events-none"
     >
       <motion.div
         style={{
@@ -75,11 +75,11 @@ const StickyCard_001 = ({
             ? `calc(18vh + ${i * 10 + 100}px)` 
             : `calc(-5vh + ${i * 20 + 150}px)`,
         }}
-        className="relative w-full max-w-[600px] flex flex-col items-center justify-center"
+        className="relative w-full max-w-[600px] flex flex-col items-center justify-center pointer-events-none"
       >
         <div
           onClick={handleCardClick}
-          className="rounded-3xl md:rounded-4xl relative -top-1/6 md:-top-1/4 flex h-[280px] sm:h-[320px] md:h-[400px] w-full origin-top flex-col overflow-hidden cursor-pointer recent-work-card"
+          className="rounded-3xl md:rounded-4xl relative -top-1/6 md:-top-1/4 flex h-[280px] sm:h-[320px] md:h-[400px] w-full origin-top flex-col overflow-hidden cursor-pointer recent-work-card pointer-events-auto"
         >
           <img 
             src={getOptimizedImageUrl(project.coverImage, 800)} 

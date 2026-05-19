@@ -228,7 +228,6 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
 
 const DeviceShowcaseSection = ({ project }: { project: Project }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section ref={containerRef} className="relative min-h-[700vh] bg-black">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -236,9 +235,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           src={getOptimizedImageUrl(project.coverImage, 1200)} 
           alt="Background" 
           loading="lazy" 
-          className={`w-full h-full object-contain md:object-cover grayscale ${
-            project.slug === 'mavren' ? 'opacity-100 md:opacity-30' : 'opacity-30'
-          }`} 
+          className="w-full h-full object-contain md:object-cover opacity-30 grayscale" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>

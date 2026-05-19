@@ -305,16 +305,8 @@ const TeamGridSection = () => {
               avatarUrl: IMAGES.azeez,
             },
           ].map((profile, i) => (
-            <motion.div
+            <div
               key={`mobile-${profile.name}`}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.1,
-                ease: [0.16, 1, 0.3, 1]
-              }}
               className="min-w-[240px] w-[240px] shrink-0 snap-center"
             >
               <ProfileCard
@@ -324,7 +316,7 @@ const TeamGridSection = () => {
                 behindGlowSize="70%"
                 innerGradient="linear-gradient(165deg, rgba(255,255,255,0.08) 0%, rgba(10,12,24,0.6) 100%)"
               />
-            </motion.div>
+            </div>
           ))}
         </div>
 

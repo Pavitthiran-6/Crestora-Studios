@@ -119,41 +119,42 @@ export default function WorkPage() {
                 </CinematicText>
               </div>
 
-              <div className="flex flex-col gap-6 w-full px-2 mt-4 pb-8">
+              {/* Minimal Typographic Project List */}
+              <div className="flex flex-col w-full px-4 mt-6 pb-12 divide-y divide-white/10">
                 {projects.map((project, i) => (
                   <motion.div
                     key={project.id}
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    transition={{ duration: 0.5, delay: i * 0.05 }}
                     onClick={() => triggerPageTransition(`/work/${project.slug}`)}
-                    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#151933] border border-white/5 shadow-2xl active:scale-[0.98] transition-transform duration-300 pointer-events-auto cursor-pointer"
+                    className="py-6 flex items-center justify-between gap-4 pointer-events-auto cursor-pointer active:opacity-60 transition-opacity"
                   >
-                    <img 
-                      src={project.coverImage} 
-                      alt={project.title} 
-                      className="absolute inset-0 w-full h-full object-cover opacity-80"
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d1a]/90 via-[#0a0d1a]/40 to-transparent" />
-
-                    <div className="absolute inset-0 flex flex-col justify-end p-6 space-y-2">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-black tracking-[0.25em] text-[#ef4444] uppercase">
+                    <div className="flex items-start gap-4">
+                      {/* Number Index */}
+                      <span className="text-[10px] font-black text-white/30 tracking-widest mt-1.5 font-mono">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      
+                      {/* Title & Category info */}
+                      <div className="flex flex-col">
+                        <span className="text-white font-display font-black text-2xl uppercase tracking-tight leading-none">
+                          {project.title}
+                        </span>
+                        <span className="text-[9px] font-black tracking-[0.2em] text-[#ef4444] uppercase mt-2">
                           {project.category || 'Creative Project'}
                         </span>
                       </div>
-                      
-                      <h3 className="text-3xl font-display font-black text-white uppercase tracking-tight leading-none">
-                        {project.title}
-                      </h3>
-                      
-                      {project.heroSubtitle && (
-                        <p className="text-white/40 text-[10px] uppercase tracking-wider font-semibold font-sans">
-                          {project.heroSubtitle}
-                        </p>
-                      )}
+                    </div>
+                    
+                    {/* Compact Image Thumbnail on Right */}
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border border-white/5 shrink-0 bg-[#151933]">
+                      <img 
+                        src={project.coverImage} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </motion.div>
                 ))}

@@ -244,7 +244,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
         <Layout>
           <div className="h-screen flex flex-col items-center justify-center text-center">
             <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <CinematicText as="h2" className="text-[16vw] md:text-[12vw] lg:text-[10vw] font-display font-black text-white leading-[0.8] uppercase tracking-[-0.05em]" intensity={1.5}>
+              <CinematicText as="h2" className="text-[12vw] md:text-[12vw] lg:text-[10vw] font-display font-black text-white leading-[0.8] uppercase tracking-[-0.05em] px-4 max-w-full" intensity={1.5}>
                 UNIVERSAL<br />{project.title}
               </CinematicText>
             </motion.div>

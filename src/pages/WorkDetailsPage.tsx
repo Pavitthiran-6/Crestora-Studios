@@ -415,14 +415,14 @@ export default function WorkDetailsPage() {
         >
           <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} bgColor="#1f2547" textColor="#ffffff" closeBtnColor="#050505" />
           <div ref={containerRef} className="flex-1 overflow-y-auto overflow-x-visible relative scrollbar-hide flex flex-col">
-            <div className="sticky top-4 md:top-8 left-0 right-0 z-[100] px-10 md:px-20 py-10 flex justify-between items-center h-0 overflow-visible pointer-events-none">
+            <div className="sticky top-4 md:top-8 left-0 right-0 z-[100] px-6 md:px-20 py-6 md:py-10 flex justify-between items-center h-0 overflow-visible pointer-events-none">
               <div className="flex items-center">
                 <button onClick={() => triggerLogoTransition()} className="pointer-events-auto group">
                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                     <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain p-1" />
                   </div>
                 </button>
-                <motion.div style={{ opacity: navOpacity, y: navY }} className="ml-8 flex items-center gap-4 text-[10px] font-black tracking-[0.4em] uppercase pointer-events-auto">
+                <motion.div style={{ opacity: navOpacity, y: navY }} className="ml-8 hidden md:flex items-center gap-4 text-[10px] font-black tracking-[0.4em] uppercase pointer-events-auto">
                   <span className="text-[#050505]/40 uppercase leading-none">W2C Studios</span>
                   <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />
                   <button onClick={() => triggerPageTransition("/work")} className="text-[#050505]/40 hover:text-[#050505] transition-colors cursor-pointer uppercase">WORK</button>
@@ -431,7 +431,7 @@ export default function WorkDetailsPage() {
                 </motion.div>
               </div>
               <div className="flex items-center gap-10">
-                <motion.div style={{ opacity: navOpacity, y: navY }} className="text-[10px] font-black tracking-[0.3em] text-[#050505] uppercase pointer-events-auto">
+                <motion.div style={{ opacity: navOpacity, y: navY }} className="text-[10px] font-black tracking-[0.3em] text-[#050505] uppercase pointer-events-auto hidden md:block">
                   {project.heroDate || "OCT 2023"}
                 </motion.div>
                 <button onClick={() => setIsWaveOpen(!isWaveOpen)} className="relative z-[100] flex gap-3 md:gap-4 h-14 md:h-20 items-center cursor-pointer group pointer-events-auto"><div className="flex flex-col items-center h-10 md:h-14 w-px bg-[#050505]/20 relative"><div className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-[#050505]/40 rounded-full bg-[#f5f5f3] -translate-x-1/2 left-1/2" /></div><div className="flex flex-col items-center h-6 md:h-10 w-px bg-[#050505]/40 relative" /><div className="flex flex-col items-center h-10 md:h-14 w-px bg-[#050505]/20 relative"><div className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-[#050505]/40 rounded-full bg-[#f5f5f3] -translate-x-1/2 left-1/2" /></div></button>

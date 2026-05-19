@@ -284,7 +284,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
 
           {/* Mobile Previews Grid */}
           <div className="h-screen flex items-center justify-start px-10 md:px-40">
-            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
+            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-2xl md:rounded-[48px] bg-[#050505] border-0 md:border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
               <img 
                 src={getOptimizedImageUrl(project.mobileViews[0]?.url || project.shuffleImage1 || project.coverImage, 600)} 
                 alt="Mobile View 1" 
@@ -295,7 +295,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           </div>
 
           <div className="h-screen flex items-center justify-end px-10 md:px-40">
-            <motion.div initial={{ opacity: 0, x: 200, y: 100, rotate: 5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[280px] md:w-[320px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu mt-40">
+            <motion.div initial={{ opacity: 0, x: 200, y: 100, rotate: 5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[280px] md:w-[320px] aspect-[9/18] rounded-2xl md:rounded-[48px] bg-[#050505] border-0 md:border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu mt-40">
               <img 
                 src={getOptimizedImageUrl(project.mobileViews[1]?.url || project.coverImage, 600)} 
                 alt="Mobile View 2" 
@@ -306,7 +306,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           </div>
 
           <div className="h-screen flex items-center justify-start px-10 md:px-40">
-            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-[48px] bg-[#050505] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
+            <motion.div initial={{ opacity: 0, x: -200, y: 100, rotate: -5, scale: 0.9 }} whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} className="w-[320px] md:w-[380px] aspect-[9/18] rounded-2xl md:rounded-[48px] bg-[#050505] border-0 md:border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden relative transform-gpu">
               <img 
                 src={getOptimizedImageUrl(project.mobileViews[2]?.url || project.coverImage, 600)} 
                 alt="Mobile View 3" 

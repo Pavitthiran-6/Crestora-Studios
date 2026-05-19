@@ -430,6 +430,7 @@
 @media (max-width: 768px) {
   .pc-card-wrapper {
     touch-action: auto !important;
+    pointer-events: none !important;
   }
   .pc-card {
     height: auto !important;

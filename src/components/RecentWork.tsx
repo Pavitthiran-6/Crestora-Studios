@@ -72,7 +72,7 @@ const StickyCard_001 = ({
         style={{
           scale,
           top: isMobile 
-            ? `calc(18vh + ${i * 10 + 100}px)` 
+            ? `calc(8vh + ${i * 12 + 80}px)` 
             : `calc(-5vh + ${i * 20 + 150}px)`,
         }}
         className="relative w-full max-w-[600px] flex flex-col items-center justify-center pointer-events-none"

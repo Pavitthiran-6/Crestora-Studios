@@ -269,7 +269,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           <div className="h-screen flex items-center justify-center">
             <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="w-[95vw] md:w-full max-w-6xl md:max-w-7xl lg:max-w-[85vw] aspect-[4/3] md:aspect-video rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl relative group transform-gpu">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
-              {project.videoUrl ? (
+              {project.videoUrl && !(project.slug === 'mavren' && isMobile) ? (
                 <video
                   src={project.videoUrl}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
@@ -286,11 +286,13 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
                     loading="lazy" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
                   />
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl scale-100 group-hover:scale-110 transition-transform">
-                      <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-black border-b-[10px] border-b-transparent ml-1" />
+                  {!(project.slug === 'mavren' && isMobile) && (
+                    <div className="absolute inset-0 flex items-center justify-center z-20">
+                      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl scale-100 group-hover:scale-110 transition-transform">
+                        <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[15px] border-l-black border-b-[10px] border-b-transparent ml-1" />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </>
               )}
             </motion.div>

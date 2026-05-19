@@ -80,34 +80,76 @@ export default function WorkPage() {
               </button>
             </div>
           </div>
-          <section className="h-screen relative flex flex-col justify-center overflow-hidden pt-20">
-            <Layout className="flex flex-col gap-8 h-full relative">
+          {/* Scrollable Content Container */}
+          <div ref={containerRef} className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide pt-24 md:pt-32 pb-16">
+            <Layout className="flex flex-col gap-12 relative">
               <div className="z-10 flex flex-col items-center text-center pointer-events-none">
                 <CinematicText as="h1" className="text-[12vw] md:text-[8vw] font-display font-black tracking-[-0.06em] leading-[0.8] uppercase text-white" intensity={1.2}>
                   SELECTED <span className="text-[#ef4444]">PROJECTS</span>
                 </CinematicText>
               </div>
-              <div className="absolute inset-0 w-full h-full flex items-center justify-center pt-24">
-                <div className="w-full h-[70vh] relative">
-                  {galleryItems.length > 0 && (
-                    <CircularGallery
-                      items={galleryItems}
-                      bend={3}
-                      textColor="#ffffff"
-                      borderRadius={0.05}
-                      font='900 80px "Big Shoulders Display", sans-serif'
-                      scrollEase={0.08}
-                      scrollSpeed={3}
-                      onClick={(title: string) => {
-                        const p = projects.find(proj => proj.title === title);
-                        if (p) triggerPageTransition(`/work/${p.slug}`);
-                      }}
+
+              {/* Desktop View: Circular Gallery */}
+              <div className="hidden md:block w-full h-[70vh] relative mt-12">
+                {galleryItems.length > 0 && (
+                  <CircularGallery
+                    items={galleryItems}
+                    bend={3}
+                    textColor="#ffffff"
+                    borderRadius={0.05}
+                    font='900 80px "Big Shoulders Display", sans-serif'
+                    scrollEase={0.08}
+                    scrollSpeed={3}
+                    onClick={(title: string) => {
+                      const p = projects.find(proj => proj.title === title);
+                      if (p) triggerPageTransition(`/work/${p.slug}`);
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* Mobile View: Alternative High-Fidelity Cards Stack */}
+              <div className="md:hidden flex flex-col gap-6 w-full px-2 mt-4 pb-8">
+                {projects.map((project, i) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: i * 0.1 }}
+                    onClick={() => triggerPageTransition(`/work/${project.slug}`)}
+                    className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#151933] border border-white/5 shadow-2xl active:scale-[0.98] transition-transform duration-300 pointer-events-auto cursor-pointer"
+                  >
+                    <img 
+                      src={project.coverImage} 
+                      alt={project.title} 
+                      className="absolute inset-0 w-full h-full object-cover opacity-80"
                     />
-                  )}
-                </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0d1a]/90 via-[#0a0d1a]/40 to-transparent" />
+
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[9px] font-black tracking-[0.25em] text-[#ef4444] uppercase">
+                          {project.category || 'Creative Project'}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-3xl font-display font-black text-white uppercase tracking-tight leading-none">
+                        {project.title}
+                      </h3>
+                      
+                      {project.heroSubtitle && (
+                        <p className="text-white/40 text-[10px] uppercase tracking-wider font-semibold font-sans">
+                          {project.heroSubtitle}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </Layout>
-          </section>
+          </div>
         </div>
       </div>
     </div>  );

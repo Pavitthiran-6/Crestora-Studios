@@ -9,12 +9,9 @@ import { SmoothScrollProvider } from "../components/SmoothScrollProvider";
 import { useTransition } from "../components/TransitionProvider";
 import { WaveMenu } from "../components/WaveMenu";
 import { CinematicText } from "../components/CinematicText";
+import { LatestProjects } from "../components/LatestProjects";
 import { cn } from "@/lib/utils";
 import HexIcon from "../components/HexIcon";
-
-import valaclavaImg from "../assets/projects/valaclava_project_hero_1778243074252.png";
-import oceanImg from "../assets/projects/ocean_agency_hero_1778243090443.png";
-import yogiImg from "../assets/projects/hoboken_yogi_hero_1778243105729.png";
 
 const PROCESS_STEPS = [
   { id: "01", title: "PPC AUDIT", desc: "Uncovering hidden efficiencies in your current ad spend. We conduct a granular audit of your existing campaigns, identifying waste and revealing high-opportunity keywords that drive real revenue." },
@@ -22,12 +19,6 @@ const PROCESS_STEPS = [
   { id: "03", title: "BID MANAGEMENT", desc: "Surgical precision in the auction landscape. Our team leverages advanced algorithmic bidding and manual oversight to ensure your ads are always positioned for maximum visibility at the lowest possible cost." },
   { id: "04", title: "LANDING PAGES", desc: "Architecting high-conversion destinations. We design and build bespoke, high-performance landing pages that perfectly align with your ad creative, ensuring a seamless and persuasive journey from click to conversion." },
   { id: "05", title: "ROI TRACKING", desc: "Complete transparency through data. We implement sophisticated multi-touch attribution and real-time reporting dashboards, allowing you to track every dollar of ad spend and its direct impact on your bottom line." }
-];
-
-const PROJECTS = [
-  { name: "VALACLAVA", category: "PAID SEARCH / PPC", id: "01", img: valaclavaImg },
-  { name: "OCEAN AGENCY", category: "PAID SEARCH / AD", id: "02", img: oceanImg },
-  { name: "HOBOKEN YOGI", category: "PAID SEARCH / ROI", id: "03", img: yogiImg },
 ];
 
 const OTHER_SERVICES = [
@@ -160,40 +151,7 @@ function ProcessCard({ step, index }: { step: any; index: number }) {
   );
 }
 
-function LatestProjects() {
-  return (
-    <section className="py-32 md:py-48 bg-[#1f2547]">
-      <Layout>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
-          <div className="lg:col-span-4 lg:sticky lg:top-40 h-fit space-y-6">
-            <div className="flex items-center gap-3"><HexIcon className="w-3 h-3" fill="#ef4444" /><CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase text-white">PORTFOLIO</CinematicText></div>
-            <CinematicText as="h2" className="text-6xl md:text-8xl font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white">LATEST<br /><span className="text-[#ef4444]">PROJECTS<span className="text-white">.</span></span></CinematicText>
-          </div>
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 pt-0 lg:pt-24">{PROJECTS.map((proj, i) => ( <ProjectCard key={proj.name} project={proj} index={i} /> ))}</div>
-        </div>
-        <div className="mt-32 flex justify-center"><motion.button whileHover={{ y: -5 }} className="group flex flex-col items-center gap-4"><span className="text-xs font-black tracking-[0.4em] uppercase text-white/40 group-hover:text-white transition-colors">VIEW ALL WORK</span><div className="w-12 h-[1px] bg-white/20 relative overflow-hidden"><motion.div initial={{ x: "-100%" }} whileHover={{ x: "100%" }} transition={{ duration: 0.6, ease: "easeInOut" }} className="absolute inset-0 bg-[#ef4444]" /></div></motion.button></div>
-      </Layout>
-    </section>
-  );
-}
 
-function ProjectCard({ project, index }: { project: any; index: number }) {
-  const ref = useRef(null); const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, index % 2 === 0 ? -100 : -50]);
-  return (
-    <motion.div ref={ref} style={{ y }} className={cn("relative flex flex-col group cursor-pointer", index === 1 ? "md:mt-32" : "")}>
-      <div className="aspect-[4/5] rounded-[32px] overflow-hidden mb-8 relative">
-        <motion.img src={project.img} alt={project.name} whileHover={{ scale: 1.05 }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="absolute bottom-10 left-10 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-          <span className="text-xs font-black tracking-[0.3em] uppercase text-[#ef4444] mb-2 block">{project.id}</span>
-          <div className="relative inline-block"><h4 className="text-3xl font-display font-black tracking-[-0.02em] uppercase text-white">{project.name}</h4><div className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#ef4444] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" /></div>
-          <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/60 block mt-2">{project.category}</span>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 function WaveText({ text, className, containerRef }: { text: string; className?: string; containerRef: React.RefObject<HTMLDivElement | null> }) {
   const ref = useRef<HTMLDivElement>(null);

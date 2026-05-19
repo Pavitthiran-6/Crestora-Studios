@@ -270,7 +270,7 @@ const TeamGridSection = () => {
         </div>
 
         {/* Mobile View: Horizontal Scroll */}
-        <div className="md:hidden flex overflow-x-auto gap-6 pb-8 scrollbar-hide snap-x snap-mandatory -mx-12 px-12">
+        <div className="md:hidden flex overflow-x-auto gap-6 pb-8 scrollbar-hide snap-x snap-mandatory -mx-12 px-16">
           {[
             {
               name: "Muhamed Abbas",

@@ -35,7 +35,10 @@ const HeroSection = ({ title }: { title: string }) => {
   return (
     <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3]">
       <div className="relative h-full w-full flex flex-col items-center justify-center -top-10 md:-top-16">
-        <motion.div style={{ opacity: globeOpacity }} className="absolute inset-0 z-0">
+        <motion.div 
+          style={{ opacity: globeOpacity }} 
+          className="absolute z-0 w-[70vw] h-[70vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:inset-0 md:w-full md:h-full md:translate-x-0 md:translate-y-0 pointer-events-none md:pointer-events-auto"
+        >
           <Canvas dpr={[1, 2]} performance={{ min: 0.5 }} gl={{ antialias: true, alpha: true }}>
             <PerspectiveCamera makeDefault position={[0, 0, 5]} />
             <ambientLight intensity={0.5} />
@@ -51,7 +54,7 @@ const HeroSection = ({ title }: { title: string }) => {
         >
           <CinematicText
             as="h1"
-            className="text-[12vw] md:text-[15vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#050505] mix-blend-multiply"
+            className="text-[16vw] md:text-[15vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#050505] mix-blend-multiply"
             intensity={1.2}
           >
             {title}

@@ -24,6 +24,7 @@ if (typeof window !== "undefined") {
 
 const HeroSection = ({ title }: { title: string }) => {
   const container = useRef<HTMLDivElement>(null);
+  const { triggerPageTransition } = useTransition();
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end start"]
@@ -34,6 +35,15 @@ const HeroSection = ({ title }: { title: string }) => {
 
   return (
     <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3]">
+      {/* Mobile-only tags at the top of the hero section */}
+      <div className="md:hidden absolute top-24 left-0 right-0 z-20 flex items-center justify-center gap-2 text-[8px] font-black tracking-[0.15em] uppercase text-[#050505] px-4 pointer-events-auto">
+        <span className="text-[#050505]/40 leading-none">W2C Studios</span>
+        <HexIcon className="w-1.5 h-1.5" fill="rgba(5, 5, 5, 0.4)" />
+        <button onClick={() => triggerPageTransition("/work")} className="text-[#050505]/40 active:text-[#050505] uppercase leading-none cursor-pointer">WORK</button>
+        <HexIcon className="w-1.5 h-1.5" fill="rgba(5, 5, 5, 0.4)" />
+        <span className="text-[#050505] leading-none truncate max-w-[120px]">{title}</span>
+      </div>
+
       <div className="relative h-full w-full flex flex-col items-center justify-center -top-10 md:-top-16">
         <motion.div 
           style={{ opacity: globeOpacity }} 
@@ -427,13 +437,13 @@ export default function WorkDetailsPage() {
                 </button>
                 <motion.div 
                   style={{ opacity: navOpacity, y: navY }} 
-                  className="ml-2 md:ml-8 flex items-center gap-2 md:gap-4 text-[8px] md:text-[10px] font-black tracking-[0.15em] md:tracking-[0.4em] uppercase pointer-events-auto"
+                  className="ml-8 hidden md:flex items-center gap-4 text-[10px] font-black tracking-[0.4em] uppercase pointer-events-auto"
                 >
                   <span className="text-[#050505]/40 uppercase leading-none">W2C Studios</span>
-                  <HexIcon className="w-1.5 h-1.5 md:w-2.5 md:h-2.5" fill="rgba(5, 5, 5, 0.4)" />
+                  <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />
                   <button onClick={() => triggerPageTransition("/work")} className="text-[#050505]/40 hover:text-[#050505] transition-colors cursor-pointer uppercase">WORK</button>
-                  <HexIcon className="w-1.5 h-1.5 md:w-2.5 md:h-2.5" fill="rgba(5, 5, 5, 0.4)" />
-                  <span className="text-[#050505] uppercase truncate max-w-[80px] md:max-w-none">{project.title}</span>
+                  <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />
+                  <span className="text-[#050505] uppercase">{project.title}</span>
                 </motion.div>
               </div>
               <div className="flex items-center gap-10">

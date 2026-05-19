@@ -96,11 +96,11 @@ const HeroSection = () => {
         <div className="w-full flex flex-col pt-28 md:pt-30">
           <div className="flex flex-col w-full">
             {/* Row 1: Rotating Title */}
-            <div className="overflow-hidden h-[23vw] md:h-[9vw] flex items-center justify-start">
+            <div className="overflow-hidden h-[12vw] md:h-[9vw] flex items-center justify-start">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={index}
-                  className="text-[14vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-[1.5] md:scale-y-100 origin-center"
+                  className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-100 md:scale-y-100 origin-center"
                 >
                   {ROTATING_STUDIO_TITLES[index].split("").map((char, i) => (
                     <motion.span
@@ -123,20 +123,20 @@ const HeroSection = () => {
             </div>
 
             {/* Row 2: Static Word */}
-            <div className="flex items-center gap-6 md:gap-10 pl-[5vw] md:pl-[10vw]">
-              <div className="overflow-hidden h-[23vw] md:h-[9vw] flex items-center">
-                <h1 className="text-[14vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-[1.5] md:scale-y-100 origin-center">
+            <div className="flex items-center gap-6 md:gap-10 pl-0 md:pl-[10vw]">
+              <div className="overflow-hidden h-[12vw] md:h-[9vw] flex items-center">
+                <h1 className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-100 md:scale-y-100 origin-center">
                   AND MAGIC
                 </h1>
               </div>
             </div>
 
             {/* Row 3: Rotating Title (Right-to-Left Blend) */}
-            <div className="overflow-hidden h-[23vw] md:h-[9vw] flex items-center justify-center">
+            <div className="overflow-hidden h-[12vw] md:h-[9vw] flex items-center justify-start md:justify-center">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={`blended-${index}`}
-                  className="text-[14vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-[1.5] md:scale-y-100 origin-center"
+                  className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-100 md:scale-y-100 origin-center"
                 >
                   {ROTATING_BLENDED_TITLES[index].split("").map((char, i) => (
                     <motion.span
@@ -159,10 +159,24 @@ const HeroSection = () => {
             </div>
 
             {/* Row 4: Static Word */}
-            <div className="overflow-hidden h-[23vw] md:h-[9vw] flex items-center justify-end">
-              <h1 className="text-[14vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-[1.5] md:scale-y-100 origin-center">
+            <div className="overflow-hidden h-[12vw] md:h-[9vw] flex items-center justify-start md:justify-end">
+              <h1 className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-100 md:scale-y-100 origin-center">
                 IN HARMONY
               </h1>
+            </div>
+
+            {/* Mobile-only Intro Paragraph & scroll indicator to fill empty space */}
+            <div className="mt-12 md:hidden flex flex-col gap-6 max-w-[280px]">
+              <p className="text-white/50 text-[10px] font-black tracking-[0.1em] uppercase leading-relaxed">
+                W2C Studios is a brutalist creative agency crafting high-fidelity design, motion, and digital architectures.
+              </p>
+              
+              <div className="flex items-center gap-4 mt-2">
+                <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full animate-pulse shadow-[0_0_10px_#ef4444]" />
+                <span className="text-white/30 text-[8px] font-black tracking-[0.25em] uppercase">
+                  SCROLL TO DISCOVER
+                </span>
+              </div>
             </div>
           </div>
         </div>

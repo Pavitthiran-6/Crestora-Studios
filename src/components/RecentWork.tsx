@@ -28,12 +28,16 @@ const StickyCard_001 = ({
   progress,
   range,
   targetScale,
+  isMobile,
+  isLast,
 }: {
   i: number;
   project: Project;
   progress: any;
   range: [number, number];
   targetScale: number;
+  isMobile: boolean;
+  isLast: boolean;
 }) => {
   const container = useRef<HTMLDivElement>(null);
   const scale = useTransform(progress, range, [1, targetScale]);
@@ -62,50 +66,66 @@ const StickyCard_001 = ({
   return (
     <div
       ref={container}
-      className="sticky top-0 flex items-center justify-center"
+      className="sticky top-0 flex items-center justify-center recent-work-sticky-parent w-full px-4 md:px-0"
     >
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 20 + 150}px)`,
+          top: isMobile 
+            ? `calc(18vh + ${i * 10 + 100}px)` 
+            : `calc(-5vh + ${i * 20 + 150}px)`,
         }}
-        onClick={handleCardClick}
-        className="rounded-4xl relative -top-1/4 flex h-[400px] w-[600px] origin-top flex-col overflow-hidden cursor-pointer"
+        className="relative w-full max-w-[600px] flex flex-col items-center justify-center"
       >
-        <img 
-          src={getOptimizedImageUrl(project.coverImage, 800)} 
-          alt={project.title} 
-          loading="lazy" 
-          className="h-full w-full object-cover" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-10">
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.services.length > 0 ? project.services.map((service, index) => (
-              <span
-                key={index}
-                className="text-[8px] md:text-[10px] font-black tracking-[0.2em] text-white/50 border border-white/10 px-2 py-1 rounded-sm uppercase backdrop-blur-sm"
-              >
-                {service.label}
-              </span>
-            )) : (
-              <span className="text-[8px] md:text-[10px] font-black tracking-[0.2em] text-[#ef4444] border border-[#ef4444]/20 px-2 py-1 rounded-sm uppercase backdrop-blur-sm">
-                {project.category}
-              </span>
-            )}
+        <div
+          onClick={handleCardClick}
+          className="rounded-3xl md:rounded-4xl relative -top-1/6 md:-top-1/4 flex h-[280px] sm:h-[320px] md:h-[400px] w-full origin-top flex-col overflow-hidden cursor-pointer recent-work-card"
+        >
+          <img 
+            src={getOptimizedImageUrl(project.coverImage, 800)} 
+            alt={project.title} 
+            loading="lazy" 
+            className="h-full w-full object-cover" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-10">
+            <div className="flex flex-wrap gap-2 absolute top-6 left-6 md:relative md:top-auto md:left-auto md:mb-4">
+              {project.services.length > 0 ? project.services.map((service, index) => (
+                <span
+                  key={index}
+                  className="text-[8px] md:text-[10px] font-black tracking-[0.2em] text-white/50 border border-white/10 px-2 py-1 rounded-sm uppercase backdrop-blur-sm"
+                >
+                  {service.label}
+                </span>
+              )) : (
+                <span className="text-[8px] md:text-[10px] font-black tracking-[0.2em] text-[#ef4444] border border-[#ef4444]/20 px-2 py-1 rounded-sm uppercase backdrop-blur-sm">
+                  {project.category}
+                </span>
+              )}
+            </div>
+            <h3 className="text-white text-3xl sm:text-4xl md:text-5xl font-display font-black uppercase leading-tight tracking-tighter">
+              <span className="text-[#ef4444]">{project.title.split(' ')[0]}</span>
+              {project.title.split(' ').length > 1 ? ` ${project.title.split(' ').slice(1).join(' ')}` : ''}
+            </h3>
           </div>
-          <h3 className="text-white text-4xl md:text-5xl font-display font-black uppercase leading-tight tracking-tighter">
-            <span className="text-[#ef4444]">{project.title.split(' ')[0]}</span>
-            {project.title.split(' ').length > 1 ? ` ${project.title.split(' ').slice(1).join(' ')}` : ''}
-          </h3>
         </div>
+
+        {/* Mobile Progress Line placed directly below the last card container */}
+        {isMobile && isLast && (
+          <div className="w-48 h-px bg-white/10 overflow-hidden z-50 mt-12 shrink-0">
+            <motion.div
+              style={{ scaleX: progress }}
+              className="h-full bg-[#ef4444] origin-left"
+            />
+          </div>
+        )}
       </motion.div>
     </div>
   );
 };
 
-const Skiper16 = ({ projects, scrollYProgress }: { projects: Project[], scrollYProgress: any }) => {
+const Skiper16 = ({ projects, scrollYProgress, isMobile }: { projects: Project[], scrollYProgress: any, isMobile: boolean }) => {
   return (
-    <div className="relative mx-auto flex flex-col items-center justify-center pt-[10vh]">
+    <div className="relative w-full mx-auto flex flex-col items-center justify-center pt-[4vh] md:pt-[10vh] recent-work-track">
       {projects.map((project, i) => {
         const targetScale = Math.max(
           0.6,
@@ -119,6 +139,8 @@ const Skiper16 = ({ projects, scrollYProgress }: { projects: Project[], scrollYP
             progress={scrollYProgress}
             range={[i * 0.15, 1]}
             targetScale={targetScale}
+            isMobile={isMobile}
+            isLast={i === projects.length - 1}
           />
         );
       })}
@@ -131,6 +153,17 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
   const { triggerPageTransition } = useTransition();
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const onChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+    setIsMobile(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const fetchHomeCards = async () => {
@@ -174,7 +207,7 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#1f2547] h-[350vh]"
+      className="relative w-full bg-[#1f2547] h-[190vh] md:h-[350vh] recent-work-section"
     >
       <Layout className="relative h-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 h-full items-start">
@@ -209,20 +242,20 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
           </div>
 
           {/* Right Column: Stacking Cards */}
-          <div className="col-span-1 lg:col-span-7 relative h-full flex flex-col items-center justify-start">
-            <div className="lg:hidden pt-20 mb-12">
+          <div className="col-span-1 lg:col-span-7 relative h-full flex flex-col items-center justify-start pb-24 md:pb-0">
+            <div className="lg:hidden pt-12 mb-6">
               <h2 className="text-white text-6xl font-display font-black uppercase leading-tight tracking-tighter">
                 RECENT<br /><span className="text-[#ef4444]">WORK.</span>
               </h2>
             </div>
 
-            <Skiper16 projects={projects} scrollYProgress={scrollYProgress} />
+            <Skiper16 projects={projects} scrollYProgress={scrollYProgress} isMobile={isMobile} />
           </div>
         </div>
       </Layout>
 
-      {/* Progress Line */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-px bg-white/10 overflow-hidden z-50">
+      {/* Desktop Progress Line */}
+      <div className="hidden md:block absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-px bg-white/10 overflow-hidden z-50">
         <motion.div
           style={{ scaleX: scrollYProgress }}
           className="h-full bg-[#ef4444] origin-left"

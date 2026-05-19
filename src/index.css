@@ -432,56 +432,6 @@
     padding-bottom: 60px !important;
   }
 
-  /* --- SELECTED PROJECTS (RECENT WORK) --- */
-  /* Convert sticky stacked project cards into a smooth horizontal snap slider */
-  section.relative.w-full.bg-\[\#1f2547\].h-\[350vh\] {
-    height: auto !important;
-    padding-bottom: 60px !important;
-  }
-  
-  /* Select and style the card track */
-  div.relative.mx-auto.flex.flex-col.items-center.justify-center.pt-\[10vh\] {
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    width: 100vw !important;
-    margin-left: -50vw !important;
-    left: 50% !important;
-    justify-content: flex-start !important;
-    align-items: stretch !important;
-    padding: 0 40px 40px 40px !important;
-    gap: 20px !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-  }
-  
-  div.relative.mx-auto.flex.flex-col.items-center.justify-center.pt-\[10vh\]::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  /* Make individual cards sit relative in the row with scroll-snap */
-  div.sticky.top-0.flex.items-center.justify-center {
-    position: relative !important;
-    top: auto !important;
-    height: auto !important;
-    flex-shrink: 0 !important;
-    scroll-snap-align: center !important;
-  }
-
-  /* Scale the actual card bounds cleanly to fit mobile and tablet touch viewports */
-  div.rounded-4xl.relative.flex.h-\[400px\].w-\[600px\] {
-    position: relative !important;
-    top: auto !important;
-    transform: none !important; /* Disable scroll scale transforms on mobile */
-    width: 75vw !important;
-    max-width: 440px !important;
-    height: 300px !important;
-  }
-
-  /* Hide the horizontal scroll indicator line at the bottom on mobile/tablet */
-  div.absolute.bottom-12.left-1\/2.-translate-x-1\/2.w-48.h-px {
-    display: none !important;
-  }
 
   /* --- PRINCIPLES SECTION --- */
   /* Use dynamic viewport height units so sticky works correctly with mobile browser chrome */
@@ -590,18 +540,6 @@
     padding: 16px 20px !important;
   }
 
-  /* --- SELECTED PROJECTS (RECENT WORK) --- */
-  /* Sized smaller for phone snap sliders */
-  div.relative.mx-auto.flex.flex-col.items-center.justify-center.pt-\[10vh\] {
-    padding: 0 24px 24px 24px !important;
-    gap: 16px !important;
-  }
-
-  div.rounded-4xl.relative.flex.h-\[400px\].w-\[600px\] {
-    width: 80vw !important;
-    max-width: 290px !important;
-    height: 220px !important;
-  }
 
   /* --- PRINCIPLES SECTION --- */
   /* Use dynamic viewport height on phones so sticky tracks correctly with browser chrome shifts */

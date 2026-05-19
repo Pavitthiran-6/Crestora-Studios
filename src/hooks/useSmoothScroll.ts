@@ -25,6 +25,8 @@ export function useSmoothScroll(
   ease = 0.08
 ) {
   useEffect(() => {
+    if (window.innerWidth < 768) return;
+
     const el: HTMLElement | null = containerRef 
       ? containerRef.current 
       : document.documentElement;

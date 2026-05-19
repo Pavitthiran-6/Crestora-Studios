@@ -389,10 +389,10 @@ const ManifestoSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 items-start">
           <div className="md:col-span-9 flex flex-col items-end justify-center text-right">
             <CinematicText as="h2" intensity={-0.8} className="text-[7vw] md:text-[6vw] font-black uppercase leading-[1.1] text-white tracking-[-0.01em]">
-              <span className="block whitespace-nowrap">WE OBSESSIVELY <span className="text-[#ef4444]">CREATE</span></span>
-              <span className="block whitespace-nowrap">LEARN AND GROW</span>
-              <span className="block whitespace-nowrap text-[#ef4444]">COMPANIES AS</span>
-              <span className="block whitespace-nowrap">A <span className="text-[#ef4444]">TEAM</span></span>
+              <span className="block md:whitespace-nowrap">WE OBSESSIVELY <span className="text-[#ef4444]">CREATE</span></span>
+              <span className="block md:whitespace-nowrap">LEARN AND GROW</span>
+              <span className="block md:whitespace-nowrap text-[#ef4444]">COMPANIES AS</span>
+              <span className="block md:whitespace-nowrap">A <span className="text-[#ef4444]">TEAM</span></span>
             </CinematicText>
           </div>
 
@@ -656,7 +656,7 @@ export default function StudioPage() {
           </div>
 
           {/* Scrollable Content Container */}
-          <div ref={containerRef} className="flex-1 overflow-y-auto scrollbar-hide">
+          <div ref={containerRef} className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide">
             <HeroSection />
             <CreativeStudioSection />
             <TeamGridSection />

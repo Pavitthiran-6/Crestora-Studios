@@ -44,7 +44,7 @@ const HeroSection = ({ title }: { title: string }) => {
         <span className="text-[#050505] leading-none truncate max-w-[100px]">{title}</span>
       </div>
 
-      <div className="relative flex-1 w-full flex flex-col items-center justify-center -top-16 md:-top-28">
+      <div className="relative flex-1 w-full flex flex-col items-center justify-center -top-16 md:-top-16">
         <motion.div 
           style={{ opacity: globeOpacity }} 
           className="absolute z-0 w-[130vw] h-[130vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:inset-0 md:w-full md:h-full md:translate-x-0 md:translate-y-0 pointer-events-none md:pointer-events-auto"

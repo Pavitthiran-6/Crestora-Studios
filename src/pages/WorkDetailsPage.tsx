@@ -476,7 +476,7 @@ export default function WorkDetailsPage() {
                       </div>
                     </div>
                     <div className="md:col-span-5 relative">
-                      <motion.div className="aspect-video md:aspect-[4/5] rounded-[32px] overflow-hidden bg-gray-200 grayscale group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
+                      <motion.div className="aspect-video md:aspect-[4/5] rounded-[32px] overflow-hidden bg-gray-200 grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-1000 shadow-2xl">
                         <img 
                           src={getOptimizedImageUrl(nextProject.coverImage, 800)} 
                           alt="Next Project" 

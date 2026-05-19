@@ -269,7 +269,8 @@ const TeamGridSection = () => {
           </div>
         </div>
 
-        <div className="flex md:grid overflow-x-auto md:overflow-visible gap-6 md:gap-10 pb-8 md:pb-0 scrollbar-hide snap-x snap-mandatory -mx-12 px-12 md:mx-0 md:px-0">
+        {/* Mobile View: Horizontal Scroll */}
+        <div className="md:hidden flex overflow-x-auto gap-6 pb-8 scrollbar-hide snap-x snap-mandatory -mx-12 px-12">
           {[
             {
               name: "Muhamed Abbas",
@@ -305,7 +306,7 @@ const TeamGridSection = () => {
             },
           ].map((profile, i) => (
             <motion.div
-              key={profile.name}
+              key={`mobile-${profile.name}`}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-50px" }}
@@ -314,7 +315,65 @@ const TeamGridSection = () => {
                 delay: i * 0.1,
                 ease: [0.16, 1, 0.3, 1]
               }}
-              className="min-w-[240px] w-[240px] md:w-auto md:min-w-0 shrink-0 snap-center"
+              className="min-w-[240px] w-[240px] shrink-0 snap-center"
+            >
+              <ProfileCard
+                {...profile}
+                behindGlowEnabled
+                behindGlowColor="rgba(239, 68, 68, 0.35)"
+                behindGlowSize="70%"
+                innerGradient="linear-gradient(165deg, rgba(255,255,255,0.08) 0%, rgba(10,12,24,0.6) 100%)"
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop View: Grid (Completely Untouched) */}
+        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+          {[
+            {
+              name: "Muhamed Abbas",
+              title: "Creative Operations Lead",
+              handle: "m_abbas",
+              status: "Management • Video • Design",
+              contactText: "Production Scope",
+              avatarUrl: IMAGES.abbas,
+            },
+            {
+              name: "Palaniappan",
+              title: "UI Developer",
+              handle: "palani_design",
+              status: "Technical Associate",
+              contactText: "Design Audit",
+              avatarUrl: IMAGES.palani,
+            },
+            {
+              name: "Pavitthiran",
+              title: "Developer",
+              handle: "pavitthiran_tech",
+              status: "Full-Stack Developer",
+              contactText: "Tech Stack",
+              avatarUrl: IMAGES.pavit,
+            },
+            {
+              name: "Abdul Azeez",
+              title: "Product Engineering Lead",
+              handle: "azeez_management",
+              status: "Management & Frontend",
+              contactText: "Project Strategy",
+              avatarUrl: IMAGES.azeez,
+            },
+          ].map((profile, i) => (
+            <motion.div
+              key={`desktop-${profile.name}`}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: [0.16, 1, 0.3, 1]
+              }}
             >
               <ProfileCard
                 {...profile}

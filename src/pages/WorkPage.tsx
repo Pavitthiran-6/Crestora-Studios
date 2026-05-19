@@ -80,36 +80,46 @@ export default function WorkPage() {
               </button>
             </div>
           </div>
-          {/* Scrollable Content Container */}
-          <div ref={containerRef} className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide pt-24 md:pt-32 pb-16">
-            <Layout className="flex flex-col gap-12 relative">
+          {/* Desktop View (Completely Untouched) */}
+          <section className="hidden md:flex h-screen relative flex-col justify-center overflow-hidden pt-20">
+            <Layout className="flex flex-col gap-8 h-full relative">
+              <div className="z-10 flex flex-col items-center text-center pointer-events-none">
+                <CinematicText as="h1" className="text-[12vw] md:text-[8vw] font-display font-black tracking-[-0.06em] leading-[0.8] uppercase text-white" intensity={1.2}>
+                  SELECTED <span className="text-[#ef4444]">PROJECTS</span>
+                </CinematicText>
+              </div>
+              <div className="absolute inset-0 w-full h-full flex items-center justify-center pt-24">
+                <div className="w-full h-[70vh] relative">
+                  {galleryItems.length > 0 && (
+                    <CircularGallery
+                      items={galleryItems}
+                      bend={3}
+                      textColor="#ffffff"
+                      borderRadius={0.05}
+                      font='900 80px "Big Shoulders Display", sans-serif'
+                      scrollEase={0.08}
+                      scrollSpeed={3}
+                      onClick={(title: string) => {
+                        const p = projects.find(proj => proj.title === title);
+                        if (p) triggerPageTransition(`/work/${p.slug}`);
+                      }}
+                    />
+                  )}
+                </div>
+              </div>
+            </Layout>
+          </section>
+
+          {/* Mobile View: Vertical Scroll Stack */}
+          <div ref={containerRef} className="md:hidden flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide pt-24 pb-16">
+            <Layout className="flex flex-col gap-8 relative">
               <div className="z-10 flex flex-col items-center text-center pointer-events-none">
                 <CinematicText as="h1" className="text-[12vw] md:text-[8vw] font-display font-black tracking-[-0.06em] leading-[0.8] uppercase text-white" intensity={1.2}>
                   SELECTED <span className="text-[#ef4444]">PROJECTS</span>
                 </CinematicText>
               </div>
 
-              {/* Desktop View: Circular Gallery */}
-              <div className="hidden md:block w-full h-[70vh] relative mt-12">
-                {galleryItems.length > 0 && (
-                  <CircularGallery
-                    items={galleryItems}
-                    bend={3}
-                    textColor="#ffffff"
-                    borderRadius={0.05}
-                    font='900 80px "Big Shoulders Display", sans-serif'
-                    scrollEase={0.08}
-                    scrollSpeed={3}
-                    onClick={(title: string) => {
-                      const p = projects.find(proj => proj.title === title);
-                      if (p) triggerPageTransition(`/work/${p.slug}`);
-                    }}
-                  />
-                )}
-              </div>
-
-              {/* Mobile View: Alternative High-Fidelity Cards Stack */}
-              <div className="md:hidden flex flex-col gap-6 w-full px-2 mt-4 pb-8">
+              <div className="flex flex-col gap-6 w-full px-2 mt-4 pb-8">
                 {projects.map((project, i) => (
                   <motion.div
                     key={project.id}

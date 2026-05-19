@@ -169,7 +169,7 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-[20px] overflow-hidden aspect-[4/5] bg-gray-200"
+              className="rounded-[20px] overflow-hidden aspect-[3/4] md:aspect-[4/5] bg-gray-200"
             >
               <img 
                 src={getOptimizedImageUrl(imagePairs[imageSet].left, 800)} 
@@ -178,7 +178,7 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
                 className="w-full h-full object-cover scale-110" 
               />
             </motion.div>
-            <div className="absolute top-20 -right-16 md:-right-24 z-20">
+            <div className="absolute left-1/2 -bottom-16 -translate-x-1/2 md:top-20 md:left-auto md:bottom-auto md:-right-24 md:translate-x-0 z-20">
               <button
                 onClick={handleNext}
                 className="w-32 h-32 md:w-48 md:h-48 bg-[#4b2e83] rounded-full flex items-center justify-center group hover:scale-110 transition-transform cursor-pointer active:scale-95 shadow-2xl"
@@ -194,7 +194,7 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="rounded-[20px] overflow-hidden aspect-[16/18] bg-gray-300"
+              className="rounded-[20px] overflow-hidden aspect-[4/3] md:aspect-[16/18] bg-gray-300"
             >
               <img 
                 src={getOptimizedImageUrl(imagePairs[imageSet].right, 1000)} 

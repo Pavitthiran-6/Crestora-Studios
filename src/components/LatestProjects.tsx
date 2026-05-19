@@ -52,7 +52,7 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
           alt={project.name}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700"
+          className="w-full h-full object-cover transition-all duration-700"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
 

@@ -417,7 +417,7 @@ export default function WorkDetailsPage() {
   }
 
   return (
-    <SmoothScrollProvider containerRef={containerRef} ease={0.09}>
+    <SmoothScrollProvider containerRef={containerRef} ease={0.07}>
       <div
         onScroll={(e) => (e.currentTarget.scrollTop = 0)}
         className="h-screen bg-black p-2 md:p-3 lg:p-4 font-sans select-none overflow-hidden"

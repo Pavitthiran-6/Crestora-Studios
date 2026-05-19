@@ -54,7 +54,7 @@ const HeroSection = ({ title }: { title: string }) => {
         >
           <CinematicText
             as="h1"
-            className="text-[16vw] md:text-[15vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#050505] mix-blend-multiply"
+            className="text-[18vw] md:text-[15vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#050505] mix-blend-multiply"
             intensity={1.2}
           >
             {title}

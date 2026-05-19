@@ -235,20 +235,20 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
           src={getOptimizedImageUrl(project.coverImage, 1200)} 
           alt="Background" 
           loading="lazy" 
-          className="w-full h-full object-cover opacity-30 grayscale" 
+          className="w-full h-full object-contain md:object-cover opacity-30 grayscale" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>
 
       <div className="absolute inset-0 z-10">
-          <div className="h-screen flex flex-col items-center justify-center text-center w-full overflow-hidden px-2 md:px-0">
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="w-full">
-              <CinematicText as="h2" className="text-[16vw] md:text-[12vw] lg:text-[10vw] font-display font-black text-white leading-[0.8] uppercase tracking-[-0.05em] break-words w-full" intensity={1.5}>
+        <Layout>
+          <div className="h-screen flex flex-col items-center justify-center text-center">
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <CinematicText as="h2" className="text-[16vw] md:text-[12vw] lg:text-[10vw] font-display font-black text-white leading-[0.8] uppercase tracking-[-0.05em]" intensity={1.5}>
                 UNIVERSAL<br />{project.title}
               </CinematicText>
             </motion.div>
           </div>
-        <Layout>
 
           <div className="h-screen flex items-center justify-center">
             <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="w-[95vw] md:w-full max-w-6xl md:max-w-7xl lg:max-w-[85vw] aspect-[4/3] md:aspect-video rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl relative group transform-gpu">

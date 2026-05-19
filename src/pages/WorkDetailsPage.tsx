@@ -256,7 +256,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
               {project.videoUrl ? (
                 <video
                   src={project.videoUrl}
-                  className="w-full h-full object-contain md:object-cover group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-fill md:object-cover group-hover:scale-105 transition-transform duration-1000"
                   autoPlay
                   muted
                   loop
@@ -268,7 +268,7 @@ const DeviceShowcaseSection = ({ project }: { project: Project }) => {
                     src={getOptimizedImageUrl(project.coverImage, 1200)} 
                     alt="Video Preview" 
                     loading="lazy" 
-                    className="w-full h-full object-contain md:object-cover group-hover:scale-110 transition-transform duration-1000" 
+                    className="w-full h-full object-fill md:object-cover group-hover:scale-110 transition-transform duration-1000" 
                   />
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl scale-100 group-hover:scale-110 transition-transform">

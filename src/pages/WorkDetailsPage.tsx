@@ -326,7 +326,7 @@ const VisionMilestonesSection = ({ project }: { project: Project }) => {
     <section className="pt-40 pb-40 bg-[#f5f5f3] relative z-10">
       <Layout>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-20 items-start">
-          <div className="md:col-span-6 sticky top-40">
+          <div className="md:col-span-6 relative md:sticky top-auto md:top-40">
             <CinematicText as="h2" className="text-6xl md:text-8xl font-display font-black text-[#050505] leading-[0.85] uppercase tracking-[-0.05em]" intensity={0.9}>
               VISION &<br />MILESTONES
             </CinematicText>

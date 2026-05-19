@@ -269,7 +269,7 @@ const TeamGridSection = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible gap-6 md:gap-10 pb-8 md:pb-0 scrollbar-hide snap-x snap-mandatory -mx-12 px-12 md:mx-0 md:px-0">
           {[
             {
               name: "Muhamed Abbas",
@@ -314,6 +314,7 @@ const TeamGridSection = () => {
                 delay: i * 0.1,
                 ease: [0.16, 1, 0.3, 1]
               }}
+              className="min-w-[240px] w-[240px] md:w-auto md:min-w-0 shrink-0 snap-center"
             >
               <ProfileCard
                 {...profile}

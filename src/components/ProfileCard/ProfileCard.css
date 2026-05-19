@@ -428,8 +428,11 @@
 }
 
 @media (max-width: 768px) {
+  .pc-card-wrapper {
+    touch-action: auto !important;
+  }
   .pc-card {
-    height: 70svh;
-    max-height: 450px;
+    height: auto !important;
+    max-height: none !important;
   }
 }

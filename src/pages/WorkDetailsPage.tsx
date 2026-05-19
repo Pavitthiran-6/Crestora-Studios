@@ -415,19 +415,22 @@ export default function WorkDetailsPage() {
         >
           <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} bgColor="#1f2547" textColor="#ffffff" closeBtnColor="#050505" />
           <div ref={containerRef} className="flex-1 overflow-y-auto overflow-x-visible relative scrollbar-hide flex flex-col">
-            <div className="sticky top-4 md:top-8 left-0 right-0 z-[100] px-6 md:px-20 py-6 md:py-10 flex justify-between items-center h-0 overflow-visible pointer-events-none">
+            <div className="sticky top-4 md:top-8 left-0 right-0 z-[100] px-4 md:px-20 py-4 md:py-10 flex justify-between items-center h-0 overflow-visible pointer-events-none">
               <div className="flex items-center">
                 <button onClick={() => triggerLogoTransition()} className="pointer-events-auto group">
                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
                     <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain p-1" />
                   </div>
                 </button>
-                <motion.div style={{ opacity: navOpacity, y: navY }} className="ml-8 hidden md:flex items-center gap-4 text-[10px] font-black tracking-[0.4em] uppercase pointer-events-auto">
+                <motion.div 
+                  style={{ opacity: navOpacity, y: navY }} 
+                  className="ml-2 md:ml-8 flex items-center gap-2 md:gap-4 text-[8px] md:text-[10px] font-black tracking-[0.15em] md:tracking-[0.4em] uppercase pointer-events-auto"
+                >
                   <span className="text-[#050505]/40 uppercase leading-none">W2C Studios</span>
-                  <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />
+                  <HexIcon className="w-1.5 h-1.5 md:w-2.5 md:h-2.5" fill="rgba(5, 5, 5, 0.4)" />
                   <button onClick={() => triggerPageTransition("/work")} className="text-[#050505]/40 hover:text-[#050505] transition-colors cursor-pointer uppercase">WORK</button>
-                  <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />
-                  <span className="text-[#050505] uppercase">{project.title}</span>
+                  <HexIcon className="w-1.5 h-1.5 md:w-2.5 md:h-2.5" fill="rgba(5, 5, 5, 0.4)" />
+                  <span className="text-[#050505] uppercase truncate max-w-[80px] md:max-w-none">{project.title}</span>
                 </motion.div>
               </div>
               <div className="flex items-center gap-10">

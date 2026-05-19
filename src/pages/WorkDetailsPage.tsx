@@ -470,7 +470,7 @@ export default function WorkDetailsPage() {
                       <CinematicText as="h2" className="text-7xl md:text-[10vw] font-display font-black text-[#050505] uppercase leading-[0.8] tracking-[-0.05em] group-hover:translate-x-10 transition-transform duration-700" intensity={1.0}>
                         {nextProject.title ? nextProject.title.split(' ')[0] : "NEXT"}<br />{nextProject.title ? nextProject.title.split(' ').slice(1).join(' ') : "PROJECT"}
                       </CinematicText>
-                      <div onClick={() => triggerPageTransition(`/work/${nextProject.slug}`)} className="flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-10 group-hover:translate-x-14 transition-transform cursor-pointer w-fit">
+                      <div onClick={() => triggerPageTransition(`/work/${nextProject.slug}`)} className="flex items-center gap-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 translate-x-0 md:translate-x-10 md:group-hover:translate-x-14 cursor-pointer w-fit">
                         <span className="text-xs font-display font-black tracking-widest text-[#050505]">VIEW CASE STUDY</span>
                         <div className="w-10 h-10 rounded-full border border-[#050505]/20 flex items-center justify-center group-hover:bg-[#050505] group-hover:text-white transition-colors"><span className="text-xl">→</span></div>
                       </div>

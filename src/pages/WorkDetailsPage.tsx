@@ -36,7 +36,7 @@ const HeroSection = ({ title }: { title: string }) => {
   return (
     <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3]">
       {/* Mobile-only tags at the top left corner of the hero section */}
-      <div className="md:hidden absolute top-28 left-8 sm:left-12 z-20 flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase pointer-events-auto">
+      <div className="md:hidden absolute top-20 left-6 sm:left-8 z-20 flex items-center gap-3 text-[10px] font-black tracking-[0.3em] uppercase pointer-events-auto">
         <span className="text-[#050505]/40 leading-none">W2C Studios</span>
         <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#ef4444" />
         <button onClick={() => triggerPageTransition("/work")} className="text-[#ef4444] uppercase leading-none cursor-pointer">WORK</button>

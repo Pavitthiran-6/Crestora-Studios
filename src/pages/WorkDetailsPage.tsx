@@ -228,11 +228,25 @@ const ImageCompositionSection = ({ project }: { project: Project }) => {
 
 const DeviceShowcaseSection = ({ project }: { project: Project }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const bgImageSrc = (project.slug === 'mavren' && isMobile)
+    ? 'https://ydqvaemrulbkyhflkbcb.supabase.co/storage/v1/object/public/project-images/c9gxhuz2of8.png'
+    : project.coverImage;
+
   return (
     <section ref={containerRef} className="relative min-h-[700vh] bg-black">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <img 
-          src={getOptimizedImageUrl(project.coverImage, 1200)} 
+          src={getOptimizedImageUrl(bgImageSrc, 1200)} 
           alt="Background" 
           loading="lazy" 
           className={`w-full h-full object-contain md:object-cover grayscale ${

@@ -34,9 +34,9 @@ const HeroSection = ({ title }: { title: string }) => {
   const globeOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3]">
+    <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3] flex flex-col">
       {/* Mobile-only tags at the top left corner of the hero section */}
-      <div className="md:hidden absolute top-[76px] left-4 z-20 flex items-center gap-1.5 text-[8px] font-black tracking-[0.2em] uppercase pointer-events-auto">
+      <div className="md:hidden pl-6 pt-24 pb-2 z-20 flex items-center gap-1.5 text-[8px] font-black tracking-[0.2em] uppercase pointer-events-auto">
         <span className="text-[#050505]/40 leading-none">W2C Studios</span>
         <HexIcon className="w-1.5 h-1.5 translate-y-[0.5px]" fill="#ef4444" />
         <button onClick={() => triggerPageTransition("/work")} className="text-[#ef4444] uppercase leading-none cursor-pointer">WORK</button>
@@ -44,7 +44,7 @@ const HeroSection = ({ title }: { title: string }) => {
         <span className="text-[#050505] leading-none truncate max-w-[100px]">{title}</span>
       </div>
 
-      <div className="relative h-full w-full flex flex-col items-center justify-center -top-10 md:-top-16">
+      <div className="relative flex-1 w-full flex flex-col items-center justify-center -top-4 md:-top-16">
         <motion.div 
           style={{ opacity: globeOpacity }} 
           className="absolute z-0 w-[130vw] h-[130vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:inset-0 md:w-full md:h-full md:translate-x-0 md:translate-y-0 pointer-events-none md:pointer-events-auto"

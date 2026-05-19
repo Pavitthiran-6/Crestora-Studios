@@ -37,7 +37,7 @@ const HeroSection = ({ title }: { title: string }) => {
       <div className="relative h-full w-full flex flex-col items-center justify-center -top-10 md:-top-16">
         <motion.div 
           style={{ opacity: globeOpacity }} 
-          className="absolute z-0 w-[100vw] h-[100vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:inset-0 md:w-full md:h-full md:translate-x-0 md:translate-y-0 pointer-events-none md:pointer-events-auto"
+          className="absolute z-0 w-[130vw] h-[130vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:inset-0 md:w-full md:h-full md:translate-x-0 md:translate-y-0 pointer-events-none md:pointer-events-auto"
         >
           <Canvas dpr={[1, 2]} performance={{ min: 0.5 }} gl={{ antialias: true, alpha: true }}>
             <PerspectiveCamera makeDefault position={[0, 0, 5]} />

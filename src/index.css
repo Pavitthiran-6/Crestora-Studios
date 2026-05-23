@@ -681,7 +681,7 @@
   /* Converts the floating transparent logo header into a premium glass bar, completely shielding content overlap */
   div.sticky.top-0.left-0.right-0.z-\[200\] {
     height: 60px !important;
-    background: rgba(31, 37, 71, 0.85) !important;
+    background: rgba(47, 65, 86, 0.85) !important;
     backdrop-filter: blur(12px) !important;
     -webkit-backdrop-filter: blur(12px) !important;
     pointer-events: auto !important;

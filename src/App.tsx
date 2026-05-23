@@ -24,6 +24,9 @@ import { KineticHeroText } from "./components/KineticHeroText";
 import { useTransition } from "./components/TransitionProvider";
 import { WaveMenu } from "./components/WaveMenu";
 import globeImg from "./holographic_globe.png";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { SciFiGlobe } from "./components/SciFiGlobe";
 import { cn } from "@/lib/utils";
 import { RecentWork } from "./components/RecentWork";
 import HexIcon from "./components/HexIcon";
@@ -241,13 +244,14 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    <div className="absolute left-1/2 top-[66%] -translate-x-1/2 -translate-y-1/2 w-[50vw] md:w-[35vw] lg:w-[28vw] h-auto z-10 opacity-50 mix-blend-screen pointer-events-none overflow-hidden [mask-image:radial-gradient(circle,white_45%,transparent_70%)]">
-                      <motion.img
-                        src={globeImg}
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                        className="w-full h-full object-contain translate-z-0 will-change-transform grayscale brightness-[2.5] contrast-125"
-                      />
+                    {/* Rotating Holographic 3D Globe */}
+                    <div className="absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 w-[55vw] h-[55vw] md:w-[36vw] md:h-[36vw] lg:w-[30vw] lg:h-[30vw] z-10 opacity-60 mix-blend-screen pointer-events-none [mask-image:radial-gradient(circle_at_center,white_55%,transparent_75%)]">
+                      <Canvas dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
+                        <PerspectiveCamera makeDefault position={[0, 0, 4.5]} fov={50} />
+                        <ambientLight intensity={0.3} />
+                        <pointLight position={[5, 5, 5]} intensity={1} color="#ffffff" />
+                        <SciFiGlobe />
+                      </Canvas>
                     </div>
 
                     {/* Typography Grid Overlay */}

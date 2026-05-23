@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 
-export const EarthGlobe = () => {
+export const EarthGlobe = ({ color = "#4b2e83" }: { color?: string }) => {
   const globeRef = useRef<THREE.Mesh>(null);
   const cloudRef = useRef<THREE.Mesh>(null);
 
@@ -23,8 +23,8 @@ export const EarthGlobe = () => {
       <mesh ref={globeRef}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial
-          color="#4b2e83"
-          emissive="#4b2e83"
+          color={color}
+          emissive={color}
           emissiveIntensity={0.2}
           wireframe
           transparent
@@ -36,7 +36,7 @@ export const EarthGlobe = () => {
       <mesh scale={1.05}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial
-          color="#4b2e83"
+          color={color}
           transparent
           opacity={0.1}
           side={THREE.BackSide}

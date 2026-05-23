@@ -45,11 +45,11 @@ export default function WorkPage() {
   return (
     <div 
       onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-      className="h-screen bg-[#ef4444] p-2 md:p-3 lg:p-4 font-sans select-none overflow-hidden"
+      className="h-screen bg-white p-2 md:p-3 lg:p-4 font-sans select-none overflow-hidden"
     >
       <div 
         onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-        className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#1f2547] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+        className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#2F4156] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
       >
         <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} />
         <div className="h-full relative overflow-hidden flex flex-col justify-center">
@@ -63,19 +63,19 @@ export default function WorkPage() {
                 </button>
                 <div className="hidden md:flex items-center gap-4 pointer-events-auto">
                   <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
-                  <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#ef4444" />
-                  <span className="text-[10px] font-black tracking-[0.4em] uppercase text-[#ef4444] leading-none">WORK</span>
+                  <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#567C8D" />
+                  <span className="text-[10px] font-black tracking-[0.4em] uppercase text-[#567C8D] leading-none">WORK</span>
                 </div>
               </div>
               <button onClick={() => setIsWaveOpen(!isWaveOpen)} className="relative z-[100] flex gap-3 md:gap-4 h-14 md:h-20 items-center cursor-pointer group pointer-events-auto">
                 <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
-                  <motion.div animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }} className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2" />
+                  <motion.div animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }} className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2" />
                 </div>
                 <div className="flex flex-col items-center h-6 md:h-10 w-px bg-white/50 relative">
                   <motion.div animate={{ opacity: isWaveOpen ? 0 : 1 }} className="absolute inset-0 bg-white/80" />
                 </div>
                 <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
-                  <motion.div animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }} className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2" />
+                  <motion.div animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }} className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2" />
                 </div>
               </button>
             </div>
@@ -85,7 +85,7 @@ export default function WorkPage() {
             <Layout className="flex flex-col gap-8 h-full relative">
               <div className="z-10 flex flex-col items-center text-center pointer-events-none">
                 <CinematicText as="h1" className="text-[12vw] md:text-[8vw] font-display font-black tracking-[-0.06em] leading-[0.8] uppercase text-white" intensity={1.2}>
-                  SELECTED <span className="text-[#ef4444]">PROJECTS</span>
+                  SELECTED <span className="text-[#567C8D]">PROJECTS</span>
                 </CinematicText>
               </div>
               <div className="absolute inset-0 w-full h-full flex items-center justify-center pt-24">
@@ -115,7 +115,7 @@ export default function WorkPage() {
             <Layout className="flex flex-col gap-8 relative">
               <div className="z-10 flex flex-col items-center text-center pointer-events-none">
                 <CinematicText as="h1" className="text-[12vw] md:text-[8vw] font-display font-black tracking-[-0.06em] leading-[0.8] uppercase text-white" intensity={1.2}>
-                  SELECTED <span className="text-[#ef4444]">PROJECTS</span>
+                  SELECTED <span className="text-[#567C8D]">PROJECTS</span>
                 </CinematicText>
               </div>
 
@@ -142,7 +142,7 @@ export default function WorkPage() {
                         <span className="text-white font-display font-black text-2xl uppercase tracking-tight leading-none">
                           {project.title}
                         </span>
-                        <span className="text-[9px] font-black tracking-[0.2em] text-[#ef4444] uppercase mt-2">
+                        <span className="text-[9px] font-black tracking-[0.2em] text-[#567C8D] uppercase mt-2">
                           {project.category || 'Creative Project'}
                         </span>
                       </div>

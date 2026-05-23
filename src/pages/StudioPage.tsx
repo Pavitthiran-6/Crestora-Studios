@@ -83,10 +83,10 @@ const HeroSection = () => {
         >
           <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
         </button>
-        <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#ef4444" />
+        <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#567C8D" />
         <span
           onClick={() => triggerPageTransition("/studio")}
-          className="text-[10px] font-black tracking-[0.4em] uppercase text-[#ef4444] hover:text-white transition-colors cursor-pointer leading-none"
+          className="text-[10px] font-black tracking-[0.4em] uppercase text-[#567C8D] hover:text-white transition-colors cursor-pointer leading-none"
         >
           STUDIO
         </span>
@@ -100,7 +100,7 @@ const HeroSection = () => {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={index}
-                  className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-100 md:scale-y-100 origin-center"
+                  className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#567C8D] flex overflow-hidden scale-y-100 md:scale-y-100 origin-center"
                 >
                   {ROTATING_STUDIO_TITLES[index].split("").map((char, i) => (
                     <motion.span
@@ -136,7 +136,7 @@ const HeroSection = () => {
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={`blended-${index}`}
-                  className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-100 md:scale-y-100 origin-center"
+                  className="text-[12vw] md:text-[9vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#567C8D] flex overflow-hidden scale-y-100 md:scale-y-100 origin-center"
                 >
                   {ROTATING_BLENDED_TITLES[index].split("").map((char, i) => (
                     <motion.span
@@ -172,7 +172,7 @@ const HeroSection = () => {
               </p>
               
               <div className="flex items-center gap-4 mt-2">
-                <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full animate-pulse shadow-[0_0_10px_#ef4444]" />
+                <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse shadow-[0_0_10px_#567C8D]" />
                 <span className="text-white/30 text-[8px] font-black tracking-[0.25em] uppercase">
                   SCROLL TO DISCOVER
                 </span>
@@ -212,15 +212,15 @@ const CreativeStudioSection = () => {
   }, []);
 
   return (
-    <section ref={container} className="pt-10 pb-20 md:py-40 bg-[#1f2547]">
+    <section ref={container} className="pt-10 pb-20 md:py-40 bg-[#2F4156]">
       <Layout className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
         <div className="md:col-span-5 space-y-8 order-2 md:order-1">
           <div className="flex items-center gap-4">
-            <div className="w-8 h-[1px] bg-[#ef4444]" />
-            <span className="text-[#ef4444] text-xs font-black tracking-[0.3em] uppercase">The Studio</span>
+            <div className="w-8 h-[1px] bg-[#567C8D]" />
+            <span className="text-[#567C8D] text-xs font-black tracking-[0.3em] uppercase">The Studio</span>
           </div>
           <CinematicText as="h2" intensity={-0.8} className="text-4xl md:text-6xl font-black uppercase leading-[1] text-white">
-            WE DESIGN,{"\n"}BUILD & SCALE{"\n"}YOUR <span className="text-[#ef4444]">VISION.</span>
+            WE DESIGN,{"\n"}BUILD & SCALE{"\n"}YOUR <span className="text-[#567C8D]">VISION.</span>
           </CinematicText>
           <p className="text-white/50 text-base md:text-xl leading-relaxed max-w-md font-medium uppercase">
             AT W2C Studios, WE CRAFT IMMERSIVE DIGITAL ECOSYSTEMS THAT MERGE DESIGN, STORYTELLING, MOTION, AND ENGINEERING INTO MEMORABLE BRAND EXPERIENCES.
@@ -237,7 +237,7 @@ const CreativeStudioSection = () => {
             damping: 15,
             mass: 1
           }}
-          className="md:col-span-7 overflow-hidden rounded-[20px] md:rounded-[40px] aspect-[3/4] md:aspect-[4/5] bg-[#1f2547] relative order-1 md:order-2"
+          className="md:col-span-7 overflow-hidden rounded-[20px] md:rounded-[40px] aspect-[3/4] md:aspect-[4/5] bg-[#2F4156] relative order-1 md:order-2"
         >
           <img
             ref={imgRef}
@@ -245,7 +245,7 @@ const CreativeStudioSection = () => {
             alt="Studio"
             className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1f2547] via-transparent to-transparent opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2F4156] via-transparent to-transparent opacity-40" />
         </motion.div>
       </Layout>
     </section>
@@ -254,17 +254,17 @@ const CreativeStudioSection = () => {
 
 const TeamGridSection = () => {
   return (
-    <section className="py-20 md:py-40 bg-[#1f2547]">
+    <section className="py-20 md:py-40 bg-[#2F4156]">
       <Layout className="max-w-[1800px] px-12 md:px-20 lg:px-24">
         <div className="flex flex-col items-center gap-8 mb-24 text-center">
           <div className="flex items-center gap-4">
-            <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#567C8D] rounded-full" />
             <span className="text-white text-[10px] font-black tracking-[0.3em] uppercase">LEADERSHIP TEAM</span>
-            <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full" />
+            <div className="w-1.5 h-1.5 bg-[#567C8D] rounded-full" />
           </div>
           <div className="w-full">
             <CinematicText as="h2" intensity={-0.8} className="text-5xl md:text-8xl font-black uppercase leading-[0.9] tracking-tight text-white max-w-5xl mx-auto">
-              WE ARE THE <span className="text-[#ef4444]">FOUNDERS</span>{"\n"}OF THIS <span className="text-[#ef4444]">COMPANY</span>
+              WE ARE THE <span className="text-[#567C8D]">FOUNDERS</span>{"\n"}OF THIS <span className="text-[#567C8D]">COMPANY</span>
             </CinematicText>
           </div>
         </div>
@@ -384,15 +384,15 @@ const TeamGridSection = () => {
 
 const ManifestoSection = () => {
   return (
-    <section className="py-20 md:py-40 bg-[#1f2547] border-y border-white/5">
+    <section className="py-20 md:py-40 bg-[#2F4156] border-y border-white/5">
       <Layout>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20 items-start">
           <div className="md:col-span-9 flex flex-col items-end justify-center text-right">
             <CinematicText as="h2" intensity={-0.8} className="text-[7vw] md:text-[6vw] font-black uppercase leading-[1.1] text-white tracking-[-0.01em]">
-              <span className="block md:whitespace-nowrap">WE OBSESSIVELY <span className="text-[#ef4444]">CREATE</span></span>
+              <span className="block md:whitespace-nowrap">WE OBSESSIVELY <span className="text-[#567C8D]">CREATE</span></span>
               <span className="block md:whitespace-nowrap">LEARN AND GROW</span>
-              <span className="block md:whitespace-nowrap text-[#ef4444]">COMPANIES AS</span>
-              <span className="block md:whitespace-nowrap">A <span className="text-[#ef4444]">TEAM</span></span>
+              <span className="block md:whitespace-nowrap text-[#567C8D]">COMPANIES AS</span>
+              <span className="block md:whitespace-nowrap">A <span className="text-[#567C8D]">TEAM</span></span>
             </CinematicText>
           </div>
 
@@ -400,7 +400,7 @@ const ManifestoSection = () => {
             <div className="flex items-center justify-between w-full">
               <div className="flex-1 h-[1px] bg-white/10" />
               <div className="flex items-center gap-3 px-6">
-                <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full" />
+                <div className="w-1.5 h-1.5 bg-[#567C8D] rounded-full" />
                 <span className="text-white text-[10px] font-black tracking-[0.3em] uppercase whitespace-nowrap">MANIFESTO</span>
               </div>
             </div>
@@ -433,11 +433,11 @@ const JourneyRow = ({ year, milestone, delay }: { year: string; milestone: strin
     >
       <div className="flex items-center gap-8">
         <span className="text-white/30 font-black text-xs tracking-widest">{year}</span>
-        <span className="text-white font-black uppercase text-xl md:text-2xl tracking-tight group-hover:text-[#ef4444] transition-colors">{milestone}</span>
+        <span className="text-white font-black uppercase text-xl md:text-2xl tracking-tight group-hover:text-[#567C8D] transition-colors">{milestone}</span>
       </div>
       <div className="flex items-center gap-4">
-        <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(239,68,68,0.8)]" />
-        <div className="w-8 h-[1px] bg-white/10 group-hover:w-16 group-hover:bg-[#ef4444] transition-all duration-500" />
+        <div className="w-1.5 h-1.5 bg-[#567C8D] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-[0_0_15px_rgba(239,68,68,0.8)]" />
+        <div className="w-8 h-[1px] bg-white/10 group-hover:w-16 group-hover:bg-[#567C8D] transition-all duration-500" />
       </div>
     </motion.div>
   );
@@ -463,7 +463,7 @@ const VisionJourneySection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="pt-24 pb-10 md:py-60 bg-[#1f2547] relative overflow-hidden">
+    <section ref={sectionRef} className="pt-24 pb-10 md:py-60 bg-[#2F4156] relative overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#232b5c] blur-[100px] rounded-full" />
@@ -478,17 +478,17 @@ const VisionJourneySection = () => {
           <div className="md:col-span-7 md:sticky md:top-40 flex flex-col items-end">
             <div className="space-y-4 mb-12 w-full max-w-4xl">
               <div className="flex items-center gap-4">
-                <div className="w-6 h-6 border border-[#ef4444] rotate-45 flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-[#ef4444]" />
+                <div className="w-6 h-6 border border-[#567C8D] rotate-45 flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 bg-[#567C8D]" />
                 </div>
-                <span className="text-[#ef4444] text-[10px] font-black tracking-[0.5em] uppercase">Vision & Journey</span>
+                <span className="text-[#567C8D] text-[10px] font-black tracking-[0.5em] uppercase">Vision & Journey</span>
               </div>
             </div>
 
             <CinematicText as="h2" intensity={-0.8} className="text-[10vw] md:text-[8.5vw] font-black uppercase leading-[1.15] md:leading-[0.8] text-white tracking-[-0.05em] select-none w-full text-left">
               STARTING{"\n"}
-              <span className="text-[#ef4444]">SMALL.</span>{"\n"}
-              <span className="text-[#ef4444]">THINKING</span>{"\n"}
+              <span className="text-[#567C8D]">SMALL.</span>{"\n"}
+              <span className="text-[#567C8D]">THINKING</span>{"\n"}
               MASSIVE.
             </CinematicText>
           </div>
@@ -497,12 +497,12 @@ const VisionJourneySection = () => {
           <div className="md:col-span-5 space-y-32">
             {/* Top Manifesto Paragraph */}
             <div className="space-y-8">
-              <div className="w-12 h-[1px] bg-[#ef4444]" />
+              <div className="w-12 h-[1px] bg-[#567C8D]" />
               <p className="text-white/80 text-xl md:text-2xl font-medium leading-relaxed italic">
                 "We are at the beginning of a long journey — crafting meaningful digital experiences with obsession, precision, and ambition."
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-1.5 h-1.5 bg-[#ef4444] rounded-full animate-ping" />
+                <div className="w-1.5 h-1.5 bg-[#567C8D] rounded-full animate-ping" />
                 <span className="text-white/40 text-[10px] font-black tracking-[0.3em] uppercase">Built for Excellence</span>
               </div>
             </div>
@@ -550,17 +550,17 @@ const CircleSection = () => {
   }, []);
 
   return (
-    <section ref={container} className="h-[60vh] md:h-screen bg-[#1f2547] relative flex items-center justify-center overflow-hidden">
-      <div ref={circle1} className="absolute w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] border border-[#ef4444]/20 rounded-full flex items-center justify-center">
-        <div className="w-[10px] h-[10px] bg-[#ef4444] rounded-full absolute top-0 left-1/2 -translate-x-1/2 blur-[2px]" />
+    <section ref={container} className="h-[60vh] md:h-screen bg-[#2F4156] relative flex items-center justify-center overflow-hidden">
+      <div ref={circle1} className="absolute w-[80vw] h-[80vw] md:w-[50vw] md:h-[50vw] border border-[#567C8D]/20 rounded-full flex items-center justify-center">
+        <div className="w-[10px] h-[10px] bg-[#567C8D] rounded-full absolute top-0 left-1/2 -translate-x-1/2 blur-[2px]" />
       </div>
-      <div ref={circle2} className="absolute w-[60vw] h-[60vw] md:w-[35vw] md:h-[35vw] border border-[#ef4444]/30 rounded-full">
-        <div className="w-[6px] h-[6px] bg-[#ef4444]/50 rounded-full absolute bottom-0 left-1/2 -translate-x-1/2" />
+      <div ref={circle2} className="absolute w-[60vw] h-[60vw] md:w-[35vw] md:h-[35vw] border border-[#567C8D]/30 rounded-full">
+        <div className="w-[6px] h-[6px] bg-[#567C8D]/50 rounded-full absolute bottom-0 left-1/2 -translate-x-1/2" />
       </div>
 
       <div className="relative z-10 text-center space-y-4">
         <div className="text-[15vw] md:text-[10vw] font-black text-white select-none uppercase tracking-tighter">
-          EST. 20<span className="text-[#ef4444]">26</span>
+          EST. 20<span className="text-[#567C8D]">26</span>
         </div>
       </div>
     </section>
@@ -569,16 +569,16 @@ const CircleSection = () => {
 
 const CreditsSection = () => {
   return (
-    <section className="py-24 bg-[#1f2547] border-t border-white/5 relative overflow-hidden">
+    <section className="py-24 bg-[#2F4156] border-t border-white/5 relative overflow-hidden">
       {/* Subtle Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[100%] bg-[#ef4444]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[50%] h-[100%] bg-[#567C8D]/5 blur-[120px] rounded-full pointer-events-none" />
       
       <Layout>
         <div className="flex flex-col items-center justify-center text-center space-y-8 relative z-10">
           <div className="flex items-center gap-3">
-            <div className="w-1 h-1 bg-[#ef4444] rounded-full" />
+            <div className="w-1 h-1 bg-[#567C8D] rounded-full" />
             <p className="text-white/50 text-[10px] font-black tracking-[0.5em] uppercase">Inspiration & Credits</p>
-            <div className="w-1 h-1 bg-[#ef4444] rounded-full" />
+            <div className="w-1 h-1 bg-[#567C8D] rounded-full" />
           </div>
           
           <a 
@@ -588,10 +588,10 @@ const CreditsSection = () => {
             className="group flex flex-col items-center gap-2 transition-all duration-500"
           >
             <span className="text-white/80 text-sm font-medium tracking-wide group-hover:text-white transition-colors">This experience was inspired by the craft of</span>
-            <span className="text-2xl md:text-5xl font-black text-white group-hover:text-[#ef4444] transition-all duration-500 tracking-tighter uppercase">
+            <span className="text-2xl md:text-5xl font-black text-white group-hover:text-[#567C8D] transition-all duration-500 tracking-tighter uppercase">
               Buzzworthy Studio
             </span>
-            <div className="w-0 group-hover:w-full h-[1px] bg-[#ef4444] transition-all duration-700" />
+            <div className="w-0 group-hover:w-full h-[1px] bg-[#567C8D] transition-all duration-700" />
           </a>
           
           <p className="text-white/30 text-[9px] font-black tracking-[0.2em] uppercase pt-10">
@@ -612,11 +612,11 @@ export default function StudioPage() {
     <SmoothScrollProvider containerRef={containerRef} ease={0.09}>
       <div 
         onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-        className="h-screen bg-[#ef4444] p-2 md:p-3 lg:p-4 font-display tracking-tight select-none overflow-hidden"
+        className="h-screen bg-[#567C8D] p-2 md:p-3 lg:p-4 font-display tracking-tight select-none overflow-hidden"
       >
         <div 
           onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-          className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#1f2547] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+          className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#2F4156] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
         >
           <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} />
 
@@ -636,7 +636,7 @@ export default function StudioPage() {
                 <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
                   <motion.div
                     animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }}
-                    className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2"
+                    className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
                   />
                 </div>
                 <div className="flex flex-col items-center h-6 md:h-10 w-px bg-white/50 relative">
@@ -648,7 +648,7 @@ export default function StudioPage() {
                 <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
                   <motion.div
                     animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }}
-                    className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2"
+                    className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
                   />
                 </div>
               </button>

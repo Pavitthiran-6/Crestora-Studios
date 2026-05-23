@@ -20,14 +20,14 @@ export const Preloader = () => {
             opacity: 0,
             transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
           }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#1f2547]"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#2F4156]"
         >
           {/* Wave Animation */}
           <div className="flex items-end gap-1.5 h-16 mb-8">
             {[...Array(5)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-1.5 bg-[#ef4444] rounded-full"
+                className="w-1.5 bg-[#567C8D] rounded-full"
                 animate={{
                   height: ["20%", "100%", "20%"]
                 }}
@@ -52,13 +52,13 @@ export const Preloader = () => {
               Initializing
             </span>
             <span className="text-xl font-display font-black tracking-[-0.04em] uppercase text-white">
-              W2C <span className="text-[#ef4444]">Studios</span>
+              W2C <span className="text-[#567C8D]">Studios</span>
             </span>
           </motion.div>
 
           {/* Scanning Line Parallax */}
           <motion.div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ef4444]/5 to-transparent h-[10vh] w-full"
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-[#567C8D]/5 to-transparent h-[10vh] w-full"
             animate={{ top: ["-10%", "110%"] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
           />

@@ -57,10 +57,10 @@ function ProjectCard({ project, index }: { project: any; index: number }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
 
         <div className="absolute bottom-10 left-10 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0">
-          <span className="text-xs font-black tracking-[0.3em] uppercase text-[#ef4444] mb-2 block">{project.id}</span>
+          <span className="text-xs font-black tracking-[0.3em] uppercase text-[#567C8D] mb-2 block">{project.id}</span>
           <div className="relative inline-block">
             <h4 className="text-3xl font-display font-black tracking-[-0.02em] uppercase text-white">{project.name}</h4>
-            <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#ef4444] scale-x-100 md:scale-x-0 md:group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+            <div className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#567C8D] scale-x-100 md:scale-x-0 md:group-hover:scale-x-100 transition-transform duration-500 origin-left" />
           </div>
           <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/60 block mt-2">{project.category}</span>
         </div>
@@ -99,18 +99,18 @@ export function LatestProjects() {
   }, []);
 
   return (
-    <section className="py-32 md:py-48 bg-[#1f2547]">
+    <section className="py-32 md:py-48 bg-[#2F4156]">
       <Layout>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
           {/* Left Side Title */}
           <div className="lg:col-span-4 lg:sticky lg:top-40 h-fit space-y-6">
             <div className="flex items-center gap-3">
-              <HexIcon className="w-3 h-3" fill="#ef4444" />
+              <HexIcon className="w-3 h-3" fill="#567C8D" />
               <CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase text-white">PORTFOLIO</CinematicText>
             </div>
             <CinematicText as="h2" className="text-6xl md:text-8xl font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white">
               LATEST<br />
-              <span className="text-[#ef4444]">PROJECTS<span className="text-white">.</span></span>
+              <span className="text-[#567C8D]">PROJECTS<span className="text-white">.</span></span>
             </CinematicText>
           </div>
 
@@ -134,7 +134,7 @@ export function LatestProjects() {
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "100%" }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-[#ef4444]"
+                className="absolute inset-0 bg-[#567C8D]"
               />
             </div>
           </motion.button>

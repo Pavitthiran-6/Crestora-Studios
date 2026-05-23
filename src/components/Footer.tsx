@@ -26,7 +26,7 @@ const SOCIALS = [
   { label: "Dribbble", href: "https://dribbble.com" },
 ];
 
-const RedHex = ({ size = "md", fill = "#ef4444" }: { size?: "sm" | "md" | "lg", fill?: string }) => {
+const RedHex = ({ size = "md", fill = "#567C8D" }: { size?: "sm" | "md" | "lg", fill?: string }) => {
   const s =
     size === "sm" ? "w-2 h-2" : size === "lg" ? "w-5 h-5" : "w-3 h-3 md:w-4 md:h-4";
   return (
@@ -38,8 +38,8 @@ const RedHex = ({ size = "md", fill = "#ef4444" }: { size?: "sm" | "md" | "lg", 
 
 const BlueprintLine = ({ isLight }: { isLight?: boolean }) => (
   <div className={`w-full h-px ${isLight ? 'bg-[#050505]/10' : 'bg-white/10'} relative my-5`}>
-    <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full border ${isLight ? 'border-[#050505]/20 bg-[#f5f5f3]' : 'border-white/20 bg-[#1f2547]'}`} />
-    <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full border ${isLight ? 'border-[#050505]/20 bg-[#f5f5f3]' : 'border-white/20 bg-[#1f2547]'}`} />
+    <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full border ${isLight ? 'border-[#050505]/20 bg-[#f5f5f3]' : 'border-white/20 bg-[#2F4156]'}`} />
+    <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full border ${isLight ? 'border-[#050505]/20 bg-[#f5f5f3]' : 'border-white/20 bg-[#2F4156]'}`} />
   </div>
 );
 
@@ -50,10 +50,10 @@ export const Footer = ({ isLight = false }: { isLight?: boolean }) => {
   const textColor = isLight ? "text-[#050505]" : "text-white";
   const subTextColor = isLight ? "text-[#050505]/40" : "text-white/40";
   const borderColor = isLight ? "border-[#050505]/10" : "border-white/10";
-  const hoverColor = isLight ? "#8b5cf6" : "#ef4444"; // Violet for light mode, Red for dark
+  const hoverColor = isLight ? "#8b5cf6" : "#567C8D"; // Violet for light mode, Red for dark
   const bgStyle = isLight 
     ? { background: "#f5f5f3" } 
-    : { background: "linear-gradient(160deg, #181c3a 0%, #1f2547 50%, #1f2547 100%)" };
+    : { background: "linear-gradient(160deg, #181c3a 0%, #2F4156 50%, #2F4156 100%)" };
 
   return (
     <footer className={`min-h-screen flex flex-col justify-between relative overflow-hidden ${textColor} font-sans py-8 md:py-10`}
@@ -72,7 +72,7 @@ export const Footer = ({ isLight = false }: { isLight?: boolean }) => {
       </div>
 
       {/* Red ambient glow top-right */}
-      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-[#ef4444]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-[#567C8D]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <Layout className="flex flex-col flex-1 justify-between gap-0 relative z-10">
 
@@ -169,7 +169,7 @@ export const Footer = ({ isLight = false }: { isLight?: boolean }) => {
             <span className={`text-[8px] font-black tracking-[0.25em] uppercase block mb-3 ${textColor}`}>
               NEWSLETTER
             </span>
-            <div className={`relative border-b ${borderColor} group focus-within:border-[#ef4444] transition-colors`}>
+            <div className={`relative border-b ${borderColor} group focus-within:border-[#567C8D] transition-colors`}>
               <input
                 type="email"
                 value={email}

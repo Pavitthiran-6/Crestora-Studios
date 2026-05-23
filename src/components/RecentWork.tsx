@@ -9,7 +9,7 @@ import { Project } from "../types/project";
 import { getOptimizedImageUrl } from "../utils/imageOptimizer";
 
 // Local SVGs to avoid any external icon dependency crashes
-const HexIcon = ({ className = "", fill = "#ef4444" }) => (
+const HexIcon = ({ className = "", fill = "#567C8D" }) => (
   <svg viewBox="0 0 24 24" className={className} xmlns="http://www.w3.org/2000/svg">
     <path d="M12 2l9.5 5.5v11L12 24l-9.5-5.5v-11z" fill={fill} />
   </svg>
@@ -97,13 +97,13 @@ const StickyCard_001 = ({
                   {service.label}
                 </span>
               )) : (
-                <span className="text-[8px] md:text-[10px] font-black tracking-[0.2em] text-[#ef4444] border border-[#ef4444]/20 px-2 py-1 rounded-sm uppercase backdrop-blur-sm">
+                <span className="text-[8px] md:text-[10px] font-black tracking-[0.2em] text-[#567C8D] border border-[#567C8D]/20 px-2 py-1 rounded-sm uppercase backdrop-blur-sm">
                   {project.category}
                 </span>
               )}
             </div>
             <h3 className="text-white text-3xl sm:text-4xl md:text-5xl font-display font-black uppercase leading-tight tracking-tighter">
-              <span className="text-[#ef4444]">{project.title.split(' ')[0]}</span>
+              <span className="text-[#567C8D]">{project.title.split(' ')[0]}</span>
               {project.title.split(' ').length > 1 ? ` ${project.title.split(' ').slice(1).join(' ')}` : ''}
             </h3>
           </div>
@@ -114,7 +114,7 @@ const StickyCard_001 = ({
           <div className="w-48 h-px bg-white/10 overflow-hidden z-50 mt-12 shrink-0">
             <motion.div
               style={{ scaleX: progress }}
-              className="h-full bg-[#ef4444] origin-left"
+              className="h-full bg-[#567C8D] origin-left"
             />
           </div>
         )}
@@ -207,7 +207,7 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#1f2547] h-[190vh] md:h-[350vh] recent-work-section"
+      className="relative w-full bg-[#2F4156] h-[190vh] md:h-[350vh] recent-work-section"
     >
       <Layout className="relative h-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 h-full items-start">
@@ -216,13 +216,13 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
           <div className="lg:col-span-5 h-full pt-32 hidden lg:block">
             <div className="sticky top-40 flex flex-col gap-6">
               <div className="flex items-center gap-3">
-                <HexIcon className="w-3.5 h-3.5" fill="#ef4444" />
+                <HexIcon className="w-3.5 h-3.5" fill="#567C8D" />
                 <span className="text-white text-[10px] md:text-xs font-black tracking-[0.3em] uppercase whitespace-nowrap opacity-60">SELECTED PROJECTS</span>
               </div>
               <h2 className="text-white text-5xl md:text-7xl lg:text-8xl font-display font-black leading-[0.85] tracking-tighter uppercase cursor-default">
-                <CinematicText as="span" className="text-[#ef4444] hover:text-white transition-colors duration-500" intensity={1.0}>RECENT</CinematicText>
+                <CinematicText as="span" className="text-[#567C8D] hover:text-white transition-colors duration-500" intensity={1.0}>RECENT</CinematicText>
                 <br />
-                <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" intensity={1.0}>WORK.</CinematicText>
+                <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" intensity={1.0}>WORK.</CinematicText>
               </h2>
 
               <motion.button
@@ -231,7 +231,7 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
                 onClick={() => triggerPageTransition("/work")}
                 className="group flex items-center gap-6 cursor-pointer mt-12 w-fit"
               >
-                <div className="w-14 h-14 rounded-full bg-[#ef4444] flex items-center justify-center shadow-[0_20px_50px_rgba(239,68,68,0.3)] group-hover:shadow-[0_25px_60px_rgba(239,68,68,0.5)] transition-all duration-500">
+                <div className="w-14 h-14 rounded-full bg-[#567C8D] flex items-center justify-center shadow-[0_20px_50px_rgba(86,124,141,0.3)] group-hover:shadow-[0_25px_60px_rgba(86,124,141,0.5)] transition-all duration-500">
                   <ArrowIcon className="w-7 h-7 text-white" />
                 </div>
                 <span className="text-white text-[10px] md:text-xs font-black tracking-[0.4em] uppercase opacity-40 group-hover:opacity-100 transition-opacity">
@@ -245,7 +245,7 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
           <div className="col-span-1 lg:col-span-7 relative h-full flex flex-col items-center justify-start pb-24 md:pb-0">
             <div className="lg:hidden pt-12 mb-6">
               <h2 className="text-white text-6xl font-display font-black uppercase leading-tight tracking-tighter">
-                RECENT<br /><span className="text-[#ef4444]">WORK.</span>
+                RECENT<br /><span className="text-[#567C8D]">WORK.</span>
               </h2>
             </div>
 
@@ -258,7 +258,7 @@ export const RecentWork = ({ containerRef }: { containerRef: React.RefObject<HTM
       <div className="hidden md:block absolute bottom-12 left-1/2 -translate-x-1/2 w-48 h-px bg-white/10 overflow-hidden z-50">
         <motion.div
           style={{ scaleX: scrollYProgress }}
-          className="h-full bg-[#ef4444] origin-left"
+          className="h-full bg-[#567C8D] origin-left"
         />
       </div>
     </section>

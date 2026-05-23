@@ -46,14 +46,14 @@ const LoadingScreen = () => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="fixed inset-0 z-[9999] bg-[#1f2547] flex items-center justify-center p-12"
+      className="fixed inset-0 z-[9999] bg-[#2F4156] flex items-center justify-center p-12"
     >
       <div className="w-full max-w-[120px]">
         <svg viewBox="0 0 200 40" className="w-full h-auto overflow-visible">
           <motion.path
             d="M0,20 Q10,15 20,25 T40,15 T60,25 T80,10 T100,30 T120,10 T140,25 T160,15 T180,25 T200,20"
             fill="none"
-            stroke="#ef4444"
+            stroke="#567C8D"
             strokeWidth="8"
             strokeLinecap="round"
             strokeDasharray="400"
@@ -115,12 +115,12 @@ export default function App() {
       <>
         <div 
           onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-          className={`h-screen bg-[#ef4444] p-2 md:p-3 lg:p-4 font-sans select-none transition-colors duration-700 ${isWaveOpen ? "wave-open" : ""}`}
+          className={`h-screen bg-white p-2 md:p-3 lg:p-4 font-sans select-none transition-colors duration-700 ${isWaveOpen ? "wave-open" : ""}`}
         >
           {/* Main Container Wrapper - FIXED HEIGHT */}
           <div 
             onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-            className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#1f2547] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+            className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#2F4156] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
           >
             <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} />
 
@@ -166,7 +166,7 @@ export default function App() {
                     <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
                       <motion.div
                         animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }}
-                        className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2"
+                        className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
                       />
                     </div>
                     <div className="flex flex-col items-center h-6 md:h-10 w-px bg-white/50 relative">
@@ -178,7 +178,7 @@ export default function App() {
                     <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
                       <motion.div
                         animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }}
-                        className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2"
+                        className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
                       />
                     </div>
                   </button>
@@ -231,7 +231,7 @@ export default function App() {
                                 strokeWidth="0.5" />
                             </pattern>
                             <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-                              <stop offset="0%" stopColor="#ef4444" stopOpacity="0.25" />
+                              <stop offset="0%" stopColor="#567C8D" stopOpacity="0.25" />
                               <stop offset="100%" stopColor="#1e1b4b" stopOpacity="0" />
                             </radialGradient>
                           </defs>
@@ -241,13 +241,12 @@ export default function App() {
                       </motion.div>
                     </div>
 
-                    {/* Rotating Holographic Globe */}
                     <div className="absolute left-1/2 top-[66%] -translate-x-1/2 -translate-y-1/2 w-[50vw] md:w-[35vw] lg:w-[28vw] h-auto z-10 opacity-50 mix-blend-screen pointer-events-none overflow-hidden [mask-image:radial-gradient(circle,white_45%,transparent_70%)]">
                       <motion.img
                         src={globeImg}
                         animate={{ rotate: 360 }}
                         transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                        className="w-full h-full object-contain translate-z-0 will-change-transform"
+                        className="w-full h-full object-contain translate-z-0 will-change-transform grayscale brightness-[2.5] contrast-125"
                       />
                     </div>
 
@@ -257,7 +256,7 @@ export default function App() {
                         <KineticHeroText
                           key={`creative-${heroKey}`}
                           as="h1"
-                          className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-white pointer-events-auto hover:text-[#ef4444] transition-colors duration-500 font-black"
+                          className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-white pointer-events-auto hover:text-[#567C8D] transition-colors duration-500 font-black"
                           delay={0.2}
                         >
                           CREATIVE
@@ -267,7 +266,7 @@ export default function App() {
                         <KineticHeroText
                           key={`web-${heroKey}`}
                           as="span"
-                          className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-[#ef4444] pointer-events-auto hover:text-white transition-colors duration-500 font-black"
+                          className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-[#567C8D] pointer-events-auto hover:text-white transition-colors duration-500 font-black"
                           delay={0.4}
                         >
                           WEB
@@ -275,7 +274,7 @@ export default function App() {
                         <KineticHeroText
                           key={`studio-${heroKey}`}
                           as="span"
-                          className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-white pointer-events-auto hover:text-[#ef4444] transition-colors duration-500 font-black"
+                          className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-white pointer-events-auto hover:text-[#567C8D] transition-colors duration-500 font-black"
                           delay={0.6}
                         >
                           STUDIO
@@ -315,19 +314,19 @@ export default function App() {
               </section>
 
               {/* SECTION 2: ABOUT */}
-              <section className="min-h-screen bg-[#1f2547] relative py-32 overflow-hidden shrink-0 transform-gpu translate-z-0">
+              <section className="min-h-screen bg-[#2F4156] relative py-32 overflow-hidden shrink-0 transform-gpu translate-z-0">
                 <Layout className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start h-full">
                   {/* Background red ambient glow */}
                   <motion.div
                     animate={{ opacity: [0.1, 0.2, 0.1] }}
                     transition={{ duration: 5, repeat: Infinity }}
-                    className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#ef4444]/10 blur-[120px] rounded-full pointer-events-none will-change-opacity transform-gpu translate-z-0"
+                    className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#567C8D]/10 blur-[120px] rounded-full pointer-events-none will-change-opacity transform-gpu translate-z-0"
                   />
 
                   {/* Left Side: About Label (Col 1-2) */}
                   <div className="md:col-span-2 flex items-start pt-2 md:sticky md:top-40 z-20">
                     <div className="flex items-center gap-3">
-                      <HexIcon className="w-3.5 h-3.5" fill="#ef4444" />
+                      <HexIcon className="w-3.5 h-3.5" fill="#567C8D" />
                       <span className="text-white text-[10px] md:text-[11px] font-black tracking-[0.3em] uppercase whitespace-nowrap">ABOUT</span>
                     </div>
                   </div>
@@ -361,8 +360,8 @@ export default function App() {
                           className={cn(
                             "text-4xl md:text-5xl lg:text-[4.5vw] leading-[1.05] uppercase transition-colors duration-500 cursor-default flex flex-wrap",
                             ["INNOVATIVE DESIGN", "DIGITAL MARKETING", "FORWARD."].includes(line)
-                              ? "text-[#ef4444] hover:text-white"
-                              : "text-white hover:text-[#ef4444]"
+                              ? "text-[#567C8D] hover:text-white"
+                              : "text-white hover:text-[#567C8D]"
                           )}
                           intensity={0.75}
                         >

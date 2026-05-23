@@ -110,8 +110,8 @@ const RisingLetter: React.FC<RisingLetterProps & { zIndex: number }> = ({ char, 
       className={cn(
         "relative text-[25vw] md:text-[22vw] font-display font-black leading-none tracking-[-0.04em] transition-colors duration-500 cursor-default pointer-events-auto",
         isRed
-          ? "text-[#ef4444] hover:text-white"
-          : "text-white hover:text-[#ef4444]"
+          ? "text-[#567C8D] hover:text-white"
+          : "text-white hover:text-[#567C8D]"
       )}
     >
       {char}
@@ -140,7 +140,7 @@ export const Milestones = ({ containerRef }: { containerRef: React.RefObject<HTM
 
   // Intertwined Layering: Some letters are in front, some are behind
   return (
-    <section ref={sectionRef} className="relative h-[300vh] bg-[#1f2547]">
+    <section ref={sectionRef} className="relative h-[300vh] bg-[#2F4156]">
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center">
 
         {/* MERGED INTERTWINED STACK */}
@@ -185,7 +185,7 @@ export const Milestones = ({ containerRef }: { containerRef: React.RefObject<HTM
         {/* DECORATIVE ELEMENTS */}
         <div className="absolute bottom-12 left-12 md:left-20 z-40">
           <div className="flex flex-col gap-2">
-            <span className="text-[#ef4444] text-[10px] font-black tracking-[0.5em] uppercase">MOMENTUM</span>
+            <span className="text-[#567C8D] text-[10px] font-black tracking-[0.5em] uppercase">MOMENTUM</span>
             <div className="w-12 h-[1px] bg-white/20" />
             <span className="text-white/30 text-[10px] font-black tracking-[0.2em] uppercase">05 / MILESTONES</span>
           </div>
@@ -234,7 +234,7 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({ item, progress, index, zI
       }}
       className="absolute flex-shrink-0 group pointer-events-auto"
     >
-      <div className="relative w-[32vw] md:w-[18vw] lg:w-[12vw] aspect-[1/1.4] bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-none overflow-hidden shadow-2xl transition-all duration-700 group-hover:border-[#ef4444]/30">
+      <div className="relative w-[32vw] md:w-[18vw] lg:w-[12vw] aspect-[1/1.4] bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-none overflow-hidden shadow-2xl transition-all duration-700 group-hover:border-[#567C8D]/30">
         <img
           src={item.image}
           alt={item.title}
@@ -244,7 +244,7 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({ item, progress, index, zI
         {/* Overlay Content */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 md:p-6 flex flex-col justify-end">
           <motion.span
-            className="text-[#ef4444] text-[8px] md:text-[10px] font-black tracking-[0.3em] uppercase mb-1"
+            className="text-[#567C8D] text-[8px] md:text-[10px] font-black tracking-[0.3em] uppercase mb-1"
           >
             {item.subtitle}
           </motion.span>
@@ -255,7 +255,7 @@ const MilestoneCard: React.FC<MilestoneCardProps> = ({ item, progress, index, zI
 
         {/* Decorative Detail */}
         <div className="absolute top-4 right-4">
-          <div className="w-1 h-1 rounded-full bg-[#ef4444]" />
+          <div className="w-1 h-1 rounded-full bg-[#567C8D]" />
         </div>
       </div>
     </motion.div>

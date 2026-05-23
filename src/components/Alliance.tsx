@@ -125,7 +125,7 @@ export const Alliance = ({ containerRef }: { containerRef: React.RefObject<HTMLD
   return (
     <section 
       ref={sectionRef} 
-      className="bg-[#1f2547] relative h-[250vh] alliance-section"
+      className="bg-[#2F4156] relative h-[250vh] alliance-section"
       style={isMobile && sectionHeight ? { height: `${sectionHeight}px` } : undefined}
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center py-8 md:py-12">
@@ -138,7 +138,7 @@ export const Alliance = ({ containerRef }: { containerRef: React.RefObject<HTMLD
               <div className="flex flex-col gap-12">
                 {/* Label */}
                 <div className="flex items-center gap-3">
-                  <HexIcon className="w-3.5 h-3.5" fill="#ef4444" />
+                  <HexIcon className="w-3.5 h-3.5" fill="#567C8D" />
                   <span className="text-white text-[10px] md:text-xs font-black tracking-[0.3em] uppercase whitespace-nowrap">
                     CREATIVE ALLIANCE
                   </span>
@@ -154,12 +154,12 @@ export const Alliance = ({ containerRef }: { containerRef: React.RefObject<HTMLD
             {/* Right Column: Main Heading */}
             <div className="lg:col-span-7">
               <h2 className="text-white text-[10vw] lg:text-[6.5vw] font-black leading-[0.85] tracking-tighter uppercase relative cursor-default">
-                <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" progress={textProgress}>BUILD THE</CinematicText><br />
-                <CinematicText as="span" className="text-[#ef4444] hover:text-white transition-colors duration-500" progress={textProgress}>GRAPHORIA</CinematicText><br />
+                <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" progress={textProgress}>BUILD THE</CinematicText><br />
+                <CinematicText as="span" className="text-[#567C8D] hover:text-white transition-colors duration-500" progress={textProgress}>GRAPHORIA</CinematicText><br />
                 <div className="flex items-baseline gap-4">
-                  <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" progress={textProgress}>EXPERIENCE</CinematicText>
+                  <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" progress={textProgress}>EXPERIENCE</CinematicText>
                   {/* Red Hexagon Accent */}
-                  <HexIcon className="w-[2.5vw] h-[2.5vw]" fill="#ef4444" />
+                  <HexIcon className="w-[2.5vw] h-[2.5vw]" fill="#567C8D" />
                 </div>
               </h2>
             </div>
@@ -227,7 +227,7 @@ const PartnerCard = ({ partner, i }: PartnerProps) => (
       className="absolute inset-0 flex items-center justify-center pointer-events-none z-20"
     >
       <div className="w-32 h-32 md:w-40 md:h-40 flex flex-col items-center justify-center text-white relative">
-        <HexIcon className="absolute inset-0 w-full h-full drop-shadow-[0_20px_40px_rgba(239,68,68,0.3)]" fill="#ef4444" />
+        <HexIcon className="absolute inset-0 w-full h-full drop-shadow-[0_20px_40px_rgba(86,124,141,0.3)]" fill="#567C8D" />
         <div className="relative z-10 flex flex-col items-center justify-center p-4">
           <span className="text-xl md:text-4xl font-display font-black tracking-[-0.04em]">{partner.stat}</span>
           <span className="text-[8px] md:text-[10px] font-display font-black tracking-[0.2em] uppercase text-center leading-tight mt-1 px-4">

@@ -96,11 +96,11 @@ export const Testimonials = () => {
   }, [activeReviews]);
 
   return (
-    <section className="bg-[#1f2547] py-32 md:py-48 relative overflow-hidden">
+    <section className="bg-[#2F4156] py-32 md:py-48 relative overflow-hidden">
       {/* Background Decorative Ambient */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-        <div className="absolute top-1/4 right-0 w-[40vw] h-[40vw] bg-[#ef4444]/5 blur-[120px] rounded-full" />
-        <div className="absolute bottom-1/4 left-0 w-[40vw] h-[40vw] bg-[#ef4444]/5 blur-[120px] rounded-full" />
+        <div className="absolute top-1/4 right-0 w-[40vw] h-[40vw] bg-[#567C8D]/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 left-0 w-[40vw] h-[40vw] bg-[#567C8D]/5 blur-[120px] rounded-full" />
       </div>
 
       <Layout className="relative z-10">
@@ -109,19 +109,19 @@ export const Testimonials = () => {
           {/* Left Side: Title */}
           <div className="md:col-span-6 space-y-8">
             <div className="flex items-center gap-3">
-              <HexIcon className="w-2.5 h-2.5" fill="#ef4444" />
+              <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
               <span className="text-white/40 text-[10px] md:text-xs font-black tracking-[0.4em] uppercase">CLIENT TRUST</span>
             </div>
             <h2 className="text-white text-5xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tighter uppercase cursor-default">
-              <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" intensity={1.0}>REAL</CinematicText>
+              <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" intensity={1.0}>REAL</CinematicText>
               <br />
-              <CinematicText as="span" className="text-[#ef4444] hover:text-white transition-colors duration-500" intensity={1.0}>PARTNERS.</CinematicText>
+              <CinematicText as="span" className="text-[#567C8D] hover:text-white transition-colors duration-500" intensity={1.0}>PARTNERS.</CinematicText>
               <br />
-              <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" intensity={1.0}>REAL</CinematicText>
+              <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" intensity={1.0}>REAL</CinematicText>
               <br />
               <div className="flex flex-row items-baseline">
-                <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" intensity={1.0}>RESULTS</CinematicText>
-                <CinematicText as="span" className="hover:text-[#ef4444] transition-colors duration-500" intensity={1.0}>.</CinematicText>
+                <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" intensity={1.0}>RESULTS</CinematicText>
+                <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" intensity={1.0}>.</CinematicText>
               </div>
             </h2>
           </div>
@@ -141,7 +141,7 @@ export const Testimonials = () => {
               >
                 <HexIcon className="absolute inset-0 w-full h-full opacity-10 group-hover:opacity-30 transition-opacity duration-500" fill="white" />
                 <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center">
-                  <span className="text-2xl md:text-3xl lg:text-4xl font-display font-black tracking-[-0.04em] text-white group-hover:text-[#ef4444] transition-colors">
+                  <span className="text-2xl md:text-3xl lg:text-4xl font-display font-black tracking-[-0.04em] text-white group-hover:text-[#567C8D] transition-colors">
                     {stat.value}
                   </span>
                   <span className="text-[8px] md:text-[9px] lg:text-[10px] font-display font-black tracking-[0.15em] uppercase text-white/40 mt-1 leading-tight px-2">
@@ -191,11 +191,11 @@ const ReviewCard: React.FC<{ data: { name: string; role: string; text: string; a
       viewport={{ once: true }}
       transition={{ delay: 0.2 + (index * 0.1), duration: 0.8 }}
       whileHover={{ y: -5 }}
-      className="w-[85vw] md:w-[460px] min-h-[300px] md:h-[340px] bg-[#1a1e3b] border border-white/5 p-8 md:p-10 rounded-[32px] relative group transition-all duration-500 hover:border-white/10 shadow-2xl flex flex-col shrink-0"
+      className="w-[85vw] md:w-[460px] min-h-[300px] md:h-[340px] bg-[#232b5c] border border-white/5 p-8 md:p-10 rounded-[32px] relative group transition-all duration-500 hover:border-white/10 shadow-2xl flex flex-col shrink-0"
     >
       {/* Top Label: Red Dot + Name/Company */}
       <div className="flex items-center gap-3 mb-10 shrink-0">
-        <HexIcon className="w-3.5 h-3.5" fill="#ef4444" />
+        <HexIcon className="w-3.5 h-3.5" fill="#567C8D" />
         <span className="text-white font-display font-black text-[10px] md:text-xs tracking-[-0.02em] uppercase opacity-80">
           {data.name} / {data.role}
         </span>

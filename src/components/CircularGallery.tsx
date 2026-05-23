@@ -40,7 +40,7 @@ function createDetailsTexture(gl: any, text: string, category: string, font = '9
   // Category DNA
   context.font = '900 24px "Big Shoulders Display", sans-serif';
   if ('letterSpacing' in context) (context as any).letterSpacing = "12px";
-  context.fillStyle = '#ef4444';
+  context.fillStyle = '#567C8D';
   context.textAlign = 'center';
   context.fillText(category.toUpperCase(), 400, 300);
 
@@ -69,7 +69,7 @@ function createDetailsTexture(gl: any, text: string, category: string, font = '9
 
   // Draw DNA Split (Exact Headline Match)
   context.textAlign = 'left';
-  context.fillStyle = '#ef4444'; // Standard Brand Red
+  context.fillStyle = '#567C8D'; // Standard Brand Red
   context.fillText(part1, startX, 400);
 
   context.fillStyle = 'white'; // Pure White

@@ -16,8 +16,8 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
   isOpen, 
   onClose, 
   bgColor = "#ffffff",
-  textColor = "#1f2547",
-  closeBtnColor = "#ef4444"
+  textColor = "#2F4156",
+  closeBtnColor = "#567C8D"
 }) => {
   const navigate = useNavigate();
   const waveRef = useRef<HTMLDivElement>(null);
@@ -97,14 +97,14 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
                     onClose();
                     triggerPageTransition(item.path);
                   }}
-                  whileHover={{ color: "#ef4444" }}
-                  whileTap={{ color: "#ef4444", scale: 0.95 }}
+                  whileHover={{ color: "#567C8D" }}
+                  whileTap={{ color: "#567C8D", scale: 0.95 }}
                   className="text-xl md:text-3xl lg:text-[4.5vw] font-display font-black tracking-tighter cursor-pointer whitespace-nowrap uppercase flex items-baseline gap-1"
                   style={{ color: textColor }}
                 >
-                  {item.label}<HexIcon className="w-[1vw] h-[1vw]" fill="#ef4444" />
+                  {item.label}<HexIcon className="w-[1vw] h-[1vw]" fill="#567C8D" />
                 </motion.span>
-                {index < navItems.length - 1 && <HexIcon className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 lg:w-3.5 lg:h-3.5" fill="#ef4444" />}
+                {index < navItems.length - 1 && <HexIcon className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 lg:w-3.5 lg:h-3.5" fill="#567C8D" />}
               </div>
             ))}
           </nav>
@@ -116,7 +116,7 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
             </div>
             <div className={`flex flex-col items-center h-8 md:h-10 w-px relative`} style={{ backgroundColor: textColor + '66' }}>
                <motion.div animate={{ y: isOpen ? -20 : 0 }} className="absolute bottom-0 -translate-x-1/2 left-1/2">
-                 <HexIcon className="w-1.5 md:w-2 h-1.5 md:h-2 shadow-[0_0_10px_#ef4444]" fill="#ef4444" />
+                 <HexIcon className="w-1.5 md:w-2 h-1.5 md:h-2 shadow-[0_0_10px_#567C8D]" fill="#567C8D" />
                </motion.div>
             </div>
             <div className={`flex flex-col items-center h-8 md:h-10 w-px relative`} style={{ backgroundColor: textColor + '33' }} />
@@ -126,8 +126,8 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
           {["LINKEDIN", "INSTAGRAM", "TWITTER", "BEHANCE", "DRIBBBLE"].map((link) => (
             <motion.span 
               key={link} 
-              whileHover={{ color: "#ef4444" }}
-              whileTap={{ color: "#ef4444", scale: 0.9 }}
+              whileHover={{ color: "#567C8D" }}
+              whileTap={{ color: "#567C8D", scale: 0.9 }}
               className="text-[7px] md:text-[9px] font-black tracking-[0.3em] cursor-pointer uppercase" 
               style={{ color: textColor }}
             >

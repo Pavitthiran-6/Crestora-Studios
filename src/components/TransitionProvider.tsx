@@ -119,7 +119,7 @@ export const TransitionProvider: React.FC<{ children: React.ReactNode }> = ({ ch
           whileTap={{ scale: 0.9 }}
           onClick={() => navigate("/contact")}
           className="fixed bottom-8 md:bottom-12 right-6 md:right-16 z-[150] w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.1)] pointer-events-auto cursor-pointer"
-          style={{ backgroundColor: location.pathname.startsWith("/work/") ? "#050505" : "#ef4444" }}
+          style={{ backgroundColor: location.pathname.startsWith("/work/") ? "#050505" : "#567C8D" }}
         >
           <Pencil className="text-white w-5 h-5 md:w-7 md:h-7" />
         </motion.button>
@@ -156,7 +156,7 @@ const GeometricShutterTransition = ({ isActive }: { isActive: boolean }) => {
             animate={{ x: "-120%", y: "120%" }}
             exit={{ x: "-220%", y: "220%" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 bg-[#ef4444] z-20 origin-center scale-150"
+            className="absolute inset-0 bg-[#567C8D] z-20 origin-center scale-150"
           />
 
           {/* Bottom-Left Panel (Dark Blue) */}
@@ -165,7 +165,7 @@ const GeometricShutterTransition = ({ isActive }: { isActive: boolean }) => {
             animate={{ x: "120%", y: "-120%" }}
             exit={{ x: "220%", y: "-220%" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
-            className="absolute inset-0 bg-[#1f2547] z-10 origin-center scale-150"
+            className="absolute inset-0 bg-[#2F4156] z-10 origin-center scale-150"
           />
 
           {/* Central Logo Flash */}
@@ -186,7 +186,7 @@ const GeometricShutterTransition = ({ isActive }: { isActive: boolean }) => {
                 transition={{ duration: 0.4, delay: 0.3 }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <svg viewBox="0 0 24 24" className="w-24 h-24 fill-[#ef4444]" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" className="w-24 h-24 fill-[#567C8D]" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9zm0-16.5c-4.14 0-7.5 3.36-7.5 7.5s3.36 7.5 7.5 7.5 7.5-3.36 7.5-7.5-3.36-7.5-7.5-7.5zm.75 12c-1.24 0-2.25-1.01-2.25-2.25v-4.5c0-.41.34-.75.75-.75s.75.34.75.75v4.5c0 .41.34.75.75.75h.75c.41 0 .75.34.75.75s-.34.75-.75.75h-1.5z" />
                 </svg>
               </motion.div>
@@ -223,7 +223,7 @@ const GeometricShutterTransition = ({ isActive }: { isActive: boolean }) => {
                         y: `${50 + (Math.random() - 0.5) * 100}%`
                       }}
                       transition={{ duration: 1, delay: 0.6 + Math.random() * 0.4 }}
-                      className={`absolute w-3 h-3 rounded-full blur-[2px] ${i % 2 === 0 ? "bg-white" : "bg-[#ef4444]"}`}
+                      className={`absolute w-3 h-3 rounded-full blur-[2px] ${i % 2 === 0 ? "bg-white" : "bg-[#567C8D]"}`}
                     />
                   ))}
                 </motion.div>

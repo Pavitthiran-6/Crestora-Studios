@@ -144,7 +144,7 @@ export const Principles = ({ containerRef }: { containerRef: React.RefObject<HTM
   const x = useTransform(smoothProgress, [0, 0.85], [0, -maxScroll]);
 
   return (
-    <section ref={targetRef} className="relative h-[600vh] bg-[#1f2547]">
+    <section ref={targetRef} className="relative h-[600vh] bg-[#2F4156]">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-clip">
 
         {/* Background Typography - Constrained between logo and settings icon */}
@@ -152,7 +152,7 @@ export const Principles = ({ containerRef }: { containerRef: React.RefObject<HTM
           <Layout className="flex justify-center">
             <div className="relative">
               {/* Base Word (Subtle White) */}
-              <h2 className="text-[14vw] md:text-[15vw] font-display font-black uppercase tracking-[-0.04em] text-white/10 leading-none text-center whitespace-nowrap hover:text-[#ef4444] transition-colors duration-500 cursor-default pointer-events-auto">
+              <h2 className="text-[14vw] md:text-[15vw] font-display font-black uppercase tracking-[-0.04em] text-white/10 leading-none text-center whitespace-nowrap hover:text-[#567C8D] transition-colors duration-500 cursor-default pointer-events-auto">
                 {"PRINCIPLES".split("").map((char, i) => (
                   <WaveLetter key={i} char={char} index={i} progress={smoothEnterProgress} globalProgress={smoothProgress} />
                 ))}
@@ -162,7 +162,7 @@ export const Principles = ({ containerRef }: { containerRef: React.RefObject<HTM
                 style={{ clipPath: fillClipPath, willChange: "clip-path" }}
                 className="absolute top-0 left-0 w-full h-full flex justify-center items-center translate-z-0"
               >
-                <h2 className="text-[14vw] md:text-[15vw] font-display font-black uppercase tracking-[-0.04em] text-[#ef4444] leading-none text-center whitespace-nowrap hover:text-white transition-colors duration-500 cursor-default pointer-events-auto">
+                <h2 className="text-[14vw] md:text-[15vw] font-display font-black uppercase tracking-[-0.04em] text-[#567C8D] leading-none text-center whitespace-nowrap hover:text-white transition-colors duration-500 cursor-default pointer-events-auto">
                   {"PRINCIPLES".split("").map((char, i) => (
                     <WaveLetter key={i} char={char} index={i} progress={smoothEnterProgress} globalProgress={smoothProgress} />
                   ))}
@@ -198,18 +198,18 @@ export const Principles = ({ containerRef }: { containerRef: React.RefObject<HTM
                   <div
                     key={p.title}
                     className={cn(
-                      "principle-card flex-shrink-0 w-[80vw] md:w-[400px] h-[400px] md:h-[500px] rounded-[24px] bg-[#1f2547] p-8 md:p-12 flex flex-col gap-6 shadow-2xl border border-white/5 transition-transform duration-500 transform-gpu will-change-transform",
+                      "principle-card flex-shrink-0 w-[80vw] md:w-[400px] h-[400px] md:h-[500px] rounded-[24px] bg-[#2F4156] p-8 md:p-12 flex flex-col gap-6 shadow-2xl border border-white/5 transition-transform duration-500 transform-gpu will-change-transform",
                       shiftClass
                     )}
                   >
                     <div className="flex items-center gap-3">
-                      <HexIcon className="w-3.5 h-3.5 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" fill="#ef4444" />
+                      <HexIcon className="w-3.5 h-3.5 drop-shadow-[0_0_8px_rgba(86,124,141,0.5)]" fill="#567C8D" />
                       <span className="text-white/50 text-[10px] md:text-xs font-black tracking-[0.4em] uppercase">
                         {p.rule}
                       </span>
                     </div>
 
-                    <h3 className="text-white text-4xl md:text-6xl font-display font-black tracking-[-0.04em] uppercase leading-none mt-4 hover:text-[#ef4444] transition-colors duration-500 cursor-default">
+                    <h3 className="text-white text-4xl md:text-6xl font-display font-black tracking-[-0.04em] uppercase leading-none mt-4 hover:text-[#567C8D] transition-colors duration-500 cursor-default">
                       {p.title}
                     </h3>
 

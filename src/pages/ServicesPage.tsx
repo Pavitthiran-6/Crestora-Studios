@@ -86,11 +86,11 @@ export default function ServicesPage() {
     <SmoothScrollProvider containerRef={containerRef} ease={0.09}>
       <div 
         onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-        className="h-screen bg-[#ef4444] p-2 md:p-3 lg:p-4 font-sans select-none transition-colors duration-700"
+        className="h-screen bg-white p-2 md:p-3 lg:p-4 font-sans select-none transition-colors duration-700"
       >
         <div 
           onScroll={(e) => (e.currentTarget.scrollTop = 0)}
-          className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#1f2547] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
+          className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#2F4156] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
         >
           {/* WAVE MENU OVERLAY */}
           <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} />
@@ -114,7 +114,7 @@ export default function ServicesPage() {
                   <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
                     <motion.div
                       animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }}
-                      className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2"
+                      className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
                     />
                   </div>
                   <div className="flex flex-col items-center h-6 md:h-10 w-px bg-white/50 relative">
@@ -126,7 +126,7 @@ export default function ServicesPage() {
                   <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
                     <motion.div
                       animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }}
-                      className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#1f2547] -translate-x-1/2 left-1/2"
+                      className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
                     />
                   </div>
                 </button>
@@ -200,10 +200,10 @@ function ServicesHero() {
           >
             <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
           </button>
-          <HexIcon className="w-2.5 h-2.5" fill="#ef4444" />
+          <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
           <span
             onClick={() => triggerPageTransition("/services")}
-            className="text-[10px] font-black tracking-[0.3em] uppercase text-[#ef4444] hover:text-white transition-colors cursor-pointer"
+            className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] hover:text-white transition-colors cursor-pointer"
           >
             SERVICES
           </span>
@@ -216,7 +216,7 @@ function ServicesHero() {
                 <AnimatePresence mode="wait">
                   <motion.h1
                     key={index}
-                    className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden"
+                    className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#567C8D] flex overflow-hidden"
                   >
                     {ROTATING_TITLES[index].split("").map((char, i) => (
                       <motion.span
@@ -240,12 +240,12 @@ function ServicesHero() {
 
               <div className="flex items-center gap-6 md:gap-10 pl-[5vw] md:pl-[10vw]">
                 <div className="relative group shrink-0">
-                  <div className="absolute inset-0 bg-[#ef4444]/20 rounded-full animate-ping" />
+                  <div className="absolute inset-0 bg-[#567C8D]/20 rounded-full animate-ping" />
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={rotateHero}
-                    className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#ef4444] flex items-center justify-center relative z-10 shadow-[0_0_30px_rgba(239,59,93,0.3)]"
+                    className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#567C8D] flex items-center justify-center relative z-10 shadow-[0_0_30px_rgba(239,59,93,0.3)]"
                   >
                     <RotateCcw className={`text-white w-6 h-6 md:w-10 md:h-10 transition-transform duration-700 ${isAnimating ? "rotate-180" : "group-hover:rotate-45"}`} />
                   </motion.button>
@@ -296,10 +296,10 @@ function ServicesHero() {
           >
             <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
           </button>
-          <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#ef4444" />
+          <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#567C8D" />
           <span
             onClick={() => triggerPageTransition("/services")}
-            className="text-[10px] font-black tracking-[0.4em] uppercase text-[#ef4444] hover:text-white transition-colors cursor-pointer leading-none"
+            className="text-[10px] font-black tracking-[0.4em] uppercase text-[#567C8D] hover:text-white transition-colors cursor-pointer leading-none"
           >
             SERVICES
           </span>
@@ -314,7 +314,7 @@ function ServicesHero() {
                   <motion.h1
                     key={index}
                     className={cn(
-                      "font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#ef4444] flex overflow-hidden scale-y-[1.5] origin-center",
+                      "font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-[#567C8D] flex overflow-hidden scale-y-[1.5] origin-center",
                       ROTATING_TITLES[index] === "RESULTS-DRIVEN" ? "text-[9.5vw]" :
                       ROTATING_TITLES[index] === "GOAL-ORIENTED" ? "text-[10vw]" :
                       ROTATING_TITLES[index] === "COMPELLING" ? "text-[13vw]" :
@@ -344,12 +344,12 @@ function ServicesHero() {
               {/* Row 2: Static Word & Button (WEBSITES - pl-[5vw], scale-y-[1.5]) */}
               <div className="flex items-center gap-4 pl-[5vw]">
                 <div className="relative group shrink-0 pointer-events-auto">
-                  <div className="absolute inset-0 bg-[#ef4444]/20 rounded-full animate-ping" />
+                  <div className="absolute inset-0 bg-[#567C8D]/20 rounded-full animate-ping" />
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={rotateHero}
-                    className="w-12 h-12 rounded-full bg-[#ef4444] flex items-center justify-center relative z-10 shadow-[0_0_20px_rgba(239,59,93,0.3)]"
+                    className="w-12 h-12 rounded-full bg-[#567C8D] flex items-center justify-center relative z-10 shadow-[0_0_20px_rgba(239,59,93,0.3)]"
                   >
                     <RotateCcw className={`text-white w-5 h-5 transition-transform duration-700 ${isAnimating ? "rotate-180" : "group-hover:rotate-45"}`} />
                   </motion.button>
@@ -391,7 +391,7 @@ function ServicesHero() {
 function WhatWeDo() {
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
   return (
-    <section className="min-h-screen py-32 md:py-48 border-t border-white/5 bg-[#1f2547]">
+    <section className="min-h-screen py-32 md:py-48 border-t border-white/5 bg-[#2F4156]">
       <Layout>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-24">
           <div className="md:col-span-5 flex flex-col items-start gap-8">
@@ -399,7 +399,7 @@ function WhatWeDo() {
             <CinematicText as="h2" className="text-5xl md:text-6xl font-display font-black tracking-[-0.04em] uppercase leading-[0.95] text-white">
               <span className="whitespace-nowrap">WE DESIGN,</span><br />
               <span className="whitespace-nowrap">BUILD & SCALE</span><br />
-              <span className="text-[#ef4444] whitespace-nowrap">YOUR VISION.</span>
+              <span className="text-[#567C8D] whitespace-nowrap">YOUR VISION.</span>
             </CinematicText>
             <p className="text-lg md:text-xl font-display font-black tracking-[-0.02em] leading-relaxed opacity-40 uppercase">
               At W2C Studios, we craft immersive digital ecosystems that merge design, storytelling, motion, and engineering into memorable brand experiences.
@@ -438,7 +438,7 @@ function WhatWeDo() {
                 }}
                 className="group flex flex-col"
               >
-                <div className="w-full h-px bg-white/10 group-hover:bg-[#ef4444] transition-colors duration-500 scale-x-0 group-hover:scale-x-100 origin-left" />
+                <div className="w-full h-px bg-white/10 group-hover:bg-[#567C8D] transition-colors duration-500 scale-x-0 group-hover:scale-x-100 origin-left" />
                 <div className="w-full h-px bg-white/5" />
                 <div className="py-6 md:py-8 flex items-center justify-between cursor-pointer group" onClick={() => {
                   const slug = service.toLowerCase().replace(/ /g, "-");
@@ -465,15 +465,15 @@ function WorkflowSection() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="bg-[#1f2547] py-24 md:py-32 overflow-hidden">
+    <section className="bg-[#2F4156] py-24 md:py-32 overflow-hidden">
       <Layout>
         <div className="mb-20">
           <CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 mb-6">THE BUZZ PROCESS</CinematicText>
           <div className="flex items-baseline gap-4">
             <CinematicText as="h2" className="text-5xl md:text-8xl font-display font-black tracking-[-0.04em] uppercase leading-none text-white">
-              HOW WE <span className="text-[#ef4444]">WORK</span>
+              HOW WE <span className="text-[#567C8D]">WORK</span>
             </CinematicText>
-            <HexIcon className="w-[3vw] h-[3vw]" fill="#ef4444" />
+            <HexIcon className="w-[3vw] h-[3vw]" fill="#567C8D" />
           </div>
         </div>
 
@@ -511,8 +511,8 @@ function WorkflowSection() {
                   "absolute top-8 flex items-center gap-3 z-20 transition-all duration-500",
                   isExpanded ? "left-12" : "left-1/2 -translate-x-1/2"
                 )}>
-                  <HexIcon className="w-3 h-3" fill="#ef4444" />
-                  <span className="text-[10px] md:text-xs font-display font-black tracking-widest text-[#1f2547]/40">
+                  <HexIcon className="w-3 h-3" fill="#567C8D" />
+                  <span className="text-[10px] md:text-xs font-display font-black tracking-widest text-[#2F4156]/40">
                     {step.id}
                   </span>
                 </div>
@@ -526,7 +526,7 @@ function WorkflowSection() {
                       exit={{ opacity: 0 }}
                       className="absolute inset-0 flex items-center justify-center pointer-events-none"
                     >
-                      <h3 className="rotate-[-90deg] whitespace-nowrap text-xl md:text-2xl font-display font-black tracking-[-0.04em] uppercase text-[#1f2547] opacity-80">
+                      <h3 className="rotate-[-90deg] whitespace-nowrap text-xl md:text-2xl font-display font-black tracking-[-0.04em] uppercase text-[#2F4156] opacity-80">
                         {step.title}
                       </h3>
                     </motion.div>
@@ -550,7 +550,7 @@ function WorkflowSection() {
                     >
                       {/* Fluid but Stable Container */}
                       <div className="w-full max-w-[75vw] md:max-w-[60vw] lg:max-w-[45vw] shrink-0">
-                        <h3 className="text-3xl md:text-5xl lg:text-[5vw] font-display font-black tracking-[-0.04em] uppercase text-[#1f2547] leading-[0.9] mb-6 md:mb-8">
+                        <h3 className="text-3xl md:text-5xl lg:text-[5vw] font-display font-black tracking-[-0.04em] uppercase text-[#2F4156] leading-[0.9] mb-6 md:mb-8">
                           {step.title.split(" & ").map((part, i) => (
                             <React.Fragment key={i}>
                               {part}
@@ -558,7 +558,7 @@ function WorkflowSection() {
                             </React.Fragment>
                           ))}
                         </h3>
-                        <p className="text-sm md:text-lg lg:text-xl text-[#1f2547]/80 font-medium leading-relaxed">
+                        <p className="text-sm md:text-lg lg:text-xl text-[#2F4156]/80 font-medium leading-relaxed">
                           {step.desc}
                         </p>
                       </div>
@@ -590,16 +590,16 @@ function WorkflowSection() {
                 {/* Header portion */}
                 <div className="p-6 flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <HexIcon className="w-3.5 h-3.5" fill="#ef4444" />
+                    <HexIcon className="w-3.5 h-3.5" fill="#567C8D" />
                     <span className={cn(
                       "text-[10px] font-black tracking-widest",
-                      isExpanded ? "text-[#1f2547]/40" : "text-white/40"
+                      isExpanded ? "text-[#2F4156]/40" : "text-white/40"
                     )}>
                       {step.id}
                     </span>
                     <h3 className={cn(
                       "text-base font-display font-black tracking-tight uppercase transition-colors duration-300",
-                      isExpanded ? "text-[#1f2547]" : "text-white"
+                      isExpanded ? "text-[#2F4156]" : "text-white"
                     )}>
                       {step.title}
                     </h3>
@@ -611,7 +611,7 @@ function WorkflowSection() {
                     transition={{ duration: 0.3 }}
                     className={cn(
                       "w-6 h-6 flex items-center justify-center rounded-full border text-xs font-bold transition-colors",
-                      isExpanded ? "border-[#1f2547]/10 text-[#1f2547]" : "border-white/10 text-white"
+                      isExpanded ? "border-[#2F4156]/10 text-[#2F4156]" : "border-white/10 text-white"
                     )}
                   >
                     →
@@ -628,7 +628,7 @@ function WorkflowSection() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <div className="px-6 pb-8 pt-2 border-t border-black/5">
-                        <p className="text-sm text-[#1f2547]/80 font-medium leading-relaxed uppercase">
+                        <p className="text-sm text-[#2F4156]/80 font-medium leading-relaxed uppercase">
                           {step.desc}
                         </p>
                       </div>
@@ -648,13 +648,13 @@ function WorkflowSection() {
 
 function ResultsDriven() {
   return (
-    <section className="min-h-screen pt-32 pb-56 md:py-32 bg-[#1f2547] flex flex-col items-center text-center">
+    <section className="min-h-screen pt-32 pb-56 md:py-32 bg-[#2F4156] flex flex-col items-center text-center">
       <Layout>
         <div className="max-w-4xl mb-32 mx-auto">
           <CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 block mb-6">RESULTS DRIVEN</CinematicText>
           <CinematicText as="h2" className="text-5xl md:text-8xl lg:text-[7vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] mb-12 text-white">
             DRIVING SUCCESS,<br />
-            <span className="text-[#ef4444]">DELIVERING RESULTS.</span>
+            <span className="text-[#567C8D]">DELIVERING RESULTS.</span>
           </CinematicText>
           <p className="text-sm md:text-xl font-display font-black tracking-[-0.02em] uppercase opacity-40 max-w-2xl mx-auto leading-relaxed text-white">
             We don't just build websites; we build performance engines. Every pixel and line of code is optimized for maximum conversion and brand equity.
@@ -727,7 +727,7 @@ function ResultCard({ res, delay }: any) {
         <div className="p-8 flex flex-col items-start text-left bg-gradient-to-t from-black/80 to-transparent absolute bottom-0 left-0 right-0 h-1/2 justify-end">
           <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 mb-2">{res.name}</span>
           <div className="flex flex-col gap-1 items-start">
-            <span className="text-3xl md:text-5xl font-display font-black tracking-[-0.04em] text-[#ef4444] leading-none">{res.metric}</span>
+            <span className="text-3xl md:text-5xl font-display font-black tracking-[-0.04em] text-[#567C8D] leading-none">{res.metric}</span>
             <span className="text-[10px] font-black tracking-[0.2em] opacity-40">{res.label}</span>
           </div>
           <div className="text-left">

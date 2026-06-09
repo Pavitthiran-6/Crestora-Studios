@@ -35,7 +35,7 @@ export default function AdminLogin() {
         }
 
         const allowedEmails = [
-          'w2cstudios@gmail.com',
+          'crestorastudios@gmail.com',
           'pavitthiran66@gmail.com'
         ];
 
@@ -111,7 +111,7 @@ export default function AdminLogin() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full bg-transparent border-b border-black/10 py-4 text-xl md:text-2xl font-display outline-none focus:border-black transition-colors placeholder:opacity-20"
-                      placeholder="studio@W2C Studios.com"
+                      placeholder="studio@Crestora Studios.com"
                     />
                     <motion.div 
                       className="absolute bottom-0 left-0 h-[2px] bg-black"
@@ -200,7 +200,7 @@ export default function AdminLogin() {
             </form>
 
             <div className="mt-12 flex justify-between items-center text-[10px] font-black tracking-[0.2em] uppercase opacity-30">
-              <span>© 2026 W2C Studios</span>
+              <span>© 2026 Crestora Studios</span>
               <a href="#" className="hover:opacity-100 transition-opacity underline decoration-dotted underline-offset-4">FORGOT CREDENTIALS?</a>
             </div>
           </motion.div>

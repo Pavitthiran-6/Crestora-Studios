@@ -64,7 +64,7 @@ export const ContactExperience: React.FC<{ isOpen: boolean; onClose: () => void 
             className="flex items-center gap-4 group"
           >
             <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
-              <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain p-2" />
+              <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
             </div>
           </button>
 
@@ -289,7 +289,7 @@ const StepFinalForm: React.FC<{ selections: SelectionData; onSelect: (formData: 
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[5.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] mb-4 sm:mb-8">
           READY TO <br className="hidden sm:block" /> CREATE <br className="hidden sm:block" /> <span className="text-[#567C8D]">MAGIC?</span>
         </h1>
-        <p className="text-[10px] sm:text-xs md:text-sm font-display font-black tracking-[0.3em] uppercase opacity-30">W2C Studios — PROJECT INTAKE</p>
+        <p className="text-[10px] sm:text-xs md:text-sm font-display font-black tracking-[0.3em] uppercase opacity-30">Crestora Studios — PROJECT INTAKE</p>
       </div>
 
       <div className="space-y-4 md:space-y-6">

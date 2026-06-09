@@ -25,8 +25,8 @@ const SETTING_SECTIONS = [
 ];
 
 export default function AdminSettings() {
-  const [studioName, setStudioName] = React.useState("W2C Studios");
-  const [studioEmail, setStudioEmail] = React.useState("w2cstudios@gmail.com");
+  const [studioName, setStudioName] = React.useState("Crestora Studios");
+  const [studioEmail, setStudioEmail] = React.useState("crestorastudios@gmail.com");
   const [isSaving, setIsSaving] = React.useState(false);
 
   React.useEffect(() => {
@@ -66,7 +66,7 @@ export default function AdminSettings() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="flex items-center gap-6 sm:gap-8">
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#1f2547] border border-black/15 flex items-center justify-center p-3 rounded-2xl shadow-xl shrink-0">
-              <img src="/W2C Studios.png" alt="W2C Studios Logo" className="w-full h-full object-contain" />
+              <img src="/crestora_logo.png" alt="Crestora Studios Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase opacity-40 mb-2 block">[ CONFIGURATION ]</span>
@@ -132,11 +132,11 @@ export default function AdminSettings() {
                   <label className="text-[10px] font-black tracking-[0.2em] uppercase opacity-40">STUDIO LOGO</label>
                   <div className="flex items-center gap-6 p-6 bg-black/[0.02] border border-black/5 rounded-xl w-full sm:w-fit mt-2">
                     <div className="w-16 h-16 bg-[#1f2547] border border-black/10 flex items-center justify-center p-3 rounded-xl shadow-lg shrink-0">
-                      <img src="/W2C Studios.png" alt="W2C Studios Logo" className="w-full h-full object-contain" />
+                      <img src="/crestora_logo.png" alt="Crestora Studios Logo" className="w-full h-full object-contain" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-black uppercase tracking-tight">W2C Studios Brand Mark</h4>
-                      <p className="text-[9px] font-black uppercase opacity-40 tracking-wider mt-1 block">w2c studios.png</p>
+                      <h4 className="text-xs font-black uppercase tracking-tight">Crestora Studios Brand Mark</h4>
+                      <p className="text-[9px] font-black uppercase opacity-40 tracking-wider mt-1 block">crestora_logo.png</p>
                       <span className="inline-block mt-3 px-2.5 py-1 bg-green-500/10 text-green-600 text-[8px] font-black tracking-widest uppercase rounded-full">
                         ACTIVE BRAND ASSET
                       </span>

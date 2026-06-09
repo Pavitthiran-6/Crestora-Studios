@@ -81,7 +81,7 @@ const HeroSection = () => {
           onClick={() => triggerLogoTransition()}
           className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
         >
-          <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+          <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
         </button>
         <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#567C8D" />
         <span
@@ -168,7 +168,7 @@ const HeroSection = () => {
             {/* Mobile-only Intro Paragraph & scroll indicator to fill empty space */}
             <div className="mt-12 md:hidden flex flex-col gap-6 max-w-[280px]">
               <p className="text-white/50 text-[10px] font-black tracking-[0.1em] uppercase leading-relaxed">
-                W2C Studios is a brutalist creative agency crafting high-fidelity design, motion, and digital architectures.
+                Crestora Studios is a brutalist creative agency crafting high-fidelity design, motion, and digital architectures.
               </p>
               
               <div className="flex items-center gap-4 mt-2">
@@ -223,7 +223,7 @@ const CreativeStudioSection = () => {
             WE DESIGN,{"\n"}BUILD & SCALE{"\n"}YOUR <span className="text-[#567C8D]">VISION.</span>
           </CinematicText>
           <p className="text-white/50 text-base md:text-xl leading-relaxed max-w-md font-medium uppercase">
-            AT W2C Studios, WE CRAFT IMMERSIVE DIGITAL ECOSYSTEMS THAT MERGE DESIGN, STORYTELLING, MOTION, AND ENGINEERING INTO MEMORABLE BRAND EXPERIENCES.
+            AT Crestora Studios, WE CRAFT IMMERSIVE DIGITAL ECOSYSTEMS THAT MERGE DESIGN, STORYTELLING, MOTION, AND ENGINEERING INTO MEMORABLE BRAND EXPERIENCES.
           </p>
         </div>
 
@@ -595,7 +595,7 @@ const CreditsSection = () => {
           </a>
           
           <p className="text-white/30 text-[9px] font-black tracking-[0.2em] uppercase pt-10">
-            © 2026 W2C Studios — DESIGNED FOR THE BOLD
+            © 2026 Crestora Studios — DESIGNED FOR THE BOLD
           </p>
         </div>
       </Layout>
@@ -625,7 +625,7 @@ export default function StudioPage() {
             <div className="px-6 md:px-12 lg:px-16 py-8 md:py-12 flex justify-between items-start">
               <button onClick={() => triggerLogoTransition()} className="pointer-events-auto group">
                 <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform">
-                  <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain" />
+                  <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                 </div>
               </button>
 

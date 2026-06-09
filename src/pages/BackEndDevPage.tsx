@@ -71,12 +71,12 @@ export default function BackEndDevPage() {
                 <div className="flex items-center gap-8 pointer-events-auto">
                   <button onClick={() => triggerLogoTransition()} className="group">
                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform">
-                      <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain" />
+                      <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                     </div>
                   </button>
 
                   <div className="hidden md:flex items-center gap-2">
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
                     <span 
                       onClick={() => triggerPageTransition("/services")}
@@ -181,7 +181,7 @@ function HeroSection() {
               className="md:col-span-6"
             >
               <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">
-                Backend engineering at W2C Studios is about building for scale, security, and surgical precision. We specialize in crafting highly-optimized data architectures and secure API layers that handle complex business logic with ease. By leveraging cutting-edge cloud technology and industry-standard security protocols, we ensure your application is as powerful on the inside as it is beautiful on the outside.
+                Backend engineering at Crestora Studios is about building for scale, security, and surgical precision. We specialize in crafting highly-optimized data architectures and secure API layers that handle complex business logic with ease. By leveraging cutting-edge cloud technology and industry-standard security protocols, we ensure your application is as powerful on the inside as it is beautiful on the outside.
               </p>
             </motion.div>
           </div>

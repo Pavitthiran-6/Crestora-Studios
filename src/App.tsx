@@ -144,7 +144,7 @@ export default function App() {
                     onClick={handleLogoClick}
                   >
                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center overflow-hidden shrink-0">
-                      <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain" />
+                      <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                     </div>
                     <AnimatePresence>
                       {showStickyBrandText && (
@@ -155,7 +155,7 @@ export default function App() {
                           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                           className="text-[10px] font-display font-black tracking-[0.25em] uppercase text-white leading-none whitespace-nowrap md:hidden overflow-hidden"
                         >
-                          W2C Studios
+                          Crestora Studios
                         </motion.span>
                       )}
                     </AnimatePresence>
@@ -210,7 +210,7 @@ export default function App() {
                     <div className="w-10 h-10 md:w-14 md:h-14 opacity-0 shrink-0" />
                     <button onClick={() => triggerLogoTransition()} className="ml-3 md:ml-5 hover:opacity-80 transition-opacity flex items-center gap-2">
                       <span className="text-[9px] md:text-xs font-display font-black tracking-[0.2em] md:tracking-[0.3em] uppercase text-white/90 leading-none">
-                        W2C Studios
+                        Crestora Studios
                       </span>
                     </button>
                   </Layout>
@@ -340,7 +340,7 @@ export default function App() {
                     <p className="text-white text-[13px] md:text-[15px] lg:text-[17px] font-display font-black tracking-[-0.04em] leading-[1.3] uppercase opacity-90">
                       WITH A DECADE OF<br />
                       EXPERIENCE UNDER OUR<br />
-                      BELTS, W2C Studios HAS<br />
+                      BELTS, Crestora Studios HAS<br />
                       BECOME A WORLD -<br />
                       RENOWNED STUDIO
                     </p>

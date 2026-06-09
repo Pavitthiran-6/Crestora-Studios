@@ -198,7 +198,7 @@ const GeometricShutterTransition = ({ isActive }: { isActive: boolean }) => {
                 transition={{ duration: 0.5, delay: 0.45, ease: "easeOut" }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain p-4" />
+                <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
               </motion.div>
             </div>
           </motion.div>

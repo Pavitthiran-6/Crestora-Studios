@@ -52,7 +52,7 @@ export const Preloader = () => {
               Initializing
             </span>
             <span className="text-xl font-display font-black tracking-[-0.04em] uppercase text-white">
-              W2C <span className="text-[#567C8D]">Studios</span>
+              Crestora <span className="text-[#567C8D]">Studios</span>
             </span>
           </motion.div>
 

@@ -71,12 +71,12 @@ export default function MotionDesignPage() {
                 <div className="flex items-center gap-8 pointer-events-auto">
                   <button onClick={() => triggerLogoTransition()} className="group">
                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform">
-                      <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain" />
+                      <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                     </div>
                   </button>
 
                   <div className="hidden md:flex items-center gap-2">
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
                     <span 
                       onClick={() => triggerPageTransition("/services")}

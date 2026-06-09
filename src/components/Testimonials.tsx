@@ -11,7 +11,7 @@ const INITIAL_TESTIMONIALS = [
     id: 1,
     name: "Arjun Menon",
     role: "Founder / Novagrid",
-    text: "The level of cinematic detail W2C Studios brings to the table is unmatched. They didn't just build a site; they built an experience.",
+    text: "The level of cinematic detail Crestora Studios brings to the table is unmatched. They didn't just build a site; they built an experience.",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&h=100&auto=format&fit=crop"
   },
   {

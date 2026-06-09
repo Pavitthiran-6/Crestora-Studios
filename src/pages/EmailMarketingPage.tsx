@@ -48,11 +48,11 @@ export default function EmailMarketingPage() {
                 <div className="flex items-center gap-8 pointer-events-auto">
                   <button onClick={() => triggerLogoTransition()} className="group">
                     <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform">
-                      <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain" />
+                      <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                     </div>
                   </button>
                   <div className="hidden md:flex items-center gap-2">
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
                     <span 
                       onClick={() => triggerPageTransition("/services")}
@@ -98,7 +98,7 @@ function HeroSection() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="md:col-span-2 flex items-center gap-3"><HexIcon className="w-3 h-3" fill="#567C8D" /><CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase text-white">THE SERVICE</CinematicText></motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="md:col-span-4"><p className="text-xl md:text-2xl font-display font-black tracking-[-0.02em] leading-tight uppercase text-white">WE ARCHITECT HIGH-PERFORMANCE EMAIL ECOSYSTEMS THAT MERGE PERSUASIVE COPYWRITING WITH SURGICAL AUTOMATION.</p></motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="md:col-span-6"><p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">Email marketing at W2C Studios is not about blasting a list, but about architecting definitive brand conversations. We blend technical excellence in automation with cinematic creative design to ensure your brand remains top-of-mind and commands action. By focusing on surgical list segmentation and high-intent copy, we deliver sustainable growth that compounds over time, making your inbox presence a definitive revenue driver.</p></motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="md:col-span-6"><p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">Email marketing at Crestora Studios is not about blasting a list, but about architecting definitive brand conversations. We blend technical excellence in automation with cinematic creative design to ensure your brand remains top-of-mind and commands action. By focusing on surgical list segmentation and high-intent copy, we deliver sustainable growth that compounds over time, making your inbox presence a definitive revenue driver.</p></motion.div>
           </div>
         </div>
       </Layout>

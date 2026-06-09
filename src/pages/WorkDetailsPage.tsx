@@ -37,7 +37,7 @@ const HeroSection = ({ title }: { title: string }) => {
     <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3] flex flex-col">
       {/* Mobile-only tags at the top left corner of the hero section */}
       <div className="md:hidden pl-6 pt-24 pb-2 z-20 flex items-center gap-1.5 text-[8px] font-black tracking-[0.2em] uppercase pointer-events-auto">
-        <span className="text-[#050505]/40 leading-none">W2C Studios</span>
+        <span className="text-[#050505]/40 leading-none">Crestora Studios</span>
         <HexIcon className="w-1.5 h-1.5 translate-y-[0.5px]" fill="#ef4444" />
         <button onClick={() => triggerPageTransition("/work")} className="text-[#ef4444] uppercase leading-none cursor-pointer">WORK</button>
         <HexIcon className="w-1.5 h-1.5 translate-y-[0.5px]" fill="#ef4444" />
@@ -432,14 +432,14 @@ export default function WorkDetailsPage() {
               <div className="flex items-center">
                 <button onClick={() => triggerLogoTransition()} className="pointer-events-auto group">
                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
-                    <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain p-1" />
+                    <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                   </div>
                 </button>
                 <motion.div 
                   style={{ opacity: navOpacity, y: navY }} 
                   className="ml-8 hidden md:flex items-center gap-4 text-[10px] font-black tracking-[0.4em] uppercase pointer-events-auto"
                 >
-                  <span className="text-[#050505]/40 uppercase leading-none">W2C Studios</span>
+                  <span className="text-[#050505]/40 uppercase leading-none">Crestora Studios</span>
                   <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />
                   <button onClick={() => triggerPageTransition("/work")} className="text-[#050505]/40 hover:text-[#050505] transition-colors cursor-pointer uppercase">WORK</button>
                   <HexIcon className="w-2.5 h-2.5" fill="rgba(5, 5, 5, 0.4)" />

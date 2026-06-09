@@ -42,7 +42,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
   const { triggerLogoTransition } = useTransition();
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [unreadCount, setUnreadCount] = useState(0);
-  const [studioName, setStudioName] = useState("W2C Studios");
+  const [studioName, setStudioName] = useState("Crestora Studios");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -103,7 +103,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center cursor-pointer group overflow-hidden transition-all" onClick={() => triggerLogoTransition()}>
-                <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain p-1" />
+                <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
               </div>
               <div>
                 <p className="text-[10px] font-black tracking-[0.2em] uppercase leading-tight">{studioName}</p>
@@ -238,7 +238,7 @@ export function AdminLayout({ children }: { children: React.ReactNode }) {
           <div className="px-8 md:px-16 lg:px-24 pb-12 opacity-20">
             <div className="h-px bg-black w-full mb-8" />
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.5em] uppercase text-center md:text-left">
-              <span>W2C Studios OS v2.0.4</span>
+              <span>Crestora Studios OS v2.0.4</span>
               <span>EST. 2026</span>
             </div>
           </div>

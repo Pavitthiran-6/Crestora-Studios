@@ -27,7 +27,7 @@ export const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ childr
         }
 
         const allowedEmails = [
-          'w2cstudios@gmail.com',
+          'crestorastudios@gmail.com',
           'pavitthiran66@gmail.com'
         ];
 
@@ -62,7 +62,7 @@ export const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ childr
         }
 
         const allowedEmails = [
-          'w2cstudios@gmail.com',
+          'crestorastudios@gmail.com',
           'pavitthiran66@gmail.com'
         ];
 

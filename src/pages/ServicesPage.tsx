@@ -56,12 +56,12 @@ const PROCESS_STEPS = [
   {
     id: "05",
     title: "ONGOING SUPPORT",
-    desc: "In the ever-evolving digital landscape, your website isn't a static entity; it's a living, breathing representation of your brand. At W2C Studios, we understand that consistent, reliable support is essential to ensure your online presence remains dynamic."
+    desc: "In the ever-evolving digital landscape, your website isn't a static entity; it's a living, breathing representation of your brand. At Crestora Studios, we understand that consistent, reliable support is essential to ensure your online presence remains dynamic."
   },
   {
     id: "06",
     title: "FUTURE EVOLUTION",
-    desc: "From immersive user experiences to AI-driven personalization, we're your digital architects for the future. Embracing change is key, and we're here to guide you. With W2C Studios, it's not just a website; it's an evolution that keeps your brand relevant and remarkable."
+    desc: "From immersive user experiences to AI-driven personalization, we're your digital architects for the future. Embracing change is key, and we're here to guide you. With Crestora Studios, it's not just a website; it's an evolution that keeps your brand relevant and remarkable."
   },
   {
     id: "07",
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                 {/* Logo (Left) */}
                 <button onClick={() => triggerLogoTransition()} className="pointer-events-auto group">
                   <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
-                    <img src="/W2C Studios.png" alt="W2C Studios" className="w-full h-full object-contain" />
+                    <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                   </div>
                 </button>
 
@@ -198,7 +198,7 @@ function ServicesHero() {
             onClick={() => triggerLogoTransition()}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
           >
-            <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+            <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
           </button>
           <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
           <span
@@ -294,7 +294,7 @@ function ServicesHero() {
             onClick={() => triggerLogoTransition()}
             className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer group"
           >
-            <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">W2C Studios</span>
+            <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
           </button>
           <HexIcon className="w-2.5 h-2.5 translate-y-[0.5px]" fill="#567C8D" />
           <span
@@ -402,7 +402,7 @@ function WhatWeDo() {
               <span className="text-[#567C8D] whitespace-nowrap">YOUR VISION.</span>
             </CinematicText>
             <p className="text-lg md:text-xl font-display font-black tracking-[-0.02em] leading-relaxed opacity-40 uppercase">
-              At W2C Studios, we craft immersive digital ecosystems that merge design, storytelling, motion, and engineering into memorable brand experiences.
+              At Crestora Studios, we craft immersive digital ecosystems that merge design, storytelling, motion, and engineering into memorable brand experiences.
             </p>
           </div>
 

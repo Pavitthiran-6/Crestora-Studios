@@ -33,6 +33,13 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
   }, [isOpen, onClose]);
 
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const socialLinks: Record<string, string> = {
+    LINKEDIN: "https://linkedin.com",
+    INSTAGRAM: "https://www.instagram.com/crestorastudios/",
+    TWITTER: "https://twitter.com",
+    BEHANCE: "https://behance.net",
+    DRIBBBLE: "https://dribbble.com",
+  };
   const navItems = [
     { label: "WORK", path: "/work" },
     { label: "SERVICES", path: "/services" },
@@ -87,7 +94,7 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
             }}
             className="w-10 h-10 md:w-14 md:h-14 bg-transparent flex items-center justify-center hover:scale-110 transition-transform cursor-pointer shrink-0"
           >
-             <img src="/W2C Studios.png" alt="W2C Studios Logo" className="w-full h-full object-contain" />
+             <img src="/crestora_logo.png" alt="Crestora Studios Logo" className="w-full h-full object-contain" />
           </button>
           <nav className="flex items-center gap-3 md:gap-6 lg:gap-8 flex-1 justify-center min-w-0">
             {navItems.map((item, index) => (
@@ -124,15 +131,18 @@ export const WaveMenu: React.FC<WaveMenuProps> = ({
         </motion.div>
         <motion.div animate={{ opacity: isOpen ? 1 : 0 }} transition={{ delay: 0.8, duration: 0.8 }} className="flex justify-center gap-6 md:gap-12 pb-4">
           {["LINKEDIN", "INSTAGRAM", "TWITTER", "BEHANCE", "DRIBBBLE"].map((link) => (
-            <motion.span 
+            <motion.a 
               key={link} 
+              href={socialLinks[link]}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ color: "#567C8D" }}
               whileTap={{ color: "#567C8D", scale: 0.9 }}
-              className="text-[7px] md:text-[9px] font-black tracking-[0.3em] cursor-pointer uppercase" 
+              className="text-[7px] md:text-[9px] font-black tracking-[0.3em] cursor-pointer uppercase no-underline" 
               style={{ color: textColor }}
             >
               {link}
-            </motion.span>
+            </motion.a>
           ))}
         </motion.div>
       </div>

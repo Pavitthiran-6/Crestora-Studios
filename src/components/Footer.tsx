@@ -20,7 +20,7 @@ const SERVICES = [
 
 const SOCIALS = [
   { label: "Linkedin", href: "https://linkedin.com" },
-  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Instagram", href: "https://www.instagram.com/crestorastudios/" },
   { label: "Twitter", href: "https://twitter.com" },
   { label: "Behance", href: "https://behance.net" },
   { label: "Dribbble", href: "https://dribbble.com" },
@@ -190,13 +190,11 @@ export const Footer = ({ isLight = false }: { isLight?: boolean }) => {
           {/* Copyright */}
           <div className="col-start-5 col-span-4 flex flex-col items-center gap-4">
             <img 
-              src="/W2C Studios.png" 
-              alt="W2C Studios" 
-              className="h-8 md:h-10 opacity-100 transition-opacity cursor-pointer" 
+              src="/crestora_logo.png" alt="Crestora Studios" className="h-8 md:h-10 opacity-100 transition-opacity cursor-pointer" 
               onClick={() => triggerLogoTransition()}
             />
             <span className={`${textColor} text-[11px] font-black tracking-tight opacity-80`}>
-              ©2026 W2C Studios
+              ©2026 Crestora Studios
             </span>
           </div>
 

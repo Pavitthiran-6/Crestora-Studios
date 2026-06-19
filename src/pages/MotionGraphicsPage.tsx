@@ -16,38 +16,45 @@ import HexIcon from "../components/HexIcon";
 const PROCESS_STEPS = [
   {
     id: "01",
-    title: "DATABASE DESIGN",
-    desc: "The foundation of data integrity. We architect highly efficient, relational and non-relational database schemas that ensure fast retrieval and secure storage for complex application data."
+    title: "STORYBOARD",
+    desc: "Translating concepts into sequential vector frames to establish motion paths, speed timing, and transitions."
   },
   {
     id: "02",
-    title: "API DEVELOPMENT",
-    desc: "Building the connective tissue of your application. We develop robust, scalable REST and GraphQL APIs that facilitate seamless communication between your front-end and core business logic."
+    title: "STYLE FRAMES",
+    desc: "Designing select vector illustrations as standalone high-res artwork, establishing color contrasts and details."
   },
   {
     id: "03",
-    title: "SECURITY",
-    desc: "Protecting your digital assets is our top priority. We implement industry-leading authentication, encryption, and authorization protocols to ensure your users' data remains safe and private."
+    title: "ANIMATION",
+    desc: "Applying fluid keyframes and kinetic motion physics, driving clean asset dynamics that elevate engagement."
   },
   {
     id: "04",
-    title: "CLOUD INFRA",
-    desc: "Deploying with surgical precision. We leverage high-performance cloud infrastructure and serverless architectures to provide your application with infinite scalability and global availability."
+    title: "SOUND DESIGN",
+    desc: "Syncing sound effects, voice tracks, and custom background music to lock visual transitions with audio cues."
   },
   {
     id: "05",
-    title: "MAINTENANCE",
-    desc: "Continuous optimization and monitoring. Our post-launch phase focuses on performance tracking, bug resolution, and strategic updates to ensure your backend remains state-of-the-art."
+    title: "DELIVERY",
+    desc: "Compiling finished sequences into optimized, lightweight digital formats for fast web and application playback."
   }
 ];
 
 const OTHER_SERVICES = [
-  "Website design", "Motion design", "Front-end development",
-  "Shopify development", "Website support", "Paid search advertising",
-  "Social media advertising", "Email marketing", "SEO"
+  "Website development",
+  "Mobile applications",
+  "Logo design",
+  "Poster design",
+  "Video editing",
+  "SEO",
+  "3D animation",
+  "Digital marketing",
+  "Website and app maintenance",
+  "Cyber security solutions"
 ];
 
-export default function BackEndDevPage() {
+export default function MotionGraphicsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
   const [isWaveOpen, setIsWaveOpen] = useState(false);
@@ -85,7 +92,7 @@ export default function BackEndDevPage() {
                       SERVICES
                     </span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">BACK-END DEV</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">MOTION GRAPHICS</span>
                   </div>
                 </div>
 
@@ -128,19 +135,17 @@ export default function BackEndDevPage() {
 }
 
 function HeroSection() {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
 
   return (
     <section className="h-full relative flex flex-col pt-16 md:pt-20 pb-8 overflow-hidden justify-center">
       <Layout>
-
-
         <div className="flex flex-col mb-6 md:mb-10">
           <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-[#567C8D]" intensity={1.2}>
-            BACK-END
+            MOTION
           </CinematicText>
           <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white" intensity={1.2}>
-            DEVELOPMENT
+            GRAPHICS
           </CinematicText>
         </div>
 
@@ -170,7 +175,7 @@ function HeroSection() {
               className="md:col-span-4"
             >
               <p className="text-xl md:text-2xl font-display font-black tracking-[-0.02em] leading-tight uppercase text-white">
-                WE ARCHITECT RIGOROUS SERVER-SIDE ECOSYSTEMS THAT PROVIDE THE HIGH-PERFORMANCE BACKBONE FOR COMPLEX DIGITAL PRODUCTS.
+                WE CREATE IMMERSIVE MOTION GRAPHICS AND DYNAMIC INTERACTIVE ANIMATIONS THAT ELEVATE DIGITAL BRAND STORYTELLING.
               </p>
             </motion.div>
 
@@ -181,7 +186,7 @@ function HeroSection() {
               className="md:col-span-6"
             >
               <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">
-                Backend engineering at Crestora Studios is about building for scale, security, and surgical precision. We specialize in crafting highly-optimized data architectures and secure API layers that handle complex business logic with ease. By leveraging cutting-edge cloud technology and industry-standard security protocols, we ensure your application is as powerful on the inside as it is beautiful on the outside.
+                At Crestora, our motion graphics solutions bring digital assets to life. We structure visual storyboards, custom vector physics, and precise keyframing systems, turning basic vectors and text arrays into engaging animations that lock customer attention.
               </p>
             </motion.div>
           </div>
@@ -268,8 +273,6 @@ function ProcessCard({ step, index }: { step: any; index: number }) {
   );
 }
 
-
-
 function WaveText({ text, className, containerRef }: { text: string; className?: string; containerRef: React.RefObject<HTMLDivElement | null> }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, container: containerRef, offset: ["start 98%", "start 60%"] });
@@ -298,7 +301,7 @@ function WaveText({ text, className, containerRef }: { text: string; className?:
 }
 
 function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
   return (
     <section className="py-32 md:py-48 bg-[#2F4156]">
       <Layout>
@@ -311,12 +314,11 @@ function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDiv
           </div>
 
           <div className="md:col-span-8 flex flex-col md:-mt-12">
-            {/* Current Service (Struck-through) */}
             <div className="flex flex-col">
               <div className="w-full h-px bg-white/5" />
               <div className="py-8 md:py-12 relative">
                 <h3 className="text-3xl md:text-5xl font-display font-black text-white/10 uppercase tracking-[-0.04em] relative inline-block">
-                  Back-end development
+                  Motion graphics
                   <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.5 }} className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 origin-left" />
                 </h3>
               </div>

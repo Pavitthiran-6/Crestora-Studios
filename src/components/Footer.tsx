@@ -6,16 +6,17 @@ import { Layout } from "./layout/Layout";
 import { useTransition } from "./TransitionProvider";
 
 const SERVICES = [
-  { label: "WEBSITE DESIGN", href: "/services" },
-  { label: "MOTION DESIGN", href: "/services" },
-  { label: "FRONT-END DEVELOPMENT", href: "/services" },
-  { label: "BACK-END DEVELOPMENT", href: "/services" },
-  { label: "SHOPIFY DEVELOPMENT", href: "/services" },
-  { label: "WEBSITE SUPPORT", href: "/services" },
-  { label: "PAID SEARCH ADVERTISING", href: "/services" },
-  { label: "SOCIAL MEDIA ADVERTISING", href: "/services" },
-  { label: "EMAIL MARKETING", href: "/services" },
-  { label: "SEO", href: "/services" },
+  { label: "WEBSITE DEVELOPMENT", href: "/website-development" },
+  { label: "MOBILE APPLICATIONS", href: "/mobile-applications" },
+  { label: "LOGO DESIGN", href: "/logo-design" },
+  { label: "POSTER DESIGN", href: "/poster-design" },
+  { label: "VIDEO EDITING", href: "/video-editing" },
+  { label: "MOTION GRAPHICS", href: "/motion-graphics" },
+  { label: "SEO", href: "/seo" },
+  { label: "3D ANIMATION", href: "/3d-animation" },
+  { label: "DIGITAL MARKETING", href: "/digital-marketing" },
+  { label: "WEBSITE AND APP MAINTENANCE", href: "/website-and-app-maintenance" },
+  { label: "CYBER SECURITY SOLUTIONS", href: "/cyber-security-solutions" },
 ];
 
 const SOCIALS = [

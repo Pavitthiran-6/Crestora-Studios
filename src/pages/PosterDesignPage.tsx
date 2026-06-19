@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "motion/react";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { ArrowUpRight } from "lucide-react";
 import { Layout } from "../components/layout/Layout";
 import { Footer } from "../components/Footer";
 import { SmoothScrollProvider } from "../components/SmoothScrollProvider";
@@ -16,38 +16,45 @@ import HexIcon from "../components/HexIcon";
 const PROCESS_STEPS = [
   {
     id: "01",
-    title: "DISCOVERY",
-    desc: "We begin by immersing ourselves in your brand's ecosystem, uncovering the core values and unique narratives that set you apart. Our deep-dive discovery phase ensures every design decision is rooted in strategy and purpose."
+    title: "BRIEFING",
+    desc: "Aligning on core visual theme, campaign goals, dimension requirements, and primary marketing copy goals."
   },
   {
     id: "02",
-    title: "STRUCTURE",
-    desc: "Information architecture is the backbone of premium digital experiences. We map out intuitive journeys that guide users through your brand story with surgical precision, balancing complexity with effortless navigation."
+    title: "COMPOSITION",
+    desc: "Sculpting visual layouts and grid structures to define clear focal highlights and reading flows."
   },
   {
     id: "03",
-    title: "WIREFRAME",
-    desc: "Form follows function in our skeletal layouts. We prototype high-fidelity structural blueprints that prioritize user flow and conversion hierarchy before a single pixel of aesthetic is applied."
+    title: "ILLUSTRATION",
+    desc: "Developing bespoke graphical illustrations, digital art integrations, or custom photo edits."
   },
   {
     id: "04",
-    title: "MOOD BOARDS",
-    desc: "Visual storytelling begins with atmosphere. We curate sophisticated aesthetic directions that capture the emotional resonance of your brand, establishing a premium visual language through color, type, and texture."
+    title: "TYPOGRAPHY",
+    desc: "Integrating bold display font headers and layout details aligned with premium branding styles."
   },
   {
     id: "05",
-    title: "VISUAL DESIGN",
-    desc: "The final orchestration of art and technology. We craft high-end, cinematic interfaces that push the boundaries of digital luxury, ensuring your website is not just a tool, but a definitive brand statement."
+    title: "PRODUCTION RENDER",
+    desc: "Exporting high-fidelity poster files optimized for print mediums, web displays, or social media pipelines."
   }
 ];
 
 const OTHER_SERVICES = [
-  "Motion design", "Front-end development", "Back-end development",
-  "Shopify development", "Website support", "Paid search advertising",
-  "Social media advertising", "Email marketing", "SEO"
+  "Website development",
+  "Mobile applications",
+  "Logo design",
+  "Video editing",
+  "Motion graphics",
+  "SEO",
+  "3D animation",
+  "Digital marketing",
+  "Website and app maintenance",
+  "Cyber security solutions"
 ];
 
-export default function WebsiteDesignPage() {
+export default function PosterDesignPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
   const [isWaveOpen, setIsWaveOpen] = useState(false);
@@ -85,7 +92,7 @@ export default function WebsiteDesignPage() {
                       SERVICES
                     </span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">WEBSITE DESIGN</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">POSTER DESIGN</span>
                   </div>
                 </div>
 
@@ -127,27 +134,21 @@ export default function WebsiteDesignPage() {
   );
 }
 
-/* --- HERO SECTION --- */
-
 function HeroSection() {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
 
   return (
     <section className="h-full relative flex flex-col pt-16 md:pt-20 pb-8 overflow-hidden justify-center">
       <Layout>
-
-
-        {/* Main Title */}
         <div className="flex flex-col mb-6 md:mb-10">
           <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-[#567C8D]" intensity={1.2}>
-            WEBSITE
+            POSTER
           </CinematicText>
           <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white" intensity={1.2}>
             DESIGN
           </CinematicText>
         </div>
 
-        {/* Divider & Columns */}
         <div className="w-full space-y-4 md:space-y-6">
           <motion.div
             initial={{ scaleX: 0 }}
@@ -174,7 +175,7 @@ function HeroSection() {
               className="md:col-span-4"
             >
               <p className="text-xl md:text-2xl font-display font-black tracking-[-0.02em] leading-tight uppercase text-white">
-                WE CRAFT IMMERSIVE DIGITAL ECOSYSTEMS THAT MERGE DESIGN, STORYTELLING, AND ENGINEERING INTO MEMORABLE BRAND EXPERIENCES.
+                WE CREATE HIGH-IMPACT VISUAL POSTERS FUSING ARTISTIC ILLUSTATION WITH BOLD BRUTALIST TYPOGRAPHY.
               </p>
             </motion.div>
 
@@ -185,7 +186,7 @@ function HeroSection() {
               className="md:col-span-6"
             >
               <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">
-                At Crestora Studios, our website design process is more than just aesthetic refinement. We focus on high-performance architecture, cinematic motion, and intuitive user journeys that drive conversions and brand equity. By blending strategic insights with cutting-edge visual design, we ensure your digital presence is not only beautiful but a powerful engine for growth.
+                At Crestora, our poster design services combine custom artwork grids with striking fonts and geometric highlights. We structure composition blueprints that serve as visual statements for events, digital ad displays, packaging, and commercial brand scaling campaigns.
               </p>
             </motion.div>
           </div>
@@ -195,108 +196,56 @@ function HeroSection() {
   );
 }
 
-/* --- HELPER: WAVE LETTER --- */
-
 function WaveLetter({ char, index, progress }: { char: string; index: number; progress: any }) {
-  // Staggered entrance from bottom
   const startEnter = index * 0.04;
   const endEnter = startEnter + 0.4;
-  
   const y = useTransform(progress, [startEnter, endEnter], [400, 0]);
   const opacity = useTransform(progress, [startEnter, endEnter], [0, 1]);
-
   return (
-    <motion.span
-      style={{ y, opacity }}
-      className="inline-block"
-    >
+    <motion.span style={{ y, opacity }} className="inline-block">
       {char}
     </motion.span>
   );
 }
 
-/* --- PROCESS SECTION (Horizontal Scroll) --- */
-
 function ProcessSection({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
   const targetRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [maxScroll, setMaxScroll] = useState(0);
-
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    container: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const { scrollYProgress } = useScroll({ target: targetRef, container: containerRef, offset: ["start start", "end end"] });
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   useEffect(() => {
-    const computeMaxScroll = () => {
-      if (trackRef.current) {
-        setMaxScroll(trackRef.current.scrollWidth);
-      }
-    };
+    const computeMaxScroll = () => { if (trackRef.current) setMaxScroll(trackRef.current.scrollWidth); };
     computeMaxScroll();
     window.addEventListener("resize", computeMaxScroll);
     return () => window.removeEventListener("resize", computeMaxScroll);
   }, []);
 
   const x = useTransform(smoothProgress, [0, 0.9], [0, -maxScroll]);
-  
-  // Background reveal logic
   const bgOpacity = useTransform(smoothProgress, [0, 0.1, 0.8, 1], [0, 1, 1, 0]);
   const fillClipPath = useTransform(smoothProgress, [0.3, 0.9], ["inset(0 0 0 100%)", "inset(0 0 0 0%)"]);
 
   return (
     <section ref={targetRef} className="relative h-[500vh] bg-[#2F4156]">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-        
-        {/* Background Typography with Wave Effect */}
-        <motion.div 
-          style={{ opacity: bgOpacity }}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
-        >
+        <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <div className="relative">
-            {/* Base Letters (Subtle White) */}
             <h2 className="text-[20vw] font-display font-black uppercase tracking-[-0.04em] text-white/5 leading-none text-center whitespace-nowrap">
-              {"PROCESS".split("").map((char, i) => (
-                <WaveLetter key={i} char={char} index={i} progress={smoothProgress} />
-              ))}
+              {"PROCESS".split("").map((char, i) => ( <WaveLetter key={i} char={char} index={i} progress={smoothProgress} /> ))}
             </h2>
-            {/* Overlapping Letters (Red Fill) */}
-            <motion.div
-              style={{ clipPath: fillClipPath }}
-              className="absolute inset-0 flex justify-center items-center"
-            >
+            <motion.div style={{ clipPath: fillClipPath }} className="absolute inset-0 flex justify-center items-center">
               <h2 className="text-[20vw] font-display font-black uppercase tracking-[-0.04em] text-[#567C8D] leading-none text-center whitespace-nowrap">
-                {"PROCESS".split("").map((char, i) => (
-                  <WaveLetter key={i} char={char} index={i} progress={smoothProgress} />
-                ))}
+                {"PROCESS".split("").map((char, i) => ( <WaveLetter key={i} char={char} index={i} progress={smoothProgress} /> ))}
               </h2>
             </motion.div>
           </div>
         </motion.div>
-
-        {/* Card Track */}
         <div className="relative z-10 w-full">
           <div className="flex items-center">
-            <motion.div
-              ref={trackRef}
-              style={{ x }}
-              className="flex flex-row gap-8 md:gap-16 items-center"
-            >
-              {/* Spacer to push initial cards off-screen to the right */}
+            <motion.div ref={trackRef} style={{ x }} className="flex flex-row gap-8 md:gap-16 items-center">
               <div className="flex-shrink-0 w-[100vw]" />
-
-              {PROCESS_STEPS.map((step, i) => (
-                <ProcessCard key={step.id} step={step} index={i} />
-              ))}
-
-              {/* End padding */}
+              {PROCESS_STEPS.map((step, i) => ( <ProcessCard key={step.id} step={step} index={i} /> ))}
               <div className="flex-shrink-0 w-[20vw]" />
             </motion.div>
           </div>
@@ -308,27 +257,14 @@ function ProcessSection({ containerRef }: { containerRef: React.RefObject<HTMLDi
 
 function ProcessCard({ step, index }: { step: any; index: number }) {
   const shiftClass = index % 2 === 0 ? "translate-y-8 md:translate-y-12" : "-translate-y-8 md:-translate-y-12";
-
   return (
-    <div
-      className={cn(
-        "flex-shrink-0 w-[85vw] md:w-[450px] min-h-[400px] md:h-[550px] group relative bg-[#2F4156] p-10 md:p-16 rounded-[32px] border border-white/10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.5)] flex flex-col",
-        shiftClass
-      )}
-    >
+    <div className={cn("flex-shrink-0 w-[85vw] md:w-[450px] min-h-[400px] md:h-[550px] group relative bg-[#2F4156] p-10 md:p-16 rounded-[32px] border border-white/10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.5)] flex flex-col", shiftClass)}>
       <div className="flex flex-col h-full">
         <div className="flex justify-between items-start mb-12">
           <span className="text-xs font-black tracking-[0.4em] opacity-50 group-hover:opacity-100 transition-opacity uppercase">{step.id} / STEP</span>
         </div>
-        
-        <h3 className="text-4xl md:text-6xl font-display font-black tracking-[-0.04em] uppercase leading-none mb-8 group-hover:text-[#567C8D] transition-colors text-white">
-          {step.title}
-        </h3>
-        
-        <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed text-white/70 group-hover:text-white transition-colors uppercase mb-12">
-          {step.desc}
-        </p>
-        
+        <h3 className="text-4xl md:text-6xl font-display font-black tracking-[-0.04em] uppercase leading-none mb-8 group-hover:text-[#567C8D] transition-colors text-white">{step.title}</h3>
+        <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed text-white/70 group-hover:text-white transition-colors uppercase mb-12">{step.desc}</p>
         <div className="mt-auto flex justify-between items-center">
           <HexIcon className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" fill="#567C8D" />
         </div>
@@ -337,18 +273,9 @@ function ProcessCard({ step, index }: { step: any; index: number }) {
   );
 }
 
-
-
-/* --- HELPER: WAVE TEXT ITEM --- */
-
 function WaveText({ text, className, containerRef }: { text: string; className?: string; containerRef: React.RefObject<HTMLDivElement | null> }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    container: containerRef,
-    offset: ["start 98%", "start 60%"]
-  });
-
+  const { scrollYProgress } = useScroll({ target: ref, container: containerRef, offset: ["start 98%", "start 60%"] });
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 25 });
 
   return (
@@ -373,10 +300,8 @@ function WaveText({ text, className, containerRef }: { text: string; className?:
   );
 }
 
-/* --- OTHER SERVICES SECTION --- */
-
 function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
   return (
     <section className="py-32 md:py-48 bg-[#2F4156]">
       <Layout>
@@ -389,38 +314,22 @@ function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDiv
           </div>
 
           <div className="md:col-span-8 flex flex-col md:-mt-12">
-            {/* Current Service (Struck-through) */}
             <div className="flex flex-col">
               <div className="w-full h-px bg-white/5" />
               <div className="py-8 md:py-12 relative">
                 <h3 className="text-3xl md:text-5xl font-display font-black text-white/10 uppercase tracking-[-0.04em] relative inline-block">
-                  Website design
-                  <motion.div 
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 origin-left" 
-                  />
+                  Poster design
+                  <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.5 }} className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 origin-left" />
                 </h3>
               </div>
             </div>
 
             {OTHER_SERVICES.map((service) => (
-              <motion.div
-                key={service}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="group flex flex-col"
-              >
+              <motion.div key={service} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="group flex flex-col">
                 <div className="w-full h-px bg-[#567C8D] transition-transform duration-500 scale-x-0 group-hover:scale-x-100 origin-left z-10" />
                 <div className="w-full h-px bg-white/5" />
                 <div className="py-8 md:py-12 flex items-center justify-between cursor-pointer group" onClick={() => triggerPageTransition(`/${service.toLowerCase().replace(/ /g, "-")}`)}>
-                  <WaveText 
-                    text={service}
-                    containerRef={containerRef}
-                    className="text-3xl md:text-5xl font-display font-black text-white transition-all duration-300 group-hover:translate-x-8 uppercase tracking-[-0.04em]"
-                  />
+                  <WaveText text={service} containerRef={containerRef} className="text-3xl md:text-5xl font-display font-black text-white transition-all duration-300 group-hover:translate-x-8 uppercase tracking-[-0.04em]" />
                   <ArrowUpRight className="w-8 h-8 md:w-10 md:h-10 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-[-10px] text-[#567C8D]" />
                 </div>
               </motion.div>

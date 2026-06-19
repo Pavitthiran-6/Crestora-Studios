@@ -11,6 +11,7 @@ import { SmoothScrollProvider } from "../components/SmoothScrollProvider";
 import { CinematicText } from "../components/CinematicText";
 import HexIcon from "../components/HexIcon";
 import ProfileCard from "../components/ProfileCard/ProfileCard";
+import { LapisCardHand } from "../components/ProfileCard/LapisCardHand";
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -23,9 +24,10 @@ const IMAGES = {
   team1: "/team_member_1_1778599096940.png",
   team2: "/team_member_2_1778599116765.png",
   abbas: "/muhamed_abbas.jpg",
-  azeez: "/abdul_azeez.png",
+  muthukuran: "/muthukuran.png",
   pavit: "/pavitthiran.jpg",
   palani: "/palaniappan.jpg",
+  aslam: "/muhamed_aslam.jpg",
 };
 
 // --- Components ---
@@ -223,7 +225,7 @@ const CreativeStudioSection = () => {
             WE DESIGN,{"\n"}BUILD & SCALE{"\n"}YOUR <span className="text-[#567C8D]">VISION.</span>
           </CinematicText>
           <p className="text-white/50 text-base md:text-xl leading-relaxed max-w-md font-medium uppercase">
-            AT Crestora Studios, WE CRAFT IMMERSIVE DIGITAL ECOSYSTEMS THAT MERGE DESIGN, STORYTELLING, MOTION, AND ENGINEERING INTO MEMORABLE BRAND EXPERIENCES.
+            Crestora is a creative technology and digital solutions company helping businesses build, grow, and scale their brand in the digital world. By combining creativity, technology, and strategy, we deliver impactful digital experiences that drive business growth and strengthen brand presence.
           </p>
         </div>
 
@@ -297,12 +299,20 @@ const TeamGridSection = () => {
               avatarUrl: IMAGES.pavit,
             },
             {
-              name: "Abdul Azeez",
-              title: "Product Engineering Lead",
-              handle: "azeez_management",
-              status: "Management & Frontend",
-              contactText: "Project Strategy",
-              avatarUrl: IMAGES.azeez,
+              name: "Muthukuran",
+              title: "Creative Motion Director",
+              handle: "muthukuran_vfx",
+              status: "3D Animation • Poster • Motion",
+              contactText: "Motion & 3D",
+              avatarUrl: IMAGES.muthukuran,
+            },
+            {
+              name: "Muhamed Aslam",
+              title: "Sales Executive",
+              handle: "aslam_sales",
+              status: "Sales & Client Relations",
+              contactText: "Client Strategy",
+              avatarUrl: IMAGES.aslam,
             },
           ].map((profile, i) => (
             <div
@@ -320,62 +330,9 @@ const TeamGridSection = () => {
           ))}
         </div>
 
-        {/* Desktop View: Grid (Completely Untouched) */}
-        <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {[
-            {
-              name: "Muhamed Abbas",
-              title: "Creative Operations Lead",
-              handle: "m_abbas",
-              status: "Management • Video • Design",
-              contactText: "Production Scope",
-              avatarUrl: IMAGES.abbas,
-            },
-            {
-              name: "Palaniappan",
-              title: "UI Developer",
-              handle: "palani_design",
-              status: "Technical Associate",
-              contactText: "Design Audit",
-              avatarUrl: IMAGES.palani,
-            },
-            {
-              name: "Pavitthiran",
-              title: "Developer",
-              handle: "pavitthiran_tech",
-              status: "Full-Stack Developer",
-              contactText: "Tech Stack",
-              avatarUrl: IMAGES.pavit,
-            },
-            {
-              name: "Abdul Azeez",
-              title: "Product Engineering Lead",
-              handle: "azeez_management",
-              status: "Management & Frontend",
-              contactText: "Project Strategy",
-              avatarUrl: IMAGES.azeez,
-            },
-          ].map((profile, i) => (
-            <motion.div
-              key={`desktop-${profile.name}`}
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{
-                duration: 0.8,
-                delay: i * 0.1,
-                ease: [0.16, 1, 0.3, 1]
-              }}
-            >
-              <ProfileCard
-                {...profile}
-                behindGlowEnabled
-                behindGlowColor="rgba(239, 68, 68, 0.35)"
-                behindGlowSize="70%"
-                innerGradient="linear-gradient(165deg, rgba(255,255,255,0.08) 0%, rgba(10,12,24,0.6) 100%)"
-              />
-            </motion.div>
-          ))}
+        {/* Desktop View: Interactive Card Deck */}
+        <div className="hidden md:block">
+          <LapisCardHand />
         </div>
       </Layout>
     </section>

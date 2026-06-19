@@ -116,7 +116,13 @@ export const ContactExperience: React.FC<{ isOpen: boolean; onClose: () => void 
               <StepContent
                 key="projectType"
                 title={<>WHAT TYPE OF <span className="text-[#567C8D]">PROJECT?</span></>}
-                options={["FULL WEBSITE", "UX/UI DESIGN", "WEB DEVELOPMENT", "BRANDING", "MARKETING"]}
+                options={[
+                  "WEB & APP DEVELOPMENT",
+                  "BRANDING & DESIGN",
+                  "VIDEO & ANIMATION",
+                  "DIGITAL MARKETING",
+                  "CYBER SECURITY & SUPPORT"
+                ]}
                 onSelect={(val) => { setSelections(s => ({ ...s, projectType: val })); nextStep("budget"); }}
                 showDots={true}
               />
@@ -218,39 +224,72 @@ export const ContactExperience: React.FC<{ isOpen: boolean; onClose: () => void 
 };
 
 /* --- SHARED STEP COMPONENT (CAPSULE STYLE) --- */
-const StepContent: React.FC<{ title: React.ReactNode; options: string[]; onSelect: (val: string) => void; showDots?: boolean }> = ({ title, options, onSelect, showDots }) => (
-  <motion.div
-    initial={{ opacity: 0, scale: 0.98 }}
-    animate={{ opacity: 1, scale: 1 }}
-    exit={{ opacity: 0, scale: 0.98 }}
-    transition={{ duration: 0.4 }}
-    className="w-full max-w-5xl flex flex-col items-center py-6 md:py-0"
-  >
-    <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[7vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] mb-6 sm:mb-12 md:mb-20">
-      {title}
-    </h1>
+const StepContent: React.FC<{ title: React.ReactNode; options: string[]; onSelect: (val: string) => void; showDots?: boolean }> = ({ title, options, onSelect, showDots }) => {
+  const shouldSplit = options.length > 5;
+  const splitIndex = shouldSplit ? 5 : options.length;
+  const row1 = options.slice(0, splitIndex);
+  const row2 = shouldSplit ? options.slice(splitIndex) : [];
 
-    <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
-      {options.map((opt, i) => (
-        <motion.button
-          key={opt}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.05 }}
-          whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.08)" }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => onSelect(opt)}
-          className="px-6 sm:px-10 md:px-14 py-4 sm:py-6 md:py-8 hexa-box bg-white/5 border border-white/10 flex items-center gap-3 sm:gap-4 group transition-colors duration-300"
-        >
-          {(showDots || opt === "START A PROJECT") && (
-            <HexIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="#567C8D" />
-          )}
-          <span className="text-[9px] sm:text-[10px] md:text-xs font-display font-black tracking-[0.2em] uppercase whitespace-nowrap">{opt}</span>
-        </motion.button>
-      ))}
-    </div>
-  </motion.div>
-);
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.98 }}
+      transition={{ duration: 0.4 }}
+      className="w-full max-w-5xl flex flex-col items-center py-6 md:py-0"
+    >
+      <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-[7vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] mb-6 sm:mb-12 md:mb-20">
+        {title}
+      </h1>
+
+      <div className="flex flex-col items-center gap-3 sm:gap-4 md:gap-6 w-full">
+        {/* Row 1 */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+          {row1.map((opt, i) => (
+            <motion.button
+              key={opt}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.08)" }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => onSelect(opt)}
+              className="px-6 sm:px-10 md:px-14 py-4 sm:py-6 md:py-8 hexa-box bg-white/5 border border-white/10 flex items-center gap-3 sm:gap-4 group transition-colors duration-300"
+            >
+              {(showDots || opt === "START A PROJECT") && (
+                <HexIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="#567C8D" />
+              )}
+              <span className="text-[9px] sm:text-[10px] md:text-xs font-display font-black tracking-[0.2em] uppercase whitespace-nowrap">{opt}</span>
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Row 2 */}
+        {shouldSplit && (
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+            {row2.map((opt, i) => (
+              <motion.button
+                key={opt}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (row1.length + i) * 0.05 }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.08)" }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => onSelect(opt)}
+                className="px-6 sm:px-10 md:px-14 py-4 sm:py-6 md:py-8 hexa-box bg-white/5 border border-white/10 flex items-center gap-3 sm:gap-4 group transition-colors duration-300"
+              >
+                {(showDots || opt === "START A PROJECT") && (
+                  <HexIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="#567C8D" />
+                )}
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-display font-black tracking-[0.2em] uppercase whitespace-nowrap">{opt}</span>
+              </motion.button>
+            ))}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 const StepFinalForm: React.FC<{ selections: SelectionData; onSelect: (formData: any) => void; isSubmitting: boolean }> = ({ selections, onSelect, isSubmitting }) => {
   const [formData, setFormData] = useState({

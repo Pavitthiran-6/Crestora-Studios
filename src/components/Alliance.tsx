@@ -146,7 +146,7 @@ export const Alliance = ({ containerRef }: { containerRef: React.RefObject<HTMLD
 
                 {/* Paragraph */}
                 <p className="text-white/60 text-sm md:text-base lg:text-lg leading-relaxed max-w-md font-medium">
-                  At Graphoria, we craft immersive digital experiences designed to elevate brands and engage audiences. Through innovative design, strategic thinking, and seamless technology, we empower our partners to achieve greatness and redefine the boundaries of their industries.
+                  At Crestora, we help businesses grow through creative design, modern technology, and digital innovation. From websites and mobile applications to branding, digital marketing, motion graphics, 3D advertisements, and cyber security solutions, we create impactful experiences that strengthen brands, engage audiences, and drive measurable results.
                 </p>
               </div>
             </div>
@@ -155,7 +155,7 @@ export const Alliance = ({ containerRef }: { containerRef: React.RefObject<HTMLD
             <div className="lg:col-span-7">
               <h2 className="text-white text-[10vw] lg:text-[6.5vw] font-black leading-[0.85] tracking-tighter uppercase relative cursor-default">
                 <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" progress={textProgress}>BUILD THE</CinematicText><br />
-                <CinematicText as="span" className="text-[#567C8D] hover:text-white transition-colors duration-500" progress={textProgress}>GRAPHORIA</CinematicText><br />
+                <CinematicText as="span" className="text-[#567C8D] hover:text-white transition-colors duration-500" progress={textProgress}>CRESTORA</CinematicText><br />
                 <div className="flex items-baseline gap-4">
                   <CinematicText as="span" className="hover:text-[#567C8D] transition-colors duration-500" progress={textProgress}>EXPERIENCE</CinematicText>
                   {/* Red Hexagon Accent */}

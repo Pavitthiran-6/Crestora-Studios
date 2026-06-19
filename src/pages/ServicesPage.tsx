@@ -27,46 +27,56 @@ const ROTATING_TITLES = [
 ];
 
 const SERVICES = [
-  "Website design", "Motion design", "Front-end development",
-  "Back-end development", "Shopify development", "Website support",
-  "Paid search advertising", "Social media advertising", "Email marketing", "SEO"
+  "Website development",
+  "Mobile applications",
+  "Logo design",
+  "Poster design",
+  "Video editing",
+  "Motion graphics",
+  "SEO",
+  "3D animation",
+  "Digital marketing",
+  "Website and app maintenance",
+  "Cyber security solutions"
 ];
+
+
 
 const PROCESS_STEPS = [
   {
     id: "01",
     title: "PROJECT STRATEGY",
-    desc: "Every project is a canvas where we blend creative vision with strategic foresight. From the initial spark of an idea to the final flourish of execution, our seasoned strategists work hand-in-hand with your team to define goals, streamline processes, and chart a course to success."
+    desc: "Fusing creative vision with technical scoping. We define the blueprint for custom website development, mobile applications, marketing programs, and security protocols, aligning your brand goals with clear execution paths."
   },
   {
     id: "02",
     title: "DESIGN & MOTION",
-    desc: "Our team is a collective of artists, visionaries, and technophiles, all dedicated to creating immersive experiences that transcend boundaries. We blend cutting-edge technology with artistic finesse to create visuals that not only captivate but also communicate messages with impact."
+    desc: "Fusing visual aesthetics with kinetic flow. We craft bespoke logo design, print posters, and UI layouts, then bring them to life with dynamic motion graphics, professional video editing, and immersive 3D animation."
   },
   {
     id: "03",
     title: "SMOOTH DEVELOPMENT",
-    desc: "We transform complex designs into high-performance digital realities. Our engineering team focuses on speed, accessibility, and scalability, ensuring your platform remains robust and responsive across all devices and environments."
+    desc: "Building robust, high-performance systems. We engineer responsive web applications and hybrid mobile apps, utilizing modern code standards to guarantee fast page rendering speeds, security, and smooth device transitions."
   },
   {
     id: "04",
     title: "POWERFUL MARKETING",
-    desc: "We're not just marketers; we're storytellers, data analysts, and strategists who thrive on creating connections that drive results. With our arsenal of tools, insights, and creativity, we build campaigns that resonate with your audience."
+    desc: "Scaling brand presence and conversion rates. We execute targeted digital marketing campaigns and surgical search engine optimization (SEO) frameworks to drive high-intent organic traffic and maximize marketing ROI."
   },
   {
     id: "05",
     title: "ONGOING SUPPORT",
-    desc: "In the ever-evolving digital landscape, your website isn't a static entity; it's a living, breathing representation of your brand. At Crestora Studios, we understand that consistent, reliable support is essential to ensure your online presence remains dynamic."
+    desc: "Protecting system health proactively. Through our website and app maintenance protocols, we manage server diagnostics, data backups, and code checkups, ensuring your platform retains peak operational health."
   },
   {
     id: "06",
     title: "FUTURE EVOLUTION",
-    desc: "From immersive user experiences to AI-driven personalization, we're your digital architects for the future. Embracing change is key, and we're here to guide you. With Crestora Studios, it's not just a website; it's an evolution that keeps your brand relevant and remarkable."
+    desc: "Hardening infrastructure for tomorrow's scale. We deploy robust cyber security solutions including mock penetration testing, access locks, and threat monitoring, preparing your digital architecture for future growth."
   },
   {
     id: "07",
     title: "SCALABLE GROWTH",
-    desc: "We don't just build for today; we engineer for a decade. Our growth phase focuses on continuous performance scaling, emerging market integration, and systematic brand expansion to ensure your digital ecosystem becomes a global leader."
+    desc: "Fostering long-term market leadership. We continually refine our design, coding, marketing, and security operations, utilizing data analytics to scale your brand and achieve sustainable business growth."
   }
 ];
 
@@ -253,7 +263,7 @@ function ServicesHero() {
 
                 <div className="overflow-hidden h-[10vw] md:h-[8.5vw]">
                   <h1 className="text-[10vw] md:text-[8.5vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white">
-                    WEBSITES
+                    SOLUTIONS
                   </h1>
                 </div>
               </div>
@@ -357,7 +367,7 @@ function ServicesHero() {
 
                 <div className="overflow-hidden h-[23vw] flex items-center">
                   <h1 className="text-[14vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.8] text-white whitespace-nowrap scale-y-[1.5] origin-center">
-                    WEBSITES
+                    SOLUTIONS
                   </h1>
                 </div>
               </div>
@@ -402,7 +412,7 @@ function WhatWeDo() {
               <span className="text-[#567C8D] whitespace-nowrap">YOUR VISION.</span>
             </CinematicText>
             <p className="text-lg md:text-xl font-display font-black tracking-[-0.02em] leading-relaxed opacity-40 uppercase">
-              At Crestora Studios, we craft immersive digital ecosystems that merge design, storytelling, motion, and engineering into memorable brand experiences.
+              Crestora is a creative technology and digital solutions company helping businesses build, grow, and scale their brand in the digital world. We specialize in website development, mobile applications, logo design, poster design, video editing, motion graphics, SEO, 3D animation including (3D advertising), digital marketing, website and app maintenance, and cyber security solutions. By combining creativity, technology, and strategy, we deliver impactful digital experiences that drive business growth and strengthen brand presence.
             </p>
           </div>
 
@@ -653,11 +663,11 @@ function ResultsDriven() {
         <div className="max-w-4xl mb-32 mx-auto">
           <CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 block mb-6">RESULTS DRIVEN</CinematicText>
           <CinematicText as="h2" className="text-5xl md:text-8xl lg:text-[7vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] mb-12 text-white">
-            DRIVING SUCCESS,<br />
+            CREATING IMPACT,<br />
             <span className="text-[#567C8D]">DELIVERING RESULTS.</span>
           </CinematicText>
-          <p className="text-sm md:text-xl font-display font-black tracking-[-0.02em] uppercase opacity-40 max-w-2xl mx-auto leading-relaxed text-white">
-            We don't just build websites; we build performance engines. Every pixel and line of code is optimized for maximum conversion and brand equity.
+          <p className="text-sm md:text-xl font-display font-black tracking-[-0.02em] uppercase opacity-40 max-w-3xl mx-auto leading-relaxed text-white">
+            We don't just create digital products—we build complete brand experiences. Through design, development, marketing, animation, and technology, we help businesses connect with their audience, stand out from competitors, and achieve sustainable growth.
           </p>
         </div>
 

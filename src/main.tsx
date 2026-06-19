@@ -5,16 +5,17 @@ import App from './App.tsx';
 import WorkPage from './pages/WorkPage.tsx';
 import ServicesPage from './pages/ServicesPage.tsx';
 import StudioPage from './pages/StudioPage.tsx';
-import WebsiteDesignPage from './pages/WebsiteDesignPage.tsx';
-import MotionDesignPage from './pages/MotionDesignPage.tsx';
-import FrontEndDevPage from './pages/FrontEndDevPage.tsx';
-import BackEndDevPage from './pages/BackEndDevPage.tsx';
+import WebsiteDevelopmentPage from './pages/WebsiteDevelopmentPage.tsx';
+import MobileApplicationsPage from './pages/MobileApplicationsPage.tsx';
+import LogoDesignPage from './pages/LogoDesignPage.tsx';
+import PosterDesignPage from './pages/PosterDesignPage.tsx';
+import VideoEditingPage from './pages/VideoEditingPage.tsx';
+import MotionGraphicsPage from './pages/MotionGraphicsPage.tsx';
 import SEOPage from './pages/SEOPage.tsx';
-import ShopifyDevelopmentPage from './pages/ShopifyDevelopmentPage.tsx';
-import WebsiteSupportPage from './pages/WebsiteSupportPage.tsx';
-import PaidSearchAdvertisingPage from './pages/PaidSearchAdvertisingPage.tsx';
-import SocialMediaAdvertisingPage from './pages/SocialMediaAdvertisingPage.tsx';
-import EmailMarketingPage from './pages/EmailMarketingPage.tsx';
+import ThreeDAnimationPage from './pages/ThreeDAnimationPage.tsx';
+import DigitalMarketingPage from './pages/DigitalMarketingPage.tsx';
+import WebsiteAppMaintenancePage from './pages/WebsiteAppMaintenancePage.tsx';
+import CyberSecuritySolutionsPage from './pages/CyberSecuritySolutionsPage.tsx';
 import { ContactExperience } from './pages/ContactExperience.tsx';
 import WorkDetailsPage from './pages/WorkDetailsPage.tsx';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -61,16 +62,17 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/work" element={<WorkPage />} />
           <Route path="/work/:id" element={<WorkDetailsPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/website-design" element={<WebsiteDesignPage />} />
-          <Route path="/motion-design" element={<MotionDesignPage />} />
-          <Route path="/front-end-development" element={<FrontEndDevPage />} />
-          <Route path="/back-end-development" element={<BackEndDevPage />} />
+          <Route path="/website-development" element={<WebsiteDevelopmentPage />} />
+          <Route path="/mobile-applications" element={<MobileApplicationsPage />} />
+          <Route path="/logo-design" element={<LogoDesignPage />} />
+          <Route path="/poster-design" element={<PosterDesignPage />} />
+          <Route path="/video-editing" element={<VideoEditingPage />} />
+          <Route path="/motion-graphics" element={<MotionGraphicsPage />} />
           <Route path="/seo" element={<SEOPage />} />
-          <Route path="/shopify-development" element={<ShopifyDevelopmentPage />} />
-          <Route path="/website-support" element={<WebsiteSupportPage />} />
-          <Route path="/paid-search-advertising" element={<PaidSearchAdvertisingPage />} />
-          <Route path="/social-media-advertising" element={<SocialMediaAdvertisingPage />} />
-          <Route path="/email-marketing" element={<EmailMarketingPage />} />
+          <Route path="/3d-animation" element={<ThreeDAnimationPage />} />
+          <Route path="/digital-marketing" element={<DigitalMarketingPage />} />
+          <Route path="/website-and-app-maintenance" element={<WebsiteAppMaintenancePage />} />
+          <Route path="/cyber-security-solutions" element={<CyberSecuritySolutionsPage />} />
           <Route path="/studio" element={<StudioPage />} />
           <Route path="/contact" element={<ContactExperience isOpen={true} onClose={() => window.history.back()} />} />
           

@@ -268,12 +268,12 @@ export default function App() {
                       </div>
                       <div className="md:col-span-12 lg:col-start-8 lg:col-span-5 flex flex-col items-center md:items-end text-center md:text-right">
                         <KineticHeroText
-                          key={`web-${heroKey}`}
+                          key={`tech-${heroKey}`}
                           as="span"
                           className="font-display text-[18vw] md:text-[15vw] lg:text-[12vw] leading-[0.75] tracking-[-0.06em] uppercase text-[#567C8D] pointer-events-auto hover:text-white transition-colors duration-500 font-black"
                           delay={0.4}
                         >
-                          WEB
+                          TECH
                         </KineticHeroText>
                         <KineticHeroText
                           key={`studio-${heroKey}`}
@@ -338,11 +338,12 @@ export default function App() {
                   {/* Middle: Description (Col 3-5) */}
                   <div className="md:col-span-3 space-y-6 md:sticky md:top-40 z-20 pr-4">
                     <p className="text-white text-[13px] md:text-[15px] lg:text-[17px] font-display font-black tracking-[-0.04em] leading-[1.3] uppercase opacity-90">
-                      WITH A DECADE OF<br />
-                      EXPERIENCE UNDER OUR<br />
-                      BELTS, Crestora Studios HAS<br />
-                      BECOME A WORLD -<br />
-                      RENOWNED STUDIO
+                      WITH A YEAR OF<br />
+                      HANDS-ON EXPERIENCE,<br />
+                      Crestora Studios IS<br />
+                      DEDICATED TO SHAPING<br />
+                      IMMERSIVE & HIGH-IMPACT<br />
+                      DIGITAL ECOSYSTEMS.
                     </p>
                   </div>
 

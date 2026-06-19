@@ -14,19 +14,47 @@ import { cn } from "@/lib/utils";
 import HexIcon from "../components/HexIcon";
 
 const PROCESS_STEPS = [
-  { id: "01", title: "LIST SEGMENTATION", desc: "Surgical precision in audience targeting. We analyze your customer data to build highly-granular segments, ensuring every email delivered is hyper-relevant to the recipient's interests and stage in the customer journey." },
-  { id: "02", title: "CAMPAIGN DESIGN", desc: "Elevating the inbox experience. We design bespoke, cinematic email templates that perfectly align with your brand's visual identity, ensuring every message is a premium touchpoint that commands attention." },
-  { id: "03", title: "AUTOMATION", desc: "Building high-performance revenue engines. We architect complex automation flows—from welcome sequences to cart abandonment—that nurture leads and drive sales around the clock without manual intervention." },
-  { id: "04", title: "COPYWRITING", desc: "The art of persuasion. Our copywriters craft compelling, high-intent subject lines and body copy that resonate with your audience and drive a premium click-through rate to your digital destinations." },
-  { id: "05", title: "CONVERSION ANALYSIS", desc: "Data-driven strategic refinement. We provide deep-dive analytics into every campaign's performance, tracking open rates, clicks, and direct revenue to continuously optimize your email ROI." }
+  {
+    id: "01",
+    title: "CONCEPTUAL DESIGN",
+    desc: "Brainstorming and sketching raw geometric emblems and layout marks to visually translate your brand narrative."
+  },
+  {
+    id: "02",
+    title: "VECTOR TRANSLATION",
+    desc: "Developing high-fidelity digital vectors of select sketches using precise math to ensure crisp scaling on high-res displays."
+  },
+  {
+    id: "03",
+    title: "COLORS & SHADING",
+    desc: "Pairing structural shapes with curated color sets and texture gradients, evoking premium brand emotions."
+  },
+  {
+    id: "04",
+    title: "CONTEXT RUNS",
+    desc: "Testing emblem designs on dark overlays, light borders, mobile screens, stationery, and physical mockups."
+  },
+  {
+    id: "05",
+    title: "SYSTEM HANDOFF",
+    desc: "Exporting structured logo asset files in all standard formats (SVG, EPS, PNG, PDF) with optimized transparency rules."
+  }
 ];
 
 const OTHER_SERVICES = [
-  "Website design", "Motion design", "Front-end development", "Back-end development",
-  "Shopify development", "Website support", "Paid search advertising", "Social media advertising", "SEO"
+  "Website development",
+  "Mobile applications",
+  "Poster design",
+  "Video editing",
+  "Motion graphics",
+  "SEO",
+  "3D animation",
+  "Digital marketing",
+  "Website and app maintenance",
+  "Cyber security solutions"
 ];
 
-export default function EmailMarketingPage() {
+export default function LogoDesignPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
   const [isWaveOpen, setIsWaveOpen] = useState(false);
@@ -43,6 +71,8 @@ export default function EmailMarketingPage() {
         >
           <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} />
           <div ref={containerRef} className="h-full overflow-y-auto overflow-x-hidden scrollbar-hide">
+
+            {/* HEADER LAYER */}
             <div className="sticky top-0 left-0 right-0 z-[200] h-0 overflow-visible pointer-events-none">
               <div className="px-6 md:px-12 lg:px-16 py-8 md:py-12 flex justify-between items-start">
                 <div className="flex items-center gap-8 pointer-events-auto">
@@ -51,6 +81,7 @@ export default function EmailMarketingPage() {
                       <img src="/crestora_logo.png" alt="Crestora Studios" className="w-full h-full object-contain" />
                     </div>
                   </button>
+
                   <div className="hidden md:flex items-center gap-2">
                     <span className="text-[10px] font-black tracking-[0.3em] uppercase opacity-40 leading-none">Crestora Studios</span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
@@ -61,16 +92,36 @@ export default function EmailMarketingPage() {
                       SERVICES
                     </span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">EMAIL MARKETING</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">LOGO DESIGN</span>
                   </div>
                 </div>
-                <button onClick={() => setIsWaveOpen(!isWaveOpen)} className="relative z-[100] flex gap-3 md:gap-4 h-14 md:h-20 items-center cursor-pointer group pointer-events-auto">
-                  <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative"><motion.div animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }} className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2" /></div>
-                  <div className="flex flex-col items-center h-6 md:h-10 w-px bg-white/50 relative"><motion.div animate={{ opacity: isWaveOpen ? 0 : 1 }} className="absolute inset-0 bg-white/80" /></div>
-                  <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative"><motion.div animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }} className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2" /></div>
+
+                <button
+                  onClick={() => setIsWaveOpen(!isWaveOpen)}
+                  className="relative z-[100] flex gap-3 md:gap-4 h-14 md:h-20 items-center cursor-pointer group pointer-events-auto"
+                >
+                  <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
+                    <motion.div
+                      animate={{ y: isWaveOpen ? 24 : 0, opacity: isWaveOpen ? 0 : 1 }}
+                      className="absolute top-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center h-6 md:h-10 w-px bg-white/50 relative">
+                    <motion.div
+                      animate={{ opacity: isWaveOpen ? 0 : 1 }}
+                      className="absolute inset-0 bg-white/80"
+                    />
+                  </div>
+                  <div className="flex flex-col items-center h-10 md:h-14 w-px bg-white/30 relative">
+                    <motion.div
+                      animate={{ y: isWaveOpen ? -24 : 0, opacity: isWaveOpen ? 0 : 1 }}
+                      className="absolute bottom-0 w-2.5 md:w-3.5 h-2.5 md:h-3.5 border-2 border-white/60 rounded-full bg-[#2F4156] -translate-x-1/2 left-1/2"
+                    />
+                  </div>
                 </button>
               </div>
             </div>
+
             <HeroSection />
             <ProcessSection containerRef={containerRef} />
             <LatestProjects />
@@ -84,21 +135,60 @@ export default function EmailMarketingPage() {
 }
 
 function HeroSection() {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
+
   return (
     <section className="h-full relative flex flex-col pt-16 md:pt-20 pb-8 overflow-hidden justify-center">
       <Layout>
-
         <div className="flex flex-col mb-6 md:mb-10">
-          <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-[#567C8D]" intensity={1.2}>EMAIL</CinematicText>
-          <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white" intensity={1.2}>MARKETING</CinematicText>
+          <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-[#567C8D]" intensity={1.2}>
+            LOGO
+          </CinematicText>
+          <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white" intensity={1.2}>
+            DESIGN
+          </CinematicText>
         </div>
+
         <div className="w-full space-y-4 md:space-y-6">
-          <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }} className="w-full h-px bg-white/10 origin-center" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full h-px bg-white/10 origin-center"
+          />
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="md:col-span-2 flex items-center gap-3"><HexIcon className="w-3 h-3" fill="#567C8D" /><CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase text-white">THE SERVICE</CinematicText></motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="md:col-span-4"><p className="text-xl md:text-2xl font-display font-black tracking-[-0.02em] leading-tight uppercase text-white">WE ARCHITECT HIGH-PERFORMANCE EMAIL ECOSYSTEMS THAT MERGE PERSUASIVE COPYWRITING WITH SURGICAL AUTOMATION.</p></motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="md:col-span-6"><p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">Email marketing at Crestora Studios is not about blasting a list, but about architecting definitive brand conversations. We blend technical excellence in automation with cinematic creative design to ensure your brand remains top-of-mind and commands action. By focusing on surgical list segmentation and high-intent copy, we deliver sustainable growth that compounds over time, making your inbox presence a definitive revenue driver.</p></motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="md:col-span-2 flex items-center gap-3"
+            >
+              <HexIcon className="w-3 h-3" fill="#567C8D" />
+              <CinematicText className="text-[10px] font-black tracking-[0.3em] uppercase text-white">THE SERVICE</CinematicText>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="md:col-span-4"
+            >
+              <p className="text-xl md:text-2xl font-display font-black tracking-[-0.02em] leading-tight uppercase text-white">
+                WE CRAFT MINIMALLY DISTINCT LOGOS AND ICONIC EMBLEMS DESIGNED TO REPRESENT YOUR BRAND VALUE SYMBOLICALLY.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="md:col-span-6"
+            >
+              <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">
+                At Crestora, our logo designs balance mathematical symmetry with creative asymmetry. We explore concept drawings, geometry grids, and distinct color pairings, setting up your logo mark to serve as a durable branding signature on packaging, mobile screens, or high-rise advertising panels.
+              </p>
+            </motion.div>
           </div>
         </div>
       </Layout>
@@ -107,31 +197,59 @@ function HeroSection() {
 }
 
 function WaveLetter({ char, index, progress }: { char: string; index: number; progress: any }) {
-  const startEnter = index * 0.04; const endEnter = startEnter + 0.4;
+  const startEnter = index * 0.04;
+  const endEnter = startEnter + 0.4;
   const y = useTransform(progress, [startEnter, endEnter], [400, 0]);
   const opacity = useTransform(progress, [startEnter, endEnter], [0, 1]);
-  return ( <motion.span style={{ y, opacity }} className="inline-block">{char}</motion.span> );
+  return (
+    <motion.span style={{ y, opacity }} className="inline-block">
+      {char}
+    </motion.span>
+  );
 }
 
 function ProcessSection({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
-  const targetRef = useRef<HTMLDivElement>(null); const trackRef = useRef<HTMLDivElement>(null);
+  const targetRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [maxScroll, setMaxScroll] = useState(0);
   const { scrollYProgress } = useScroll({ target: targetRef, container: containerRef, offset: ["start start", "end end"] });
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-  useEffect(() => { const computeMaxScroll = () => { if (trackRef.current) setMaxScroll(trackRef.current.scrollWidth); }; computeMaxScroll(); window.addEventListener("resize", computeMaxScroll); return () => window.removeEventListener("resize", computeMaxScroll); }, []);
+
+  useEffect(() => {
+    const computeMaxScroll = () => { if (trackRef.current) setMaxScroll(trackRef.current.scrollWidth); };
+    computeMaxScroll();
+    window.addEventListener("resize", computeMaxScroll);
+    return () => window.removeEventListener("resize", computeMaxScroll);
+  }, []);
+
   const x = useTransform(smoothProgress, [0, 0.9], [0, -maxScroll]);
   const bgOpacity = useTransform(smoothProgress, [0, 0.1, 0.8, 1], [0, 1, 1, 0]);
   const fillClipPath = useTransform(smoothProgress, [0.3, 0.9], ["inset(0 0 0 100%)", "inset(0 0 0 0%)"]);
+
   return (
     <section ref={targetRef} className="relative h-[500vh] bg-[#2F4156]">
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
         <motion.div style={{ opacity: bgOpacity }} className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
           <div className="relative">
-            <h2 className="text-[20vw] font-display font-black uppercase tracking-[-0.04em] text-white/5 leading-none text-center whitespace-nowrap">{"PROCESS".split("").map((char, i) => ( <WaveLetter key={i} char={char} index={i} progress={smoothProgress} /> ))}</h2>
-            <motion.div style={{ clipPath: fillClipPath }} className="absolute inset-0 flex justify-center items-center"><h2 className="text-[20vw] font-display font-black uppercase tracking-[-0.04em] text-[#567C8D] leading-none text-center whitespace-nowrap">{"PROCESS".split("").map((char, i) => ( <WaveLetter key={i} char={char} index={i} progress={smoothProgress} /> ))}</h2></motion.div>
+            <h2 className="text-[20vw] font-display font-black uppercase tracking-[-0.04em] text-white/5 leading-none text-center whitespace-nowrap">
+              {"PROCESS".split("").map((char, i) => ( <WaveLetter key={i} char={char} index={i} progress={smoothProgress} /> ))}
+            </h2>
+            <motion.div style={{ clipPath: fillClipPath }} className="absolute inset-0 flex justify-center items-center">
+              <h2 className="text-[20vw] font-display font-black uppercase tracking-[-0.04em] text-[#567C8D] leading-none text-center whitespace-nowrap">
+                {"PROCESS".split("").map((char, i) => ( <WaveLetter key={i} char={char} index={i} progress={smoothProgress} /> ))}
+              </h2>
+            </motion.div>
           </div>
         </motion.div>
-        <div className="relative z-10 w-full"><div className="flex items-center"><motion.div ref={trackRef} style={{ x }} className="flex flex-row gap-8 md:gap-16 items-center"><div className="flex-shrink-0 w-[100vw]" />{PROCESS_STEPS.map((step, i) => ( <ProcessCard key={step.id} step={step} index={i} /> ))}<div className="flex-shrink-0 w-[20vw]" /></motion.div></div></div>
+        <div className="relative z-10 w-full">
+          <div className="flex items-center">
+            <motion.div ref={trackRef} style={{ x }} className="flex flex-row gap-8 md:gap-16 items-center">
+              <div className="flex-shrink-0 w-[100vw]" />
+              {PROCESS_STEPS.map((step, i) => ( <ProcessCard key={step.id} step={step} index={i} /> ))}
+              <div className="flex-shrink-0 w-[20vw]" />
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -142,16 +260,18 @@ function ProcessCard({ step, index }: { step: any; index: number }) {
   return (
     <div className={cn("flex-shrink-0 w-[85vw] md:w-[450px] min-h-[400px] md:h-[550px] group relative bg-[#2F4156] p-10 md:p-16 rounded-[32px] border border-white/10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.5)] flex flex-col", shiftClass)}>
       <div className="flex flex-col h-full">
-        <div className="flex justify-between items-start mb-12"><span className="text-xs font-black tracking-[0.4em] opacity-50 group-hover:opacity-100 transition-opacity uppercase">{step.id} / STEP</span></div>
+        <div className="flex justify-between items-start mb-12">
+          <span className="text-xs font-black tracking-[0.4em] opacity-50 group-hover:opacity-100 transition-opacity uppercase">{step.id} / STEP</span>
+        </div>
         <h3 className="text-4xl md:text-6xl font-display font-black tracking-[-0.04em] uppercase leading-none mb-8 group-hover:text-[#567C8D] transition-colors text-white">{step.title}</h3>
         <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed text-white/70 group-hover:text-white transition-colors uppercase mb-12">{step.desc}</p>
-        <div className="mt-auto flex justify-between items-center"><HexIcon className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" fill="#567C8D" /></div>
+        <div className="mt-auto flex justify-between items-center">
+          <HexIcon className="w-6 h-6 opacity-40 group-hover:opacity-100 transition-opacity" fill="#567C8D" />
+        </div>
       </div>
     </div>
   );
 }
-
-
 
 function WaveText({ text, className, containerRef }: { text: string; className?: string; containerRef: React.RefObject<HTMLDivElement | null> }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -181,7 +301,7 @@ function WaveText({ text, className, containerRef }: { text: string; className?:
 }
 
 function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
   return (
     <section className="py-32 md:py-48 bg-[#2F4156]">
       <Layout>
@@ -194,12 +314,11 @@ function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDiv
           </div>
 
           <div className="md:col-span-8 flex flex-col md:-mt-12">
-            {/* Current Service (Struck-through) */}
             <div className="flex flex-col">
               <div className="w-full h-px bg-white/5" />
               <div className="py-8 md:py-12 relative">
                 <h3 className="text-3xl md:text-5xl font-display font-black text-white/10 uppercase tracking-[-0.04em] relative inline-block">
-                  Email marketing
+                  Logo design
                   <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.5 }} className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 origin-left" />
                 </h3>
               </div>

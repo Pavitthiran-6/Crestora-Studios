@@ -16,38 +16,45 @@ import HexIcon from "../components/HexIcon";
 const PROCESS_STEPS = [
   {
     id: "01",
-    title: "STORYBOARD",
-    desc: "We translate abstract concepts into sequential visual narratives. Our storyboarding phase defines the rhythmic flow and emotional arc of the motion piece before a single frame is animated."
+    title: "PENETRATION TESTING",
+    desc: "Proactively scanning system gateways, open ports, and API endpoints for hidden data vulnerabilities or leak vectors."
   },
   {
     id: "02",
-    title: "STYLE FRAMES",
-    desc: "Establishing the high-fidelity visual aesthetic. We design key moments of the animation as standalone art pieces, ensuring the lighting, texture, and color palette align with your premium brand identity."
+    title: "ENCRYPTION TUNING",
+    desc: "Configuring end-to-end transport layer encryption, secure database schemas, and locked file system paths."
   },
   {
     id: "03",
-    title: "ANIMATION",
-    desc: "Bringing the vision to life through sophisticated keyframing and physics-based motion. We focus on fluid transitions and natural easing that command attention and evoke premium quality."
+    title: "ACCESS GATES",
+    desc: "Hardening administrator login routes and adding multi-factor authentication locks to block brute-force attempts."
   },
   {
     id: "04",
-    title: "SOUND DESIGN",
-    desc: "Audio is 50% of the experience. We layer bespoke soundscapes and precise foley that synchronize perfectly with the visual rhythm, creating a multi-sensory brand statement."
+    title: "THREAT ALERTS",
+    desc: "Setting up real-time telemetry filters to automatically detect and flag unauthorized or malicious server requests."
   },
   {
     id: "05",
-    title: "DELIVERY",
-    desc: "Optimization for every platform. We deliver cinematic motion assets in high-performance formats, ensuring flawless playback across web, mobile, and social ecosystems."
+    title: "SECURITY AUDITING",
+    desc: "Conducting regular network compliance tracking and delivering detailed incident reports to protect business assets."
   }
 ];
 
 const OTHER_SERVICES = [
-  "Website design", "Front-end development", "Back-end development",
-  "Shopify development", "Website support", "Paid search advertising",
-  "Social media advertising", "Email marketing", "SEO"
+  "Website development",
+  "Mobile applications",
+  "Logo design",
+  "Poster design",
+  "Video editing",
+  "Motion graphics",
+  "SEO",
+  "3D animation",
+  "Digital marketing",
+  "Website and app maintenance"
 ];
 
-export default function MotionDesignPage() {
+export default function CyberSecuritySolutionsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { triggerLogoTransition, triggerPageTransition } = useTransition();
   const [isWaveOpen, setIsWaveOpen] = useState(false);
@@ -85,7 +92,7 @@ export default function MotionDesignPage() {
                       SERVICES
                     </span>
                     <HexIcon className="w-2.5 h-2.5" fill="#567C8D" />
-                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">MOTION DESIGN</span>
+                    <span className="text-[10px] font-black tracking-[0.3em] uppercase text-[#567C8D] leading-none">CYBER SECURITY SOLUTIONS</span>
                   </div>
                 </div>
 
@@ -128,19 +135,17 @@ export default function MotionDesignPage() {
 }
 
 function HeroSection() {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
 
   return (
     <section className="h-full relative flex flex-col pt-16 md:pt-20 pb-8 overflow-hidden justify-center">
       <Layout>
-
-
         <div className="flex flex-col mb-6 md:mb-10">
           <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-[#567C8D]" intensity={1.2}>
-            MOTION
+            CYBER SECURITY
           </CinematicText>
           <CinematicText as="h1" className="text-[12vw] md:text-[10vw] font-display font-black tracking-[-0.04em] uppercase leading-[0.85] text-white" intensity={1.2}>
-            DESIGN
+            SOLUTIONS
           </CinematicText>
         </div>
 
@@ -170,7 +175,7 @@ function HeroSection() {
               className="md:col-span-4"
             >
               <p className="text-xl md:text-2xl font-display font-black tracking-[-0.02em] leading-tight uppercase text-white">
-                WE CREATE CAPTIVATING MOTION NARRATIVES THAT COMMAND ATTENTION AND DEFINE BRAND IDENTITY THROUGH SOPHISTICATED ANIMATION.
+                WE ENGINEER SOPHISTICATED PROTECTION AND ENCRYPTION GATEWAYS TO SAFEGUARD YOUR DIGITAL ECOSYSTEM.
               </p>
             </motion.div>
 
@@ -181,7 +186,7 @@ function HeroSection() {
               className="md:col-span-6"
             >
               <p className="text-base md:text-lg font-display font-black tracking-[-0.01em] leading-relaxed opacity-40 uppercase">
-                Motion is the pulse of modern digital branding. We go beyond simple movement, crafting cinematic sequences and fluid interactions that tell your story with precision and grace. By integrating physics-based animation with bespoke sound design, we transform static messages into immersive visual statements that resonate with high-end audiences.
+                At Crestora, our cyber security solutions verify network integrity. We execute mock penetration testing, enforce data-level encryption gates, manage server permission sets, and configure telemetry monitoring to defend your brand credibility against intrusion risks.
               </p>
             </motion.div>
           </div>
@@ -268,8 +273,6 @@ function ProcessCard({ step, index }: { step: any; index: number }) {
   );
 }
 
-
-
 function WaveText({ text, className, containerRef }: { text: string; className?: string; containerRef: React.RefObject<HTMLDivElement | null> }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, container: containerRef, offset: ["start 98%", "start 60%"] });
@@ -298,7 +301,7 @@ function WaveText({ text, className, containerRef }: { text: string; className?:
 }
 
 function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDivElement | null> }) {
-  const { triggerLogoTransition, triggerPageTransition } = useTransition();
+  const { triggerPageTransition } = useTransition();
   return (
     <section className="py-32 md:py-48 bg-[#2F4156]">
       <Layout>
@@ -311,12 +314,11 @@ function OtherServices({ containerRef }: { containerRef: React.RefObject<HTMLDiv
           </div>
 
           <div className="md:col-span-8 flex flex-col md:-mt-12">
-            {/* Current Service (Struck-through) */}
             <div className="flex flex-col">
               <div className="w-full h-px bg-white/5" />
               <div className="py-8 md:py-12 relative">
                 <h3 className="text-3xl md:text-5xl font-display font-black text-white/10 uppercase tracking-[-0.04em] relative inline-block">
-                  Motion design
+                  Cyber security solutions
                   <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.5 }} className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 origin-left" />
                 </h3>
               </div>

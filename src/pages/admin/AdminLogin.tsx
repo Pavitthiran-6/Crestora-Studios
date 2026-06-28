@@ -35,6 +35,7 @@ export default function AdminLogin() {
         }
 
         const allowedEmails = [
+          'admin@creastora.com',
           'crestorastudios@gmail.com',
           'pavitthiran66@gmail.com'
         ];

@@ -419,15 +419,19 @@ export default function WorkDetailsPage() {
   return (
     <SmoothScrollProvider containerRef={containerRef} ease={0.07}>
       <div
-        onScroll={(e) => (e.currentTarget.scrollTop = 0)}
+        onScroll={(e) => {
+          if (window.innerWidth >= 768) e.currentTarget.scrollTop = 0;
+        }}
         className="h-screen bg-black p-2 md:p-3 lg:p-4 font-sans select-none overflow-hidden"
       >
         <div
-          onScroll={(e) => (e.currentTarget.scrollTop = 0)}
+          onScroll={(e) => {
+            if (window.innerWidth >= 768) e.currentTarget.scrollTop = 0;
+          }}
           className="relative w-full h-full rounded-[16px] md:rounded-[28px] lg:rounded-[40px] overflow-hidden bg-[#f5f5f3] flex flex-col border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
         >
           <WaveMenu isOpen={isWaveOpen} onClose={() => setIsWaveOpen(false)} bgColor="#1f2547" textColor="#ffffff" closeBtnColor="#050505" />
-          <div ref={containerRef} className="flex-1 overflow-y-auto overflow-x-hidden md:overflow-x-visible relative scrollbar-hide flex flex-col touch-pan-y [webkit-overflow-scrolling:touch]">
+          <div ref={containerRef} className="flex-1 overflow-y-auto overscroll-y-contain overflow-x-hidden md:overflow-x-visible relative scrollbar-hide flex flex-col touch-pan-y [webkit-overflow-scrolling:touch]">
             <div className="sticky top-4 md:top-8 left-0 right-0 z-[100] px-4 md:px-20 py-4 md:py-10 flex justify-between items-center h-0 overflow-visible pointer-events-none">
               <div className="flex items-center">
                 <button onClick={() => triggerLogoTransition()} className="pointer-events-auto group">

@@ -13,7 +13,8 @@ import {
   X,
   Zap,
   Globe,
-  Layout as LayoutIcon
+  Layout as LayoutIcon,
+  Layers
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Project } from "../../types/project";
@@ -32,6 +33,7 @@ const slugify = (text: string) => {
 
 export default function AdminProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
+  const [homeCards, setHomeCards] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -47,6 +49,8 @@ export default function AdminProjects() {
     try {
       const all = await cmsService.getProjects();
       setProjects(all as any);
+      const cards = await cmsService.getHomeCards();
+      setHomeCards(cards);
     } catch (err) {
       console.error(err);
     } finally {
@@ -164,6 +168,41 @@ export default function AdminProjects() {
       window.dispatchEvent(new Event('cms-update'));
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const toggleRecentWork = async (e: React.MouseEvent, project: Project) => {
+    e.stopPropagation();
+    
+    const isFeatured = homeCards.some(card => 
+      card.slug === project.slug || 
+      card.slug === `/work/${project.slug}` || 
+      card.slug === `work/${project.slug}`
+    );
+
+    try {
+      if (isFeatured) {
+        const cardToDelete = homeCards.find(card => 
+          card.slug === project.slug || 
+          card.slug === `/work/${project.slug}` || 
+          card.slug === `work/${project.slug}`
+        );
+        if (cardToDelete) {
+          await cmsService.deleteHomeCard(cardToDelete.id);
+        }
+      } else {
+        await cmsService.saveHomeCard({
+          title: project.title,
+          tags: project.category || "PROJECT",
+          slug: `/work/${project.slug}`,
+          image: project.coverImage,
+          active: true,
+          order: homeCards.length + 1
+        });
+      }
+      window.dispatchEvent(new Event('cms-update'));
+    } catch (err) {
+      console.error("Error toggling recent work status:", err);
     }
   };
 
@@ -313,6 +352,32 @@ export default function AdminProjects() {
                   <td className="px-8 py-8 text-right">
                     <div className="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0">
                       <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={(e) => toggleRecentWork(e, project)}
+                        className={cn(
+                          "w-10 h-10 border flex items-center justify-center transition-all rounded-full group/btn",
+                          homeCards.some(card => 
+                            card.slug === project.slug || 
+                            card.slug === `/work/${project.slug}` || 
+                            card.slug === `work/${project.slug}`
+                          ) 
+                            ? "bg-[#567C8D] border-[#567C8D] text-white" 
+                            : "border-black/5 text-black hover:bg-[#567C8D] hover:border-[#567C8D] hover:text-white"
+                        )}
+                        title={
+                          homeCards.some(card => 
+                            card.slug === project.slug || 
+                            card.slug === `/work/${project.slug}` || 
+                            card.slug === `work/${project.slug}`
+                          ) 
+                            ? "Remove from Home Recent Work" 
+                            : "Add to Home Recent Work"
+                        }
+                      >
+                        <Layers className="w-4 h-4 transition-transform group-hover/btn:scale-110" />
+                      </motion.button>
+                      <motion.button
                         whileHover={{ scale: 1.1, backgroundColor: "#000", color: "#fff" }}
                         whileTap={{ scale: 0.9 }}
                         onClick={(e) => { e.stopPropagation(); handleEdit(project.id); }}
@@ -374,39 +439,69 @@ export default function AdminProjects() {
               {/* Divider */}
               <div className="h-px bg-black/5 w-full" />
 
-              {/* Footer controls & status */}
-              <div className="flex items-center justify-between mt-1">
-                {/* Status Badge */}
-                <button 
-                  onClick={(e) => { e.stopPropagation(); toggleStatus(project); }}
-                  className={cn(
-                    "text-[9px] font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-full border transition-all",
-                    project.status === "Published" ? "border-green-500 text-green-500 bg-green-50/50" :
-                    project.status === "Draft" ? "border-yellow-500 text-yellow-500 bg-yellow-50/50" :
-                    "border-black/20 text-black/40"
-                  )}
-                >
-                  {project.status}
-                </button>
+              {/* Footer controls & status — stacked layout for mobile */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {/* Row 1: Status Badge */}
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); toggleStatus(project); }}
+                    style={{ height: '30px', display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}
+                    className={cn(
+                      "text-[9px] font-black tracking-[0.2em] uppercase px-3 rounded-full border transition-all",
+                      project.status === "Published" ? "border-green-500 text-green-500 bg-green-50/50" :
+                      project.status === "Draft" ? "border-yellow-500 text-yellow-500 bg-yellow-50/50" :
+                      "border-black/20 text-black/40"
+                    )}
+                  >
+                    {project.status}
+                  </button>
+                </div>
 
-                {/* Action buttons (Always visible on mobile!) */}
-                <div className="flex gap-2" onClick={(e) => e.stopPropagation()}>
+                {/* Row 2: Action Buttons — right aligned */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '8px' }} onClick={(e) => e.stopPropagation()}>
                   <motion.button
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => handleEdit(project.id)}
-                    className="w-10 h-10 border border-black/10 flex items-center justify-center rounded-full bg-black text-white"
+                    onClick={(e) => toggleRecentWork(e, project)}
+                    style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', flexShrink: 0 }}
+                    className={cn(
+                      "border transition-colors",
+                      homeCards.some(card => 
+                        card.slug === project.slug || 
+                        card.slug === `/work/${project.slug}` || 
+                        card.slug === `work/${project.slug}`
+                      ) 
+                        ? "bg-[#567C8D] border-[#567C8D] text-white" 
+                        : "bg-white border-black/10 text-black/50"
+                    )}
+                    title={
+                      homeCards.some(card => 
+                        card.slug === project.slug || 
+                        card.slug === `/work/${project.slug}` || 
+                        card.slug === `work/${project.slug}`
+                      ) 
+                        ? "Remove from Home Recent Work" 
+                        : "Add to Home Recent Work"
+                    }
+                  >
+                    <Layers className="w-4 h-4" />
+                  </motion.button>
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={(e) => { e.stopPropagation(); handleEdit(project.id); }}
+                    style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', flexShrink: 0, backgroundColor: '#000', color: '#fff', border: '1px solid rgba(0,0,0,0.1)' }}
                   >
                     <Edit3 className="w-4 h-4" />
                   </motion.button>
                   <motion.button
                     whileTap={{ scale: 0.9 }}
-                    onClick={async () => {
+                    onClick={async (e) => {
+                      e.stopPropagation();
                       if (confirm("ARCHIVE THIS WORK?")) {
                         await cmsService.deleteProject(project.id);
                         window.dispatchEvent(new Event('cms-update'));
                       }
                     }}
-                    className="w-10 h-10 border border-black/10 flex items-center justify-center rounded-full bg-[#ef4444] text-white"
+                    style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9999px', flexShrink: 0, backgroundColor: '#ef4444', color: '#fff', border: '1px solid rgba(0,0,0,0.1)' }}
                   >
                     <Trash2 className="w-4 h-4" />
                   </motion.button>

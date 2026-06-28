@@ -33,6 +33,26 @@ const HeroSection = ({ title }: { title: string }) => {
   const titleScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   const globeOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
+  // Optimize: disable WebGL rendering loop when Canvas is out of viewport
+  const [isInView, setIsInView] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    if (container.current) {
+      observer.observe(container.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <section ref={container} className="relative h-full shrink-0 overflow-hidden bg-[#f5f5f3] flex flex-col">
       {/* Mobile-only tags at the top left corner of the hero section */}
@@ -49,13 +69,15 @@ const HeroSection = ({ title }: { title: string }) => {
           style={{ opacity: globeOpacity }} 
           className="absolute z-0 w-[130vw] h-[130vw] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:inset-0 md:w-full md:h-full md:translate-x-0 md:translate-y-0 pointer-events-none md:pointer-events-auto"
         >
-          <Canvas dpr={[1, 2]} performance={{ min: 0.5 }} gl={{ antialias: true, alpha: true }}>
-            <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-            <ambientLight intensity={0.5} />
-            <pointLight position={[10, 10, 10]} />
-            <EarthGlobe />
-            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-          </Canvas>
+          {isInView && (
+            <Canvas dpr={[1, 1.5]} performance={{ min: 0.5 }} gl={{ antialias: false, powerPreference: "high-performance" }}>
+              <PerspectiveCamera makeDefault position={[0, 0, 5]} />
+              <ambientLight intensity={0.5} />
+              <pointLight position={[10, 10, 10]} />
+              <EarthGlobe />
+              <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+            </Canvas>
+          )}
         </motion.div>
 
         <motion.div

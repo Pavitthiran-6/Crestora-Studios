@@ -19,8 +19,10 @@ import CyberSecuritySolutionsPage from './pages/CyberSecuritySolutionsPage.tsx';
 import { ContactExperience } from './pages/ContactExperience.tsx';
 import WorkDetailsPage from './pages/WorkDetailsPage.tsx';
 import AdminLogin from './pages/admin/AdminLogin';
+import ContractPage from './pages/ContractPage.tsx';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProjects from './pages/admin/AdminProjects';
+import AdminContracts from './pages/admin/AdminContracts';
 import AdminProjectEditor from './pages/admin/AdminProjectEditor';
 import AdminNotifications from './pages/admin/AdminNotifications';
 import AdminHomeCards from './pages/admin/AdminHomeCards';
@@ -75,6 +77,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/cyber-security-solutions" element={<CyberSecuritySolutionsPage />} />
           <Route path="/studio" element={<StudioPage />} />
           <Route path="/contact" element={<ContactExperience isOpen={true} onClose={() => window.history.back()} />} />
+          <Route path="/contract" element={<ContractPage />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />
@@ -83,6 +86,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/admin/projects/:id/edit" element={<ProtectedRoute><AdminProjectEditor /></ProtectedRoute>} />
           <Route path="/admin/home-cards" element={<ProtectedRoute><AdminHomeCards /></ProtectedRoute>} />
           <Route path="/admin/notifications" element={<ProtectedRoute><AdminNotifications /></ProtectedRoute>} />
+          <Route path="/admin/contracts" element={<ProtectedRoute><AdminContracts /></ProtectedRoute>} />
 
           <Route path="/admin/reviews" element={<ProtectedRoute><AdminReviews /></ProtectedRoute>} />
           <Route path="/admin/settings" element={<ProtectedRoute><AdminSettings /></ProtectedRoute>} />

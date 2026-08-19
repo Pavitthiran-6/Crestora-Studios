@@ -48,3 +48,20 @@ CREATE POLICY "Admin CRUD review-avatars" ON storage.objects
     bucket_id = 'review-avatars' AND 
     (auth.jwt() ->> 'email') IN ('crestorastudios@gmail.com', 'pavitthiran66@gmail.com')
   );
+
+-- 4. Policies for 'contracts' bucket
+-- Allow public insert (upload) so clients can submit their signature PDFs
+DROP POLICY IF EXISTS "Public Insert contracts" ON storage.objects;
+CREATE POLICY "Public Insert contracts" ON storage.objects
+  FOR INSERT TO public WITH CHECK (bucket_id = 'contracts');
+
+-- Only admins can select, update, or delete contracts directly from storage
+DROP POLICY IF EXISTS "Admin CRUD contracts" ON storage.objects;
+CREATE POLICY "Admin CRUD contracts" ON storage.objects
+  FOR ALL TO authenticated USING (
+    bucket_id = 'contracts' AND 
+    (auth.jwt() ->> 'email') IN ('crestorastudios@gmail.com', 'pavitthiran66@gmail.com')
+  ) WITH CHECK (
+    bucket_id = 'contracts' AND 
+    (auth.jwt() ->> 'email') IN ('crestorastudios@gmail.com', 'pavitthiran66@gmail.com')
+  );

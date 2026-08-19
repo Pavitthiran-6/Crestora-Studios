@@ -112,8 +112,8 @@ export const TransitionProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ 
-            opacity: (isTransitioning || location.pathname === "/contact" || isAdminPath) ? 0 : 1, 
-            x: (isTransitioning || location.pathname === "/contact" || isAdminPath) ? 20 : 0 
+            opacity: (isTransitioning || location.pathname === "/contact" || location.pathname === "/contract" || isAdminPath) ? 0 : 1, 
+            x: (isTransitioning || location.pathname === "/contact" || location.pathname === "/contract" || isAdminPath) ? 20 : 0 
           }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

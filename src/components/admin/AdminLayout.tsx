@@ -17,7 +17,8 @@ import {
   Star,
   Terminal,
   Menu,
-  X
+  X,
+  FileText
 } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
@@ -31,6 +32,7 @@ const NAV_ITEMS = [
   { icon: FolderKanban, label: "Projects", path: "/admin/projects" },
   { icon: Layers, label: "Home Cards", path: "/admin/home-cards" },
   { icon: Bell, label: "Messages", path: "/admin/notifications" },
+  { icon: FileText, label: "Contracts", path: "/admin/contracts" },
   { icon: Terminal, label: "System Logs", path: "/admin/system-logs" },
   { icon: Star, label: "Reviews", path: "/admin/reviews" },
   { icon: Settings, label: "Settings", path: "/admin/settings" },

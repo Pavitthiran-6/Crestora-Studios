@@ -5,7 +5,8 @@
 
 export const getOptimizedImageUrl = (url: string, width = 800, quality = 80): string => {
   if (!url) return '';
-  // Returning the original public URL to prevent 403 Forbidden errors from the Supabase render image endpoint.
-  // The render image endpoint requires the Image Transformations feature to be enabled and typically requires a paid plan.
+
+  // NOTE: Supabase Image Transformation returns 403 Forbidden ("feature not enabled for this tenant").
+  // Returning the raw URL directly to ensure images load successfully.
   return url;
 };

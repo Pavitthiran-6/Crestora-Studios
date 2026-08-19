@@ -248,6 +248,8 @@ export default function ContractPage() {
     
     if (!formData.clientPhone.trim()) {
       errors.clientPhone = "Client Phone is required.";
+    } else if (formData.clientPhone.replace(/\D/g, "").length !== 10) {
+      errors.clientPhone = "Client Phone must be exactly 10 digits.";
     }
     
     if (!formData.electronicSignature.trim()) {
@@ -264,7 +266,7 @@ export default function ContractPage() {
     formData.projectName.trim() !== "" &&
     formData.budget.trim() !== "" &&
     Number(formData.budget) > 0 &&
-    formData.clientPhone.trim() !== "" &&
+    formData.clientPhone.replace(/\D/g, "").length === 10 &&
     formData.electronicSignature.trim() !== "" &&
     agreeCheckbox;
 
@@ -275,6 +277,9 @@ export default function ContractPage() {
     let sanitizedValue = value;
     if (field === "budget" || field === "clientPhone") {
       sanitizedValue = value.replace(/\D/g, "");
+    }
+    if (field === "clientPhone" && sanitizedValue.length > 10) {
+      sanitizedValue = sanitizedValue.slice(0, 10);
     }
 
     setFormData((prev) => ({ ...prev, [field]: sanitizedValue }));
@@ -863,9 +868,10 @@ export default function ContractPage() {
                         <input
                           type="text"
                           disabled={isFinalized}
+                          maxLength={10}
                           value={formData.clientPhone}
                           onChange={(e) => handleInputChange("clientPhone", e.target.value)}
-                          placeholder="e.g. +91 00000 00000"
+                          placeholder="e.g. 9876543210 (10 digits)"
                           className={cn(
                             "w-full px-4 py-3 bg-black/25 border border-white/10 rounded-xl text-xs md:text-sm text-white focus:outline-none focus:border-[#567C8D] focus:ring-1 focus:ring-[#567C8D]/25 transition-all",
                             isFinalized && "opacity-55 cursor-not-allowed",

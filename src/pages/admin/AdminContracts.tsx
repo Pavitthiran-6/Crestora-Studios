@@ -15,7 +15,8 @@ import {
   IndianRupee, 
   CheckCircle, 
   Clock,
-  ExternalLink
+  ExternalLink,
+  Trash2
 } from "lucide-react";
 import { supabase } from "../../lib/supabase";
 import { cn } from "@/lib/utils";
@@ -30,6 +31,48 @@ export default function AdminContracts() {
   const [selectedContract, setSelectedContract] = useState<any>(null);
   const [signedUrl, setSignedUrl] = useState<string>("");
   const [isSignLoading, setIsSignLoading] = useState(false);
+  const [deleteTarget, setDeleteTarget] = useState<any>(null);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleDeleteConfirm = async () => {
+    if (!deleteTarget) return;
+    setIsDeleting(true);
+    try {
+      // 1. Delete from Supabase Storage if path exists
+      if (deleteTarget.pdf_storage_path) {
+        const pathOnly = deleteTarget.pdf_storage_path.replace("contracts/", "");
+        const { error: storageErr } = await supabase.storage
+          .from("contracts")
+          .remove([pathOnly]);
+
+        if (storageErr) {
+          console.warn("Storage PDF deletion failed/skipped:", storageErr);
+        }
+      }
+
+      // 2. Delete from Supabase Database
+      const { error: dbErr } = await supabase
+        .from("contracts")
+        .delete()
+        .eq("id", deleteTarget.id);
+
+      if (dbErr) throw dbErr;
+
+      // Close drawer if it was showing the deleted contract
+      if (selectedContract && selectedContract.id === deleteTarget.id) {
+        setSelectedContract(null);
+      }
+
+      // 3. Reset states & refresh list
+      setDeleteTarget(null);
+      await fetchContracts();
+    } catch (err: any) {
+      console.error("Error deleting contract:", err);
+      alert(`Failed to delete contract: ${err.message || err}`);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
 
   const fetchContracts = async () => {
     setIsLoading(true);
@@ -271,7 +314,7 @@ export default function AdminContracts() {
                         <td className="py-5 px-6 text-slate-500 font-semibold">
                           {formattedDate}
                         </td>
-                        <td className="py-5 px-6 text-right space-x-2">
+                        <td className="py-5 px-6 text-right space-x-1.5">
                           <button
                             onClick={() => setSelectedContract(contract)}
                             className="p-2 hover:bg-black/5 rounded-lg text-slate-500 hover:text-black transition-all cursor-pointer"
@@ -288,6 +331,13 @@ export default function AdminContracts() {
                               <Download className="w-4 h-4" />
                             </button>
                           )}
+                          <button
+                            onClick={() => setDeleteTarget(contract)}
+                            className="p-2 hover:bg-red-50 rounded-lg text-slate-500 hover:text-red-600 transition-all cursor-pointer"
+                            title="Delete Contract"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
                         </td>
                       </tr>
                     );
@@ -407,7 +457,7 @@ export default function AdminContracts() {
                 </div>
 
                 {/* Signature box */}
-                <div className="border border-black/5 rounded-xl p-5 bg-slate-50 flex justify-between items-center">
+                <div className="border border-black/5 rounded-xl p-5 bg-slate-50 flex flex-wrap gap-4 justify-between items-center">
                   <div>
                     <span className="text-[8px] font-sans font-bold tracking-widest text-slate-400 uppercase block mb-1">
                       CLIENT DIGITAL SIGNATURE
@@ -420,15 +470,24 @@ export default function AdminContracts() {
                     </span>
                   </div>
                   
-                  {selectedContract.contract_status === "Finalized" && (
+                  <div className="flex gap-2">
                     <button
-                      onClick={() => handleDownload(selectedContract)}
-                      className="px-6 py-3.5 bg-black text-white hover:bg-slate-900 rounded-xl text-[9px] font-black tracking-widest uppercase transition-all flex items-center gap-2 cursor-pointer shadow-md"
+                      onClick={() => setDeleteTarget(selectedContract)}
+                      className="px-6 py-3.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-xl text-[9px] font-black tracking-widest uppercase transition-all flex items-center gap-2 cursor-pointer border border-red-200"
                     >
-                      <Download className="w-3.5 h-3.5" />
-                      Download PDF
+                      <Trash2 className="w-3.5 h-3.5" />
+                      Delete
                     </button>
-                  )}
+                    {selectedContract.contract_status === "Finalized" && (
+                      <button
+                        onClick={() => handleDownload(selectedContract)}
+                        className="px-6 py-3.5 bg-black text-white hover:bg-slate-900 rounded-xl text-[9px] font-black tracking-widest uppercase transition-all flex items-center gap-2 cursor-pointer shadow-md"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        Download PDF
+                      </button>
+                    )}
+                  </div>
                 </div>
 
                 {/* PDF PREVIEW WINDOW */}
@@ -468,6 +527,60 @@ export default function AdminContracts() {
                     )}
                   </div>
                 )}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Delete Confirmation Modal */}
+      <AnimatePresence>
+        {deleteTarget && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDeleteTarget(null)}
+              className="fixed inset-0 z-[8000] bg-black"
+            />
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9000] w-full max-w-md bg-white rounded-2xl shadow-2xl p-6 border border-black/10 select-text"
+            >
+              <div className="flex items-center gap-3 text-red-600 mb-4">
+                <Trash2 className="w-6 h-6" />
+                <h3 className="text-lg font-display font-black tracking-wider uppercase text-black">
+                  Delete Contract
+                </h3>
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed mb-6 font-medium">
+                Are you sure you want to permanently delete contract reference <strong className="text-black font-black">{deleteTarget.contract_reference}</strong>? 
+                This action will delete the database record and permanently remove the signed PDF from Supabase Storage. This cannot be undone.
+              </p>
+              <div className="flex gap-4">
+                <button
+                  type="button"
+                  onClick={() => setDeleteTarget(null)}
+                  disabled={isDeleting}
+                  className="flex-1 py-3 border border-black/10 hover:bg-black/5 text-black rounded-xl text-[10px] font-black tracking-widest uppercase transition-all cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDeleteConfirm}
+                  disabled={isDeleting}
+                  className="flex-1 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[10px] font-black tracking-widest uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                >
+                  {isDeleting ? (
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    "Confirm Delete"
+                  )}
+                </button>
               </div>
             </motion.div>
           </>
